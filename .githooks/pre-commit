@@ -1,0 +1,4 @@
+#!/bin/sh
+# Refuse the commit if any staged file carries personal data. See docs/adr/0003.
+# Enable once per clone:  git config core.hooksPath .githooks
+exec "$(git rev-parse --show-toplevel)/.venv/bin/python" tools/pii_gate.py --staged

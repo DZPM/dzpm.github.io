@@ -1,0 +1,19 @@
+# Dependabot: the Python toolchain and the pinned actions, every day, one pull request for each ecosystem
+# (grouped, so a week of releases is one review and not five). The actions are pinned by commit, and
+# Dependabot updates the hash and the version comment together.
+version: 2
+updates:
+  - package-ecosystem: pip
+    directory: /
+    schedule:
+      interval: daily
+    groups:
+      python:
+        patterns: ["*"]
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: daily
+    groups:
+      actions:
+        patterns: ["*"]
