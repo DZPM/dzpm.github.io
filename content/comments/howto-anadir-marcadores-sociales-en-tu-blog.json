@@ -1,0 +1,192 @@
+[
+ {
+  "id": 251,
+  "parent": null,
+  "date": "2007-01-02T01:08:40",
+  "author": "Picallo",
+  "url": "http://portablesoft.ws",
+  "url_dead": "",
+  "avatar": "c089.jpg",
+  "html": "<p>La segunda variante en español que veo de este plugin. Lo mejor que le veo, es lo bien que se integra en el theme que tengo para mi sitio</p>"
+ },
+ {
+  "id": 252,
+  "parent": null,
+  "date": "2007-01-02T01:14:55",
+  "author": "David Arcos",
+  "url": "/",
+  "url_dead": "",
+  "avatar": "c001.jpg",
+  "html": "<p>Tienes razón picallo, es mucho más limpio tener un icono así que no la miríada de iconos de marcadores sociales y de \"enviar por correo\", que o hacen más que molestar al lector.</p>\n<p>La otra versión (si te refieres a la de <a href=\"http://www.artux.com.ar/?p=37\" rel=\"nofollow\">http://www.artux.com.ar/?p=37</a>) no está traducida del todo, y tiene bastantes carencias a nivel ortográfico (forma fina de decir que está traducido de forma muy cutre). Tampoco corrige los \"inconvenientes\" que nombro ahí arriba: UTF-8 (imprescindible, scripts, Rss...), así que partí de cero para adaptarlo y traducirlo.</p>\n<p>Un saludo.</p>"
+ },
+ {
+  "id": 253,
+  "parent": null,
+  "date": "2007-01-02T01:29:02",
+  "author": "Picallo",
+  "url": "http://portablesoft.ws",
+  "url_dead": "",
+  "avatar": "c089.jpg",
+  "html": "<p>En el sentido que tu indicas el tuyo esta mejor, pero creo que deberías de añadirle mas sitios. Pero eso ya es cuestion de gustos.</p>\n<p>Offtopic: Yo tambien estuve de Erasmús (3 años!!!) en  Berlin (erasmusberlin.com). Lo mejor que me ha pasado en la vida sin duda alguna.</p>"
+ },
+ {
+  "id": 254,
+  "parent": null,
+  "date": "2007-01-02T04:21:38",
+  "author": "artux",
+  "url": "",
+  "url_dead": "",
+  "avatar": "c090.svg",
+  "html": "<p>Muy buenas mejoras, voy a tener en cuenta tus modificaciones, en cuanto a mi traducción, puede ser que tenga algunos errores pero solo se debe a que la   hice en 5 min, ya que era 24 de dic y estaba a las corridas.<br />\nLo que dices de las librerías, yo las deje porque hace al plugin multifuncional y al que no le guste siempre existe la posibilidad de sacarlas. Lo que hice fue con la intención de agregar algunos de los marcadores en castellano que hay, solo para aquellas personas que por falta de conocimientos no puedan hacerlo.<br />\nEs un poco bajo de tu parte no haber comentado en mi blog las posibles mejoras que podríamos haberle hecho, creo y respeto mucho las criticas cuando son constructivas.<br />\nMuy buen trabajo, si no te molesta lo voy a adjuntar con el mio.<br />\nSaludos desde Argentina!!!</p>"
+ },
+ {
+  "id": 255,
+  "parent": null,
+  "date": "2007-01-02T09:59:53",
+  "author": "David Arcos",
+  "url": "/",
+  "url_dead": "",
+  "avatar": "c001.jpg",
+  "html": "<p>Hola artux,</p>\n<p>estaré encantado si tomas las modificaciones. Tal como dices, lo de las librerías/scripts es una manía mía para hacer la web más ligera, aunque te agradecería que tengas en cuenta el tema del UTF-8 (la mayoría de blogs en castellano lo usan, así que es tontería hacerlo en iso-8859)</p>\n<p>A decir verdad, no me enteré de tu proyecto hasta acabar con el mío. Encontré el plugin, le eché un vistazo al código (siempre los suelo adaptar, por temas de validación y por aprender), le cambié cuatro cosas, y cuando solo quedaba la traducción busqué por si había algo, y llegué a tu blog. Como la traducción era poca cosa, preferí volver a hacerla que partir de tu código.</p>\n<p>Lo de añadir más marcadores sí que lo podría tener en cuenta, pero preferí calidad a cantidad: la mayoría de ellos no los usaría nadie.</p>\n<p>Un saludo, disculpa el malentendido.</p>"
+ },
+ {
+  "id": 256,
+  "parent": null,
+  "date": "2007-01-02T11:31:47",
+  "author": "Picallo",
+  "url": "http://portablesoft.ws",
+  "url_dead": "",
+  "avatar": "c089.jpg",
+  "html": "<p>Buenos dias caballeros, después de consultarlo con la almohada creo que el plugin se podría modificar de forma que cada usuario pudiera activar o desactivar sitios desde el menú de admunistrador en wordpress (darle a cada usuario la mayor libertad posible, sin tener que añadir o quitar lineas al archivo php.</p>\n<p>Tambien me pregunto cuantas noticias en español se envian a Digg, porque yo no he visto muchas.</p>\n<p>Otra mejora que yo haría sería añadir en el readme, una lista de sitios alternativos. Explicar como se puede añadir y dar la dirección de los iconos (soy un poco vago).</p>"
+ },
+ {
+  "id": 258,
+  "parent": null,
+  "date": "2007-01-02T15:59:35",
+  "author": "artux",
+  "url": "",
+  "url_dead": "",
+  "avatar": "c090.svg",
+  "html": "<p>David, ya agregue una línea que soluciona lo de la codificación.<br />\nPero a diferencia de como vos lo hiciste, poniendo directamente UTF-8, lo que hice fue usar un poco de codigo wordpress; <b>content=\"text/html; charset=\"</b>. Entoces de esta forma queda un poco mas genérico.</p>"
+ },
+ {
+  "id": 259,
+  "parent": null,
+  "date": "2007-01-02T16:02:17",
+  "author": "artux",
+  "url": "",
+  "url_dead": "",
+  "avatar": "c090.svg",
+  "html": "<p>&lt; ? php bloginfo('charset'); ?&gt;</p>"
+ },
+ {
+  "id": 260,
+  "parent": null,
+  "date": "2007-01-02T19:28:42",
+  "author": "fire!",
+  "url": "",
+  "url_dead": "",
+  "avatar": "c091.svg",
+  "html": "<p>Gracias por la modificacion!... el original no me convencia y ademas me estaba dando lata traducirlo... Esta version ya la tengo instalada y funcionando ;)...</p>"
+ },
+ {
+  "id": 261,
+  "parent": null,
+  "date": "2007-01-02T19:44:34",
+  "author": "fire!",
+  "url": "",
+  "url_dead": "",
+  "avatar": "c091.svg",
+  "html": "<p>Perdona el doble comentario, pero cambiando algunas cosas en la traduccion se me ocurrio que seria correcto agregar un \"\" en el link hacia la pagina para compartir, esto porque estamos generando contenido duplicado, algo que a Google no le gusta mucho... solo una idea...</p>"
+ },
+ {
+  "id": 262,
+  "parent": null,
+  "date": "2007-01-02T19:45:41",
+  "author": "fire!",
+  "url": "",
+  "url_dead": "",
+  "avatar": "c091.svg",
+  "html": "<p>perdon otra vez... en el comentario anterior debe decir \"rel=nofollow\" entre las comillas...</p>\n<p>las fiestas de fin de año todabia me tienen mareado 😛</p>"
+ },
+ {
+  "id": 266,
+  "parent": null,
+  "date": "2007-01-10T21:48:05",
+  "author": "eckelon",
+  "url": "",
+  "url_dead": "http://eckelon.net/refugio",
+  "avatar": "c109.jpg",
+  "html": "<p>Me encantan las modificaciones, muy buenas! 😀 ya me lo he instalado jajaja</p>"
+ },
+ {
+  "id": 268,
+  "parent": null,
+  "date": "2007-01-27T18:59:35",
+  "author": "woody",
+  "url": "",
+  "url_dead": "http://www.blognomelocreo.com",
+  "avatar": "c114.svg",
+  "html": "<p>Hola. Soy novato en estos temas. Trato de colocar el marcador en mi blog (uso k2 con el esquema de blue k2) y no sé debo añadir el código que pones. Lo he hecho en las páginas index y single, pero me lo coloca o al principio o al final de la página. ¿Alguien puede echarme una mano?<br />\nMil gracias</p>"
+ },
+ {
+  "id": 275,
+  "parent": null,
+  "date": "2007-03-16T08:06:22",
+  "author": "blackhat",
+  "url": "",
+  "url_dead": "",
+  "avatar": "c126.jpg",
+  "html": "<p>y lo has actualizado a la version 1.4.4? arribita dice q es basado en una version anterior, algo bueno trae la ultima o algo?, gracias por tu respuesta.</p>"
+ },
+ {
+  "id": 274,
+  "parent": null,
+  "date": "2007-03-16T19:49:10",
+  "author": "David Arcos",
+  "url": "/",
+  "url_dead": "",
+  "avatar": "c001.jpg",
+  "html": "<p>Hola blackhat.<br />\nLas novedades de la 1.4 no me interesan, así que de momento voy a mantener esta versión del código. En al caso de que introduzcan alguna mejora que considera necesaria ya lo actualizaría.<br />\nUn saludo.</p>"
+ },
+ {
+  "id": 277,
+  "parent": null,
+  "date": "2007-03-26T03:26:44",
+  "author": "blackhat",
+  "url": "",
+  "url_dead": "",
+  "avatar": "c126.jpg",
+  "html": "<p>David, no se vé el icono de share this desde Internet Explorer, como puede solucionarse este problema?, en firefox, de perlas...pero aun existen varios usuarios usandolo, saludos.</p>"
+ },
+ {
+  "id": 278,
+  "parent": null,
+  "date": "2007-03-29T06:13:14",
+  "author": "blackhat",
+  "url": "",
+  "url_dead": "",
+  "avatar": "c126.jpg",
+  "html": "<p>David, en tu version esta arreglado el bug del que habla \"la mate por un yogur\"?, saludos 😉</p>"
+ },
+ {
+  "id": 279,
+  "parent": null,
+  "date": "2007-03-29T19:39:39",
+  "author": "David Arcos",
+  "url": "/",
+  "url_dead": "",
+  "avatar": "c001.jpg",
+  "html": "<p>Sí, lo solucioné al cabo de un rato:<br />\n<a href=\"/blog/solucionado-problema-con-el-plugin-share-this/\" rel=\"nofollow\">/blog/solucionado-problema-con-el-plugin-share-this/</a></p>\n<p>Respecto al problema con la imagen, no veo nada raro. Es una imagen que se carga con CSS, no es nada del otro mundo. Supongo que IExplorer todavía no es compatible con CSS...</p>\n<p>Un saludo.</p>"
+ },
+ {
+  "id": 280,
+  "parent": null,
+  "date": "2007-04-01T04:10:45",
+  "author": "blackhat",
+  "url": "",
+  "url_dead": "",
+  "avatar": "c126.jpg",
+  "html": "<p>Gracias David, seguro que no solo yo te lo agradezco, sino tambien muchos que solo leen :P.</p>\n<p>Un Saludo.</p>"
+ }
+]

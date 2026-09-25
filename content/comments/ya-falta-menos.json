@@ -1,0 +1,22 @@
+[
+ {
+  "id": 446,
+  "parent": null,
+  "date": "2006-08-09T20:38:44",
+  "author": "Ataulfo",
+  "url": "https://ataulfo.blogspot.com",
+  "url_dead": "",
+  "avatar": "c012.svg",
+  "html": "<p>El link del NTT no funciona, le sobra un /blog/.</p>"
+ },
+ {
+  "id": 447,
+  "parent": null,
+  "date": "2006-08-09T21:13:53",
+  "author": "David Arcos",
+  "url": "/",
+  "url_dead": "",
+  "avatar": "c001.jpg",
+  "html": "<p>Gracias, arreglado.</p>\n<p>Al principio ya lo he puesto bien (\"../acerca-de-mi/\"), pero en el preview se veía mal (no se ha empanado del /blog, así que lo he cambiado por \"../blog/acerca-de-mi/\"). Lo h euvelto a poner bien.</p>"
+ }
+]

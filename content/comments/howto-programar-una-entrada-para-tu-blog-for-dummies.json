@@ -1,0 +1,102 @@
+[
+ {
+  "id": 231,
+  "parent": null,
+  "date": "2006-12-29T18:27:11",
+  "author": "jotape",
+  "url": "",
+  "url_dead": "http://monobits.net/blog/",
+  "avatar": "c157.jpg",
+  "html": "<p>Hay que tener en cuenta la hora del servidor donde esté alejado el blog, eh. Por ejemplo, en el nuevo de Dreamhost tenemos una diferencia de 9 horas (cuando te dejo este comentario son las 18:25, las 9:25 en el server). Puedes comprobarlo con un <em>date</em> en el terminal 😀</p>\n<p>Por cierto, no funciona lo de \"Añadir la URL de tu blog\", al darle me da 404 :-/</p>\n<p>Un saludo.</p>"
+ },
+ {
+  "id": 232,
+  "parent": null,
+  "date": "2006-12-29T18:45:37",
+  "author": "emarts",
+  "url": "",
+  "url_dead": "http://blog.3l0g.com/",
+  "avatar": "c084.jpg",
+  "html": "<p>Yo quiero más tutos para dummies, si por favor... 🙂</p>"
+ },
+ {
+  "id": 234,
+  "parent": null,
+  "date": "2006-12-30T01:30:55",
+  "author": "Free Dummies",
+  "url": "",
+  "url_dead": "",
+  "avatar": "c085.svg",
+  "html": "<p>dummies4ever! xD</p>"
+ },
+ {
+  "id": 235,
+  "parent": null,
+  "date": "2006-12-31T09:59:23",
+  "author": "Jose",
+  "url": "",
+  "url_dead": "http://www.bl06.net",
+  "avatar": "c086.jpg",
+  "html": "<p>¿Se caerá Technorati si recibe muchos <em>Pings</em>?</p>"
+ },
+ {
+  "id": 236,
+  "parent": null,
+  "date": "2007-01-01T07:58:00",
+  "author": "Armonth",
+  "url": "https://sigt.net",
+  "url_dead": "",
+  "avatar": "c087.jpg",
+  "html": "<p>Más fácil: Pones la fecha \"futura\" y le das a Publicar...</p>\n<p>Luego ya, puedes entrar con tranquilidad y previsualizarla o editarla 😛</p>\n<p>PD: Palabra del que programo 24 entradas seguidas el día de los inocentes 😉</p>"
+ },
+ {
+  "id": 237,
+  "parent": null,
+  "date": "2007-01-01T11:54:48",
+  "author": "luis carlos",
+  "url": "",
+  "url_dead": "",
+  "avatar": "c088.jpg",
+  "html": "<p>a mi no se me públicó, después de ponerle la fehca y publicado a que se le deba dar??? a guardar otra vez? a publicar??? gracias<br />\nfeliz año todos</p>"
+ },
+ {
+  "id": 238,
+  "parent": null,
+  "date": "2007-01-03T21:55:19",
+  "author": "fire!",
+  "url": "",
+  "url_dead": "",
+  "avatar": "c091.svg",
+  "html": "<p>gracias!... siempre me pregunte como se hacia, pero nunca me dedique a investigarlo 😛</p>"
+ },
+ {
+  "id": 239,
+  "parent": null,
+  "date": "2007-01-08T08:56:29",
+  "author": "Carlos",
+  "url": "",
+  "url_dead": "",
+  "avatar": "c106.svg",
+  "html": "<p>No sé cómo decírtelo, pero te han plagiado el post, y supongo que alguno más. A ti y a otros cuantos, en un blog recién abierto, llamado Hinformación: hinformacion.com/2006/12/31/howto-programar-una-entrada-para-tu-blog-for-dummies/</p>\n<p>Un agregador que no cita las fuentes y te llena de publicidad tus propios post, manda webs.</p>\n<p>Saludos.</p>"
+ },
+ {
+  "id": 245,
+  "parent": null,
+  "date": "2007-03-20T04:02:36",
+  "author": "Kabronero",
+  "url": "",
+  "url_dead": "",
+  "avatar": "c127.jpg",
+  "html": "<p>Buenisimo este tutorial! Es lo que necesitaba.</p>"
+ },
+ {
+  "id": 247,
+  "parent": null,
+  "date": "2007-07-01T19:35:56",
+  "author": "Colymore",
+  "url": "",
+  "url_dead": "http://www.colymore.es",
+  "avatar": "c164.svg",
+  "html": "<p>Espero que funcione xD, porque me hace cosas muy raras el post.<br />\nSaludos</p>"
+ }
+]

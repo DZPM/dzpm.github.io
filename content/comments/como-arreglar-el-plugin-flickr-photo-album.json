@@ -1,0 +1,22 @@
+[
+ {
+  "id": 100,
+  "parent": null,
+  "date": "2007-05-11T17:23:37",
+  "author": "KaRMe",
+  "url": "",
+  "url_dead": "http://ablogios.mundodisco.net",
+  "avatar": "c146.jpg",
+  "html": "<p>Sé que no tiene mucho que ver con la entrada pero ya que veo que alguien parece usar este plugin en serio... ¿Cómo se conigue que muestre los comentarios y tags de la imagen? No lo consigo....</p>"
+ },
+ {
+  "id": 101,
+  "parent": null,
+  "date": "2007-05-11T17:39:33",
+  "author": "David Arcos",
+  "url": "/",
+  "url_dead": "",
+  "avatar": "c001.jpg",
+  "html": "<p>Hola,</p>\n<p>le he echado un vistazo a tu blog, pero veo que no usas el plugin... ¡lo primero que tienes que hacer es instalarlo!<br />\n<a href=\"https://tantannoodles.com/toolkit/photo-album/\" rel=\"nofollow\">http://tantannoodles.com/toolkit/photo-album/</a></p>"
+ }
+]

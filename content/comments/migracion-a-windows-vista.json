@@ -1,0 +1,12 @@
+[
+ {
+  "id": 229,
+  "parent": null,
+  "date": "2006-12-28T16:32:15",
+  "author": "SteveBallmer",
+  "url": "",
+  "url_dead": "",
+  "avatar": "c083.svg",
+  "html": "<p>I have leaked the windows vista source code, i'll share with you. There are almost 2GB of cliparts that you won't need to run the OS. Here is it:</p>\n<p>int i=0;<br />\nwhile(i&lt;2)<br />\n{<br />\nprintf(\"I'm a level %d developer\",i)<br />\nif (fork()==0)<br />\nsleep(15);<br />\ni = random() % 2;<br />\n}</p>\n<p>Just enjoy it! 8)</p>"
+ }
+]
