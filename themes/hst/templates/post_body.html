@@ -1,0 +1,97 @@
+{% from "marks.html" import media_marks, comment_mark, meneame_mark %}
+{% set sfx = sfx | default("") %}
+<article class="post {{ article.section }}"{% if not sfx %} data-pagefind-body{% endif %} itemscope itemtype="https://schema.org/BlogPosting">
+  {% if article.modified %}<meta itemprop="dateModified" content="{{ article.modified.isoformat() }}">{% endif %}<span itemprop="author" itemscope itemtype="https://schema.org/Person"><meta itemprop="name" content="{{ AUTHOR }}"><link itemprop="url" href="{{ SITEURL }}/"></span>
+  <span data-pagefind-meta="clase:{{ article.kind_label }}"></span><span data-pagefind-meta="emoji:{{ article.kind_emoji }}"></span><span data-pagefind-meta="seccion:{{ article.section }}"></span><span data-pagefind-meta="meneos:{{ article.meneame_meneos or 0 }}"></span><span data-pagefind-meta="comentarios:{{ article.comments | length }}"></span><span data-pagefind-meta="fotos:{{ article.media['fotos'] }}"></span><span data-pagefind-meta="videos:{{ article.media['vídeos'] }}"></span><span data-pagefind-meta="presentaciones:{{ article.media['presentaciones'] }}"></span><span data-pagefind-meta="audios:{{ article.media['audios'] }}"></span><span data-pagefind-meta="menciones:{{ article.media['menciones'] }}"></span>
+  <header class="post-header">
+    <p class="print-url" aria-hidden="true">davidarcos.net/{{ article.url }}</p>
+    <h1 class="post-title" itemprop="headline">{{ article.title }}</h1>
+    <p class="post-meta">
+      <span class="post-kind" data-pagefind-ignore><span aria-hidden="true">{{ article.kind_emoji }}</span> {{ article.kind_label }} <span class="card-del">del</span></span>
+      <time datetime="{{ article.date.isoformat() }}" itemprop="datePublished" data-pagefind-sort="date[datetime]" data-pagefind-meta="date[datetime]" data-pagefind-ignore>{{ article.date | fecha_es }}</time>
+      <span data-pagefind-ignore>
+      {{ comment_mark(article, "#comentarios", full=true) }}
+      {{ media_marks(article, full=true, mentions_href="#menciones") }}
+      </span>
+    </p>
+    {% if article.section == "portfolio" and article.summary %}<p class="post-lead"><abbr class="tldr" title="Resumen">TL;DR:</abbr> {{ article.summary | yr }}</p>{% endif %}
+    {% if article.tags %}
+    <div class="tags" data-pagefind-ignore>
+      <a class="tags-label" href="{{ SITEURL }}/blog/etiquetas/" title="Todas las etiquetas">Etiquetas:</a>
+      <ul class="tags-list">
+      {% for tag in article.tags %}<li><a href="{{ SITEURL }}/{{ tag.url }}" data-pagefind-filter="tag" title="Entradas con la etiqueta {{ tag.name }}" itemprop="keywords">{% include "icons/tag.svg" %} {{ tag.name }}</a></li>{% endfor %}
+      </ul>
+    </div>
+    {% endif %}
+    {% if article.cover %}
+    <figure class="post-cover-figure">
+    <img class="post-cover" src="{{ article.cover_url }}" alt="" loading="eager" fetchpriority="high" itemprop="image" data-pagefind-meta="image[src]">
+    {% if article.cover_caption %}<figcaption>{{ article.cover_caption | safe }}</figcaption>{% endif %}
+    </figure>
+    {% endif %}
+  </header>
+
+  {% if article.section == "archive" %}
+  <aside class="banner" data-pagefind-ignore>
+    {% include "icons/archive.svg" %}
+    <span>Esta entrada es de la etapa personal del blog (<span class="yr">2006</span> a <span class="yr">2009</span>) y se conserva como se publicó, como archivo; algunas líneas, fotos y comentarios se han retirado, y algunos enlaces se han roto; más fotos de la época, en <a href="https://www.flickr.com/photos/dzpm" rel="noopener">Flickr</a>. Los comentarios y opiniones son de su época y sus respectivos autores. Más <a href="{{ SITEURL }}/sobre-el-blog/">sobre el blog</a>.</span>
+  </aside>
+  {% endif %}
+
+  {% if article.meneame_story %}
+  <p class="badge" data-pagefind-ignore>
+    <a href="{{ article.meneame_story }}/standard" rel="noopener" title="Cifras de {{ article.meneame_sent[:4] }}, votación cerrada. Abre la historia con sus comentarios.">
+      <img src="{{ SITEURL }}/theme/img/meneame.png" alt="" width="20" height="20" loading="lazy">
+      Portada en menéame el <time class="badge-date" datetime="{{ article.meneame_sent }}">{{ article.meneame_sent | fecha_es_str }}</time> (<span class="badge-count">{{ article.meneame_meneos }}</span> meneos{% if article.meneame_comments %}, <span class="badge-count">{{ article.meneame_comments }}</span> comentarios{% endif %})
+    </a>
+  </p>
+  {% endif %}
+
+  <div class="post-content" itemprop="articleBody">
+    {{ article.content }}
+  </div>
+
+  {% if article.comments %}
+  <section class="comments" id="comentarios" aria-label="Comentarios">
+    <h2 class="comments-title">{{ article.comments | length }} comentario{% if article.comments | length != 1 %}s{% endif %}</h2>
+    <aside class="banner comments-note">{% include "icons/comments.svg" %}<span>Conservados tal como se publicaron. Son de sus autores.</span></aside>
+    <ol class="comment-list">
+    {% for c in article.comments %}
+      <li class="comment{% if c.parent %} is-reply{% endif %}" id="comment-{{ c.id }}">
+        <img class="comment-avatar" src="{{ SITEURL }}/images/avatars/archive/{{ c.avatar }}" alt="" width="96" height="96" loading="lazy">
+        <div class="comment-body">
+          <p class="comment-meta">
+            {% if c.url %}<a class="comment-author" href="{{ c.url }}" rel="nofollow noopener">{{ c.author }}</a>
+            {% elif c.url_dead %}<span class="comment-author dead-link" title="Enlace roto: {{ c.url_dead }}">{{ c.author }}</span>
+            {% else %}<span class="comment-author">{{ c.author }}</span>{% endif %}
+            <a class="comment-permalink" href="#comment-{{ c.id }}" title="Enlace a este comentario"><time datetime="{{ c.date }}">{{ c.date | fecha_es_str }}</time></a>
+          </p>
+          <div class="comment-text">{{ c.html }}</div>
+        </div>
+      </li>
+    {% endfor %}
+    </ol>
+  </section>
+  {% endif %}
+  {% if article.mentions %}
+  <section class="mentions" id="menciones" aria-label="Menciones">
+    <h2 class="comments-title">{{ article.mentions | length }} menci{% if article.mentions | length == 1 %}ón{% else %}ones{% endif %}</h2>
+    <aside class="banner comments-note">{% include "icons/mention.svg" %}<span>Otros sitios que enlazaron esta entrada, tal como llegaron. Los punteados ya no responden.</span></aside>
+    <ul class="mention-list">
+    {% for m in article.mentions %}
+      <li class="mention" id="mencion-{{ m.id }}">
+        {% if m.dead %}<span class="mention-title dead-link" title="Enlace roto: {{ m.url }}">{{ m.title }}</span>{% else %}<a class="mention-title" href="{{ m.url }}" rel="nofollow noopener">{{ m.title }}</a>{% endif %}
+        <time datetime="{{ m.date }}">{{ m.date | fecha_es_str }}</time>
+        {% if m.excerpt %}<span class="mention-excerpt">{{ m.excerpt }}</span>{% endif %}
+      </li>
+    {% endfor %}
+    </ul>
+  </section>
+  {% endif %}
+
+  <nav class="post-nav" aria-label="Entradas anterior y siguiente" data-pagefind-ignore>
+    {% if article.prev_article %}<a class="post-nav-prev" href="{{ SITEURL }}/{{ article.prev_article.url }}" rel="prev"><span class="post-nav-arrow" aria-hidden="true">←</span><span><span class="post-nav-label">Anterior</span>{{ article.prev_article.title }}<time class="post-nav-date" datetime="{{ article.prev_article.date.isoformat() }}">{{ article.prev_article.date | fecha_es }}</time></span></a>{% else %}<span></span>{% endif %}
+    {% if article.next_article %}<a class="post-nav-next" href="{{ SITEURL }}/{{ article.next_article.url }}" rel="next"><span><span class="post-nav-label">Siguiente</span>{{ article.next_article.title }}<time class="post-nav-date" datetime="{{ article.next_article.date.isoformat() }}">{{ article.next_article.date | fecha_es }}</time></span><span class="post-nav-arrow" aria-hidden="true">→</span></a>{% endif %}
+  </nav>
+  {% if article.section == "portfolio" %}<p class="post-back" data-pagefind-ignore>Más charlas y artículos en el <a href="{{ SITEURL }}/">inicio</a>; las próximas, por el <a href="{{ SITEURL }}/{{ FEED_ATOM_URL }}">feed</a>.</p>{% endif %}
+</article>

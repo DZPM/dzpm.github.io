@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block title %}{{ page.title }} | {{ AUTHOR }}{% endblock %}
+{% block og_title %}{{ page.title | striptags | e }}{% endblock %}
+{% block description %}{{ page.summary | striptags | e }}{% endblock %}
+{% block canonical %}<link rel="canonical" href="{{ SITEURL }}/{{ page.url }}">{% endblock %}
+{% block content %}
+<article class="post page">
+  <header class="post-header"><h1 class="post-title">{{ page.title }}</h1></header>
+  <div class="post-content">
+    {{ page.content }}
+  </div>
+</article>
+{# the map of the site, once its own page: what is left after the list of posts moved to /blog/ #}
+<section class="map-section" id="mapa">
+  <h2>Mapa del sitio</h2>
+  <ul class="map-list">
+    <li><a href="{{ SITEURL }}/">Inicio</a> <span class="map-note">quién soy, y las charlas y los artículos</span></li>
+    <li><a href="{{ SITEURL }}/blog/">Blog</a> <span class="map-note">todas las entradas, las charlas primero y el archivo debajo</span></li>
+    <li><a href="{{ SITEURL }}/blog/etiquetas/">Etiquetas</a> <span class="map-note">las {{ tags | length }} etiquetas, cada una con sus entradas</span></li>
+    <li><a href="{{ SITEURL }}/blog/buscar/">Buscar</a> <span class="map-note">por texto o por etiqueta; la única página con JavaScript</span></li>
+    <li><a href="{{ SITEURL }}/cv/">Trayectoria</a> <span class="map-note">un puesto por línea; la versión al día, en LinkedIn</span></li>
+  </ul>
+</section>
+<section class="map-section">
+  <h2>Para máquinas</h2>
+  <ul class="map-list">
+    <li><a href="{{ SITEURL }}/{{ FEED_ATOM_URL }}">Feed</a> <span class="map-note">Atom, las últimas diez entradas</span></li>
+    <li><a href="{{ SITEURL }}/sitemap.xml">sitemap.xml</a> <span class="map-note">para buscadores</span></li>
+    <li><a href="{{ SITEURL }}/robots.txt">robots.txt</a> <span class="map-note">qué pueden rastrear los robots; todo</span></li>
+    <li><a href="{{ SITEURL }}/.well-known/keybase.txt">keybase.txt</a> <span class="map-note">prueba de que este dominio es mío en Keybase</span></li>
+    <li><a href="{{ SITEURL }}/.well-known/security.txt">security.txt</a> <span class="map-note">por dónde avisar si encuentras un agujero (RFC 9116)</span></li>
+    <li><a href="{{ SITEURL }}/humans.txt">humans.txt</a> <span class="map-note">el único de esta lista que es para humanos</span></li>
+    <li><a href="{{ SITEURL }}/llms.txt">llms.txt</a> <span class="map-note">y este, para los modelos de lenguaje</span></li>
+    <li><a href="https://github.com/DZPM/dzpm.github.io" rel="noopener">Código fuente</a> <span class="map-note">GPL-3.0 el código, CC BY-SA 4.0 los textos</span></li>
+  </ul>
+</section>
+<p class="map-other"><a href="{{ SITEURL }}/mapa-de-wardley/">El otro mapa</a></p>
+<p class="map-edge" lang="la" title="Como en los mapas antiguos: aquí se acaba lo conocido">Hic sunt trolls</p>
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block og_title %}{{ SITENAME }}{% endblock %}
+{% block canonical %}<link rel="canonical" href="{{ SITEURL }}/">{% endblock %}
+{% block content %}
+<section class="intro" itemscope itemtype="https://schema.org/Person" id="me">
+<meta itemprop="name" content="{{ AUTHOR }}"><link itemprop="url" href="{{ SITEURL }}/"><meta itemprop="jobTitle" content="Technology Executive">{% for name, url, icon, label in SOCIAL if icon != "pybcn" %}<link itemprop="sameAs" href="{{ url }}">{% endfor %}<span itemprop="address" itemscope itemtype="https://schema.org/PostalAddress"><meta itemprop="addressLocality" content="Barcelona"><meta itemprop="addressCountry" content="ES"></span>
+{{ page.content }}
+</section>
+
+<section class="timeline" aria-label="Charlas y artículos">
+{% set ns = namespace(first=true) %}
+{% for year, items in articles | selectattr("section", "equalto", "portfolio") | groupby("date.year") | reverse %}
+  <div class="year-row">
+    <div class="year-big" aria-hidden="true">{{ year }}</div>
+    <div class="year-cards">
+    {% for article in items %}
+      <article class="card">
+        <div class="card-cover{% if not article.cover %} is-empty{% endif %}" aria-hidden="true">
+          {% if article.cover %}<img src="{{ article.cover_card_url or article.cover_url }}"{% if article.cover_card_url %} srcset="{{ article.cover_card_url }} 480w, {{ article.cover_url }} {{ article.cover_width }}w" sizes="(max-width: 40rem) 6rem, 22rem"{% endif %} alt=""{% if ns.first %} loading="eager" fetchpriority="high"{% set ns.first = false %}{% else %} loading="lazy"{% endif %}>{% endif %}
+        </div>
+        <div class="card-body">
+          <h2 class="card-title"><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></h2>
+          <p class="card-date">{% if article.kind %}<span class="card-kind"><span aria-hidden="true">{{ article.kind_emoji }}</span> {{ article.kind_label }}</span> <span class="card-del">del</span> {% endif %}<time datetime="{{ article.date.isoformat() }}">{{ article.date | fecha_es }}</time></p>
+          {% if article.summary %}<p class="card-summary">{{ article.summary | yr }}</p>{% endif %}
+        </div>
+      </article>
+    {% endfor %}
+    </div>
+  </div>
+{% endfor %}
+</section>
+<p class="post-back">Para entradas anteriores, ve al <a href="{{ SITEURL }}/blog/#archivo">archivo de la etapa personal</a> (de <span class="yr">2006</span> a <span class="yr">2009</span>); las próximas, por el <a href="{{ SITEURL }}/{{ FEED_ATOM_URL }}">feed</a>. Más en <a href="{{ SITEURL }}/sobre-el-blog/">Sobre el blog</a>.</p>
+{% endblock %}

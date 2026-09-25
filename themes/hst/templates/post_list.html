@@ -1,0 +1,113 @@
+{% from "marks.html" import media_marks, comment_mark, meneame_mark %}
+{# the list of posts as the blog page shows it: the portfolio as small cards, then the notes and the archive as rows, all with the hover caption. Takes `posts` and `divider` ("full" or "short") #}
+{%- macro peek(article) -%}
+          {# the caption: what the row hides, shown under it while it is hovered or focused; decoration only, the row is the link #}
+          {% set peek_img = article.cover_card_url or article.cover_url or article.first_image_card %}
+          <div class="peek" aria-hidden="true">
+            <div class="peek-body">
+            {# the same order as the top of the post: the kind and the date with the marks, the TL;DR, the tags #}
+            <p class="peek-marks"><span class="peek-kind"><span aria-hidden="true">{{ article.kind_emoji }}</span> {{ article.kind_label }} <span class="card-del">del</span> <time datetime="{{ article.date.isoformat() }}">{{ article.date | fecha_es }}</time></span>
+              {{ meneame_mark(article, full=true) }}
+              {{ comment_mark(article, full=true) }}
+              {{ media_marks(article, full=true) }}
+            </p>
+            {% if article.summary %}<p class="peek-summary"><span class="tldr">TL;DR:</span> {{ article.summary | yr }}</p>{% elif article.excerpt %}<p class="peek-summary">{{ article.excerpt | yr }}</p>{% endif %}
+            {% if article.tags %}<ul class="peek-tags"><li class="peek-tags-label">Etiquetas:</li>{% for tag in article.tags %}<li>{% include "icons/tag.svg" %} {{ tag.name }}</li>{% endfor %}</ul>{% endif %}
+            </div>
+            {% if peek_img %}<div class="peek-cover"><img src="{{ peek_img }}" alt="" loading="lazy"></div>{% endif %}
+          </div>
+{%- endmacro %}
+{% set portfolio = posts | selectattr("section", "equalto", "portfolio") | list %}
+{% if portfolio %}
+<section class="timeline featured" aria-label="Charlas y artículos">
+{% for year, items in portfolio | groupby("date.year") | reverse %}
+  <div class="year-row">
+    <div class="year-big" aria-hidden="true">{{ year }}</div>
+    <div class="year-cards">
+    {% for article in items %}
+      <article class="card card-small">
+        <div class="card-cover{% if not article.cover %} is-empty{% endif %}" aria-hidden="true">
+          {% if article.cover %}<img src="{{ article.cover_card_url or article.cover_url }}"{% if article.cover_card_url %} srcset="{{ article.cover_card_url }} 480w, {{ article.cover_url }} {{ article.cover_width }}w" sizes="(max-width: 40rem) 6rem, 7rem"{% endif %} alt="" loading="lazy">{% endif %}
+        </div>
+        <div class="card-body">
+          <h2 class="card-title"><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></h2>
+          <p class="card-date">{% if article.kind %}<span class="card-kind"><span aria-hidden="true">{{ article.kind_emoji }}</span> {{ article.kind_label }}</span> <span class="card-del">del</span> {% endif %}<time datetime="{{ article.date.isoformat() }}">{{ article.date | fecha_es }}</time></p>
+        </div>
+        {{ peek(article) }}
+      </article>
+    {% endfor %}
+    </div>
+  </div>
+{% endfor %}
+</section>
+{% endif %}
+{% set notes = posts | selectattr("section", "equalto", "notes") | list %}
+{% if notes %}
+<aside class="archive-divider notes-divider" id="notas">
+  <h2>Notas</h2>
+  <p>{{ notes | length }} nota{% if notes | length != 1 %}s{% endif %} cortas, escritas desde <span class="yr">2026</span>: lo que no es una charla ni un artículo.</p>
+</aside>
+{% for year, items in notes | groupby("date.year") | reverse %}
+<section class="year-group" id="n{{ year }}">
+  <h2 class="year">{{ year }}</h2>
+  <div class="month-groups">
+  {% for month, in_month in items | groupby("date.month") | reverse %}
+    <div class="month-group">
+      <h3 class="month">{{ month | mes_corto }}</h3>
+      <ol class="year-list">
+      {% for article in in_month %}
+        <li class="year-item">
+          <time class="day" datetime="{{ article.date.isoformat() }}">{{ article.date.day }}</time>
+          <span class="year-item-text">
+            <a href="{{ SITEURL }}/{{ article.url }}" title="{{ article.title | striptags }}">{{ article.title }}</a>
+            {% if article.meneame_meneos or article.comments or article.media.values() | sum %}<span class="year-item-marks">
+              {{ meneame_mark(article) }}
+              {{ comment_mark(article) }}
+              {{ media_marks(article) }}
+            </span>{% endif %}
+          </span>
+          {{ peek(article) }}
+        </li>
+      {% endfor %}
+      </ol>
+    </div>
+  {% endfor %}
+  </div>
+</section>
+{% endfor %}
+{% endif %}
+{% set archive = posts | selectattr("section", "equalto", "archive") | list %}
+{% if archive %}
+<aside class="archive-divider" id="archivo">
+  <h2>Archivo</h2>
+  {% if divider == "full" %}<p>De aquí para abajo, la etapa personal del blog: {{ archive | length }} entradas entre <span class="yr">2006</span> y <span class="yr">2009</span>, con Erasmus, viajes, fotos y trolls. Se conservan como se publicaron, por nostalgia, con algunas líneas y fotos retiradas; algunos enlaces se han roto, y los comentarios y las opiniones son de su época.</p>{% else %}<p>{{ archive | length }} entrada{% if archive | length != 1 %}s{% endif %} de la etapa personal del blog, <span class="yr">2006</span> a <span class="yr">2009</span>.</p>{% endif %}
+</aside>
+{% endif %}
+{% for year, items in archive | groupby("date.year") | reverse %}
+<section class="year-group archive" id="y{{ year }}">
+  <h2 class="year">{{ year }}</h2>
+  <div class="month-groups">
+  {% for month, in_month in items | groupby("date.month") | reverse %}
+    <div class="month-group">
+      <h3 class="month">{{ month | mes_corto }}</h3>
+      <ol class="year-list">
+      {% for article in in_month %}
+        <li class="year-item">
+          <time class="day" datetime="{{ article.date.isoformat() }}">{{ article.date.day }}</time>
+          <span class="year-item-text">
+            <a href="{{ SITEURL }}/{{ article.url }}" title="{{ article.title | striptags }}">{{ article.title }}</a>
+            {% if article.meneame_meneos or article.comments or article.media.values() | sum %}<span class="year-item-marks">
+              {{ meneame_mark(article) }}
+              {{ comment_mark(article) }}
+              {{ media_marks(article) }}
+            </span>{% endif %}
+          </span>
+          {{ peek(article) }}
+        </li>
+      {% endfor %}
+      </ol>
+    </div>
+  {% endfor %}
+  </div>
+</section>
+{% endfor %}

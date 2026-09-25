@@ -1,0 +1,16 @@
+/* HUMANO */
+  Nombre: David Arcos
+  Ciudad: Barcelona
+  Contacto: los enlaces del pie de página
+
+/* GRACIAS */
+  A las {{ stats.people }} personas que dejaron {{ stats.comments }} comentarios entre {{ stats.comments_from }} y {{ stats.comments_to }}.
+  A los trolls de Fløyen y de Voss, por posar.
+
+/* SITIO */
+  Primer post: 2006-07-05, "fr1st p0st!", desde Bergen
+  Última migración: 2026, de WordPress a Pelican, veinte años después
+  Lenguajes: Python (desde 2005), Markdown, HTML, CSS
+  JavaScript: solo en el buscador
+  Herramientas: Pelican 4.12, Pagefind, GitHub Pages, Cloudflare
+  Estándares: HTML5, CSS3, RFC 2324 (solo la parte de la tetera)

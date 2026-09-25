@@ -1,0 +1,20 @@
+{% set MARK_ICONS = {"fotos": "photo", "vídeos": "video", "presentaciones": "slides", "audios": "audio", "menciones": "mention"} %}
+{% macro icon(id) %}<svg class="mark-icon" width="14" height="14" aria-hidden="true"><use href="#i-{{ id }}"/></svg>{% endmacro %}
+{% set MARK_ONE = {"fotos": "foto", "vídeos": "vídeo", "presentaciones": "presentación", "audios": "audio", "menciones": "mención"} %}
+{% macro comment_mark(article, href=None, full=false) -%}
+{%- if article.comments -%}
+{%- set n = article.comments | length -%}
+<{{ "a" if href else "span" }} class="mark mark-comments"{% if href %} href="{{ href }}"{% endif %} title="{{ n }} comentario{% if n != 1 %}s{% endif %}">{{ icon("comment") }} {{ n }}<span class="{{ "mark-word" if full else "mark-label" }}"> comentario{% if n != 1 %}s{% endif %}</span></{{ "a" if href else "span" }}>
+{%- endif -%}
+{%- endmacro %}
+{% macro meneame_mark(article, full=false) -%}
+{%- if article.meneame_meneos -%}
+<span class="mark mark-meneame" title="Portada en menéame, {{ article.meneame_meneos }} meneos"><span class="mark-icon mark-icon-meneame" aria-hidden="true"></span> {{ article.meneame_meneos }}<span class="{{ "mark-word" if full else "mark-label" }}"> meneos</span></span>
+{%- endif -%}
+{%- endmacro %}
+{% macro media_marks(article, full=false, mentions_href=None) -%}
+{%- for kind, n in article.media.items() if n -%}
+{%- set tag = "a" if (kind == "menciones" and mentions_href) else "span" -%}
+<{{ tag }} class="mark mark-media"{% if tag == "a" %} href="{{ mentions_href }}"{% endif %} title="{{ n }} {{ MARK_ONE[kind] if n == 1 else kind }}">{{ icon(MARK_ICONS[kind]) }} {{ n }}<span class="{{ "mark-word" if full else "mark-label" }}"> {{ MARK_ONE[kind] if n == 1 else kind }}</span></{{ tag }}>
+{%- endfor -%}
+{%- endmacro %}

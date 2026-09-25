@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+{% set newest = (articles | first).date.date().isoformat() %}
+  <url><loc>{{ SITEURL }}/</loc><lastmod>{{ newest }}</lastmod></url>
+  <url><loc>{{ SITEURL }}/blog/</loc><lastmod>{{ newest }}</lastmod></url>
+{% for page in pages if page.url %}
+  <url><loc>{{ SITEURL }}/{{ page.url }}</loc>{% if page.modified or page.date %}<lastmod>{{ (page.modified or page.date).date().isoformat() }}</lastmod>{% endif %}</url>
+{% endfor %}
+  <url><loc>{{ SITEURL }}/blog/etiquetas/</loc><lastmod>{{ newest }}</lastmod></url>
+{% for article in articles %}
+  <url><loc>{{ SITEURL }}/{{ article.url }}</loc><lastmod>{{ (article.modified or article.date).date().isoformat() }}</lastmod></url>
+{% endfor %}
+{% for tag, tagged in tags %}
+  <url><loc>{{ SITEURL }}/{{ tag.url }}</loc><lastmod>{{ (tagged | map(attribute="date") | max).date().isoformat() }}</lastmod></url>
+{% endfor %}
+</urlset>
