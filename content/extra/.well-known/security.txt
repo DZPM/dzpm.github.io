@@ -1,0 +1,9 @@
+# davidarcos.net. RFC 9116.
+# No hay base de datos, ni sesiones, ni PHP: solo HTML. En DreamHost, en 2007,
+# tampoco había nada que hackear, y mira. Si encuentras algo, gracias por avisar.
+Contact: https://www.linkedin.com/in/davidarcos
+Contact: https://x.com/DZPM
+Encryption: openpgp4fpr:22D488F46C908EDE33D383D7C77A3FF4B7FBAD91
+Preferred-Languages: es, ca, en
+Canonical: https://davidarcos.net/.well-known/security.txt
+Expires: 2036-09-18T00:00:00.000Z

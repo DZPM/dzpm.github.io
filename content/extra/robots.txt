@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+Disallow: /pagefind/
+
+# Hic sunt trolls.
+User-agent: Troll
+Allow: /
+
+Sitemap: https://davidarcos.net/sitemap.xml
