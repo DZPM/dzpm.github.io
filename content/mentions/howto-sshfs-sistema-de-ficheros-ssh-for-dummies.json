@@ -1,0 +1,11 @@
+[
+ {
+  "id": 319,
+  "type": "trackback",
+  "date": "2007-01-21T22:53:42",
+  "url": "https://meneame.net/story/howto-sshfs-sistema-ficheros-ssh-for-dummies",
+  "title": "meneame.net",
+  "excerpt": "Howto SSHFS - Sistema de ficheros SSH(for dummies)... SSHFS (SSH FileSystem) \"consiste en montar una partición remota vía SSH. Viene a ser como acceder a un servidor FTP, pero montado directamente en nuestro árbol de directorios. Y cifrado, por supuesto\". En este tutorial aprenderemos a confi...",
+  "dead": false
+ }
+]

@@ -1,0 +1,52 @@
+[
+ {
+  "id": 173,
+  "parent": null,
+  "date": "2006-11-03T03:05:35",
+  "author": "CH",
+  "url": "",
+  "url_dead": "http://sociologiac.mitus-serveur.net",
+  "avatar": "c071.jpg",
+  "html": "<p>Excelente truco. Es de llamar la atención lo cuidadoso que sos por cumplir con los estándares en la web.</p>\n<p>Saludos</p>"
+ },
+ {
+  "id": 174,
+  "parent": null,
+  "date": "2006-11-03T08:24:12",
+  "author": "Andrés",
+  "url": "",
+  "url_dead": "http://pitxorras.blogspot.com",
+  "avatar": "c072.svg",
+  "html": "<p>Buen post.</p>\n<p>¿podrías publicar también (o enviarme al mail) el script que utilizas en \"Comentarios recientes\"? ¿Valida?</p>\n<p>Salud, Andrés.</p>"
+ },
+ {
+  "id": 175,
+  "parent": null,
+  "date": "2006-11-03T12:03:48",
+  "author": "David Arcos",
+  "url": "/",
+  "url_dead": "",
+  "avatar": "c001.jpg",
+  "html": "<p>Gracias <strong>CH</strong>. Los estándares web son muy importantes, y a parte de las ventajas \"éticas\" (accesibilidad, no-dependencia de un solo navegador, compatibilidad, etc) tenemos las \"prácticas\" (mucha gente no puede visitar tu web por problemas de visualización, los spiders de los buscadores no interpretan bien una página defectuosa, Google resta PageRank a las páginas \"defectuosas\", etc)</p>\n<p><strong>Andrés</strong>, los \"Comentarios recientes\" los hago con el plugin de WordPress \"Recent Comments que puedes descargar en <a href=\"http://blog.jodies.de/archiv/2004/11/13/recent-comments/\" rel=\"nofollow\">http://blog.jodies.de/archiv/2004/11/13/recent-comments/</a><br />\nLa instalación es muy fácil, y tiene muchas posibilidades de configuración: que muestre trackbacks, que muestre los gravatars, formato, etc.<br />\nPor supuesto que cumple el estándar, si tienes algún problema al configurarlo puedes escribirme un correo.</p>"
+ },
+ {
+  "id": 177,
+  "parent": null,
+  "date": "2007-04-25T01:01:52",
+  "author": "leon",
+  "url": "",
+  "url_dead": "",
+  "avatar": "c132.jpg",
+  "html": "<p>que tal<br />\nmuy interesante, pero no entiendo la parte que dice:</p>\n<p>\"Así que sustituimos cada &amp; por &amp;\"</p>\n<p>saludos</p>"
+ },
+ {
+  "id": 176,
+  "parent": null,
+  "date": "2007-04-25T13:23:14",
+  "author": "David Arcos",
+  "url": "/",
+  "url_dead": "",
+  "avatar": "c001.jpg",
+  "html": "<p>Ooops, problema de codificación de cuando cambié de hosting la última vez.</p>\n<p>Lo que dice es que hay que cambiar \"&#038;\" por \"&#038; amp;\" (sin espacio), ya que es una secuencia reservada.</p>\n<p>Gracias por el aviso.</p>"
+ }
+]

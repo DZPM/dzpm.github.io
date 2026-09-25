@@ -1,0 +1,32 @@
+[
+ {
+  "id": 320,
+  "parent": null,
+  "date": "2007-02-08T10:02:22",
+  "author": "yanotse",
+  "url": "",
+  "url_dead": "",
+  "avatar": "c117.svg",
+  "html": "<p>Y no solo eso.. tener montado un sshfs es como una unidad de disco más (y si tienes contratado el hosting en dreamhost o en bluehost, por ejemplo, tendrá bastantes GB). Es decir que puedes mandar todos tus documentos allí para trabajar con ellos desde cualquier lugar, en tiempo real (casi).<br />\nTambien puedes programar copias de seguridad y/o sincronización de ficheros. En fin lo que se te ocurra.<br />\nEstoy haciendo pruebas y creo que es interesante activar la compresion.</p>\n<p>Saludos</p>"
+ },
+ {
+  "id": 321,
+  "parent": null,
+  "date": "2007-02-08T22:37:52",
+  "author": "David Arcos",
+  "url": "/",
+  "url_dead": "",
+  "avatar": "c001.jpg",
+  "html": "<p>Jeje, para tener acceso \"a tiempo real\" más te vale disponer de una buena conexión 😉</p>\n<p>Lo de sincronizar sí que es una buena idea.<br />\nLa verdad, tenía pensado el sistema como comodidad, y no como eficiencia</p>"
+ },
+ {
+  "id": 322,
+  "parent": null,
+  "date": "2007-07-18T23:44:31",
+  "author": "Obelix",
+  "url": "",
+  "url_dead": "",
+  "avatar": "c174.svg",
+  "html": "<p>Hola! tengo un problema con el sshfs, estoy usando Fedora 7 y solo monta los discos remotos como superusuario, no tengo ni idea por que alguno se le ocurre como cambiar esto?? gracias!</p>"
+ }
+]

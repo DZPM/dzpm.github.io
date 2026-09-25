@@ -1,0 +1,42 @@
+[
+ {
+  "id": 93,
+  "parent": null,
+  "date": "2006-09-08T15:16:39",
+  "author": "David Arcos",
+  "url": "/",
+  "url_dead": "",
+  "avatar": "c001.jpg",
+  "html": "<p>Y tú usas Windows XP.</p>"
+ },
+ {
+  "id": 94,
+  "parent": null,
+  "date": "2006-09-08T17:46:21",
+  "author": "jotape",
+  "url": "",
+  "url_dead": "http://monobits.net/blog/",
+  "avatar": "c157.jpg",
+  "html": "<p>Y tú aun no has pillado cacho en Noruega.</p>\n<p>Y si borras este post eres un miserable xD</p>"
+ },
+ {
+  "id": 95,
+  "parent": null,
+  "date": "2006-09-08T17:53:58",
+  "author": "jotape",
+  "url": "",
+  "url_dead": "http://monobits.net/blog/",
+  "avatar": "c157.jpg",
+  "html": "<p>Bueno, sí, puedes borrarlo 😀</p>\n<p>Pero a cambio de que me lo cuentes <strong>todo</strong></p>"
+ },
+ {
+  "id": 96,
+  "parent": null,
+  "date": "2006-09-08T17:57:37",
+  "author": "David Arcos",
+  "url": "/",
+  "url_dead": "",
+  "avatar": "c001.jpg",
+  "html": "<p>Te jodes, ahora se quedan ahí, y no te cuento <b>nada</b> xD</p>"
+ }
+]

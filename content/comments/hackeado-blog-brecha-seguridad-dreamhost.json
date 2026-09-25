@@ -1,0 +1,122 @@
+[
+ {
+  "id": 415,
+  "parent": null,
+  "date": "2007-06-08T01:20:34",
+  "author": "emarts",
+  "url": "",
+  "url_dead": "http://blog.3l0g.com/",
+  "avatar": "c084.jpg",
+  "html": "<p>Ha sido ETA</p>"
+ },
+ {
+  "id": 418,
+  "parent": null,
+  "date": "2007-06-08T07:43:02",
+  "author": "The Ghost",
+  "url": "",
+  "url_dead": "http://tintafantasma.net",
+  "avatar": "c153.jpg",
+  "html": "<p>Naahh fue Al-Qaeda xD<br />\nYa fuera de bromas, dicen que solo han sido comprometidas 3500 cuentas...felizmente no estoy detro de ellas, pero por si las moscas cambio las contraseñas.</p>\n<p>Saludos<br />\nThe Ghost</p>"
+ },
+ {
+  "id": 416,
+  "parent": null,
+  "date": "2007-06-08T09:01:55",
+  "author": "josemaria",
+  "url": "",
+  "url_dead": "http://blog.unlugarenelmundo.es",
+  "avatar": "c154.jpg",
+  "html": "<p>Si ha habido aviso oficial David. Al menos en mi caso. Hace ya unos días me mandaron un correo contándome que habían detectado el robo de passwords de las cuentas de FTP y que ya había usuarios afectados por ello. ¿No lo has recibido?¿Quieres una copia?</p>"
+ },
+ {
+  "id": 414,
+  "parent": null,
+  "date": "2007-06-08T09:51:37",
+  "author": "Zootropo",
+  "url": "http://mundogeek.net",
+  "url_dead": "",
+  "avatar": "c155.jpg",
+  "html": "<p>Dreamhost es de los hosts más seguros que conozco. En el sentido de que deshabilitan muchas cosas que en otros hostings dejan al buen tun tun.</p>\n<p>Gracias a Dios a mí no me ha tocado la china.</p>\n<p>Una recomendación más: edita tu usuario en el panel de control y elige que sólo se pueda conectar por SFTP. A estas alturas de la vida mandar los datos sin cifrar es un disparate.</p>\n<p>Por cierto, ¿tenías instalada la última versión de WordPress? Porque incluso la actual (2.2) tiene fallos de seguridad, cuanto más las anteriores</p>"
+ },
+ {
+  "id": 411,
+  "parent": null,
+  "date": "2007-06-08T09:53:05",
+  "author": "Xose",
+  "url": "",
+  "url_dead": "",
+  "avatar": "c156.svg",
+  "html": "<p>¿Usas Code por casualidad?</p>"
+ },
+ {
+  "id": 412,
+  "parent": null,
+  "date": "2007-06-08T14:35:01",
+  "author": "jotape",
+  "url": "",
+  "url_dead": "http://monobits.net/blog/",
+  "avatar": "c157.jpg",
+  "html": "<p>@josemaria Yo también estoy en Dreamhost, pero ni he tenido problemas ni me han enviado ningún tipo de información.</p>\n<p>@DZPM: probablemente el mail de aviso lo haya recibido Kiusap 😉</p>"
+ },
+ {
+  "id": 413,
+  "parent": null,
+  "date": "2007-06-08T16:08:28",
+  "author": "David Arcos",
+  "url": "/",
+  "url_dead": "",
+  "avatar": "c001.jpg",
+  "html": "<p>@josemaría: gracias, pero ya lo he recibido (tarde :-()</p>\n<p>@Zootropo: yo también creía en la seguridad de Dreamhost, pero esto... 😐<br />\nNecesito una cuenta shell (Shell account - allows FTP plus ssh/telnet access), porque tengo algunos scripts de administración. No entiendo que me metan la cuenta FTP asociada al acceso ssh, pero bueno...<br />\nDe hecho, nunca he usado el FTP, así que dudo que el vector de ataque viniese de ahí.</p>\n<p>@Xose, no, no uso Code.</p>\n<p>@jotape: efectivamente, y me hizo fwd. Y gracias por el meneo 😉</p>"
+ },
+ {
+  "id": 420,
+  "parent": null,
+  "date": "2007-07-04T20:44:11",
+  "author": "Noone",
+  "url": "",
+  "url_dead": "",
+  "avatar": "c166.svg",
+  "html": "<p>Me ha sorprendido que el spam fuera de drogas, pero no es de drogas, sino de fármacos 😉 drugs = farmacos en este contexto.</p>"
+ },
+ {
+  "id": 419,
+  "parent": null,
+  "date": "2007-07-04T21:04:47",
+  "author": "David Arcos",
+  "url": "/",
+  "url_dead": "",
+  "avatar": "c001.jpg",
+  "html": "<p>Noone, ese tipo de fármacos también son drogas: viagra, calmantes, etc...</p>"
+ },
+ {
+  "id": 423,
+  "parent": null,
+  "date": "2008-01-07T15:22:28",
+  "author": "Mercedes",
+  "url": "",
+  "url_dead": "http://www.bollosferablog.com",
+  "avatar": "c200.svg",
+  "html": "<p>A mi acaban de hackearme y no se si ha sido una brecha en dreamhost o en mi instalación de WordPress...  Ha tocado Archivos a lo bestia. Agregó una línea de código al index.php, al wp-admin.php, al index.php de wp-content y wp-admin, al xmlrpc.php y en wp-includes a defaultfilters.php y gettext.php. Sustituyó el código de  todos los plugins e instaló un troyano como plugin.</p>\n<p>Dejo esto aquí por si a alguien le visita el MR. ZX Virus desde Bahrein con su musiquilla arabe machacante (15 horas oyéndola), ya sepan en que archivos buscar. Me tomo de sorpresa que tocara wp-includes al final tuve que revisar el código de todos los archivos.</p>"
+ },
+ {
+  "id": 422,
+  "parent": null,
+  "date": "2008-01-08T16:33:28",
+  "author": "Mercedes",
+  "url": "",
+  "url_dead": "http://www.bollosferablog.com",
+  "avatar": "c200.svg",
+  "html": "<p>Hola... Me han hackeado otra vez (dos veces en tres dias) el mismo... No se si me ha quedado una puerta trasera, si ha quedado no la encuentro o es dream host aunque lo nueguen... Si tu sabes algo ya que tienes el mismo hosting podrías decirme? estoy y aal limite me pasé 10 horas seguidas arreglando todo... Me habia isntalado una puerta trasera si, pero la encontrñe, actualice a a 2.32, cambié todo... No se ya qué hacer 🙁 el señor árabe este se ha ensañado conmigo</p>"
+ },
+ {
+  "id": 421,
+  "parent": null,
+  "date": "2008-01-08T16:49:23",
+  "author": "David Arcos",
+  "url": "/",
+  "url_dead": "",
+  "avatar": "c001.jpg",
+  "html": "<p>Mercedes, ¿has cambiado todas las contraseñas?</p>\n<p>No he oído nada de hacks masivos a Dreamhost últimamente. Anteayer salió una vulnerabilidad SQL, pero se supone que no afecta a WordPress.</p>\n<p>Te recomiendo que desactives todos los plugins (es muy probable que el \"bug\" o puerta trasera esté en un plugin).</p>\n<p>Haz copias de seguridad del directorio de wordpress, y tenlas a mano para reparar. Si miras la hora de modificación de los ficheros igual encuentras alguna pista.</p>\n<p>Mucha suerte.</p>"
+ }
+]

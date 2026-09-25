@@ -1,0 +1,17 @@
+Title: Bergen 5, Barcelona 0
+Date: 2006-12-29 08:00:37
+Slug: bergen-5-barcelona-0
+Tags: Barcelona, Erasmus, Sociedad, Spain is different
+Original_url: https://davidarcos.net/blog/2006/12/29/bergen-5-barcelona-0/
+
+Resulta que uno llega a Noruega, observa un montón de hábitos raros, los adquiere como propios, y cuando vuelve a Barcelona encuentra muchas cosas fuera de lugar. Es difícil de explicar, pero voy a hacerlo lo mejor que pueda.
+
+Son detalles sin importancia, a los que te acostumbras, ya que son "la manera correcta de hacer las cosas". No me refiero a elementos ambientales, sino a comportamientos y actitudes sociales. He aquí una breve lista:
+
+1. **La circulación de los coches**. Obviamente en Barcelona es muchísimo más densa, pero no solo es eso: es muy distinto el respeto a los pasos de peatones, el intentar apurar al máximo el semáforo en ámbar, etc. En Noruega, si cruzas por un paso de peatones, a penas hace falta mirar a lado y lado: puedes asumir que si has visto al coche, él te ha visto a tí, y va a frenar. En España, si el coche te ve, puedes asumir que va a intentar atropellarte, y debes esquivarlo. También se da el caso del conductor que va a dar acelerones para acobardarte y que desistas de cruzar: deberás mirarle fijamente a los ojos, fruncir el ceño, y mirarle tan desafiantemente como puedas (*no me vas a matar de un golpe, me he quedao con tu matrícula y te va a caer un puro...*)
+1. **Las calles sucias**. No lo echas de menos, pero por las calles de Bergen apenas encuentras basura en el suelo. Hay muchos árboles, muchas hojas en el suelo, y llueve bastante: aún así, no sueles encontrar residuos "artificiales", la gente no tira las cosas al suelo.
+1. **El agua del grifo**. Los grifos que me he encontrado en Bergen... ¡funcionan bien! ¿Qué significa que un grifo funcione bien? que cuando abres el agua caliente, sale agua caliente *inmediatamente* (y no al cabo de varios segundos). Puedes ir graduando la temperatura del agua *a tiempo real*, si tener que avanzar grado a grado y esperar a ver si ha subido lo suficiente o sigue fría. Esto, que parece tan simple, es algo que choca un poco cuando pruebas un grifo o ducha noruego, y choca bastante más cuando vuelves a usar uno español 😕. Como allí hace frío *de verdad* se preocupan más de tener instalaciones hidrológicas eficientes.**  
+**
+1. **El ruido**. En Bergen apenas escuchaba ruidos por la calle: ni coches de policía, ni circulación, ni ningún claxon. Alguna sirena de ambulancia sí que escuché, puesto que vivía justo delante del hospital. En el autobús, nadie habla a gritos. En cambio, Barcelona, es salir a la calle y oír un continuo caos sonoro: sirenas, el claxon de los coches... o, por ejemplo, en el metro, gente gritando a su móvil, como si a los demás nos importase su conversación.**  
+**
+1. **La televisión**. He estado varios meses sin ver la televisión (aunque hay quien dice que ver los capítulos de *Prison Break*, *Lost*, *Stargate*, o *Heroes* en el portátil es hacer trampa). Pero en cuanto se refiere a programas televisivos, a la caja tonta, no he visto nada de nada. Ha sido volver a casa, y sentir náuseas de lo que echan por la tele: publicidad, series malísimas, pausa para los anuncios, desinformativos, publicidad, galas de famosos, más anuncios, charlatanes haciéndose pasar por periodistas, otra vez publicidad, charlatanes haciéndose pasar por famosillos... puagh, insoportable, me pone de los nervios.

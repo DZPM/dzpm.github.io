@@ -1,0 +1,38 @@
+[
+ {
+  "id": 406,
+  "type": "pingback",
+  "date": "2007-05-31T10:35:53",
+  "url": "http://electriblog.com/?p=136",
+  "title": "¡Quiero ser un pirata! at Electriblog",
+  "excerpt": "[...] jotape, que lo tomó de David, que lo vio en Gamerachan. El autor es Anónimo [...]",
+  "dead": false
+ },
+ {
+  "id": 407,
+  "type": "pingback",
+  "date": "2007-05-31T13:11:24",
+  "url": "https://cib3r.wordpress.com/2007/05/31/%c2%a1quiero-ser-un-pirata/",
+  "title": "¡Quiero ser un pirata! | La cueva",
+  "excerpt": "[...] Vía Electriblog, Vía Jotape, Vía David, Vía Gamerachan y de un autor anónimo [...]",
+  "dead": true
+ },
+ {
+  "id": 409,
+  "type": "pingback",
+  "date": "2007-06-01T07:36:21",
+  "url": "https://unamaiko.wordpress.com/2007/06/01/%c2%a1y-quiero-ser-un-pirata/",
+  "title": "¡Y quiero ser un pirata! | Knabberspass!",
+  "excerpt": "[...] a Lolo por el enlace y a David Arcos por el [...]",
+  "dead": false
+ },
+ {
+  "id": 404,
+  "type": "pingback",
+  "date": "2007-06-03T19:29:59",
+  "url": "https://mi-blog.com/tora/2007/06/03/un-buen-pirata-soy/",
+  "title": "A la 3ª va la vencida (Doble Personalidad) | Un buen pirata soy...",
+  "excerpt": "[...] Hic sunt trolls, monoBITS, Liamngls, Itaca, Electricblog, La Cueva y tantos otros... sobre una creación de un [...]",
+  "dead": false
+ }
+]

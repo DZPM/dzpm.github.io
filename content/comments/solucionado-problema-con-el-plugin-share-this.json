@@ -1,0 +1,52 @@
+[
+ {
+  "id": 352,
+  "parent": null,
+  "date": "2007-03-27T23:09:15",
+  "author": "Boja",
+  "url": "https://www.lamateporunyogur.net",
+  "url_dead": "",
+  "avatar": "c128.jpg",
+  "html": "<p>¡A ti por la rapidez! 😉</p>"
+ },
+ {
+  "id": 351,
+  "parent": null,
+  "date": "2007-03-27T23:59:33",
+  "author": "Topopardo",
+  "url": "",
+  "url_dead": "http://weblog.topopardo.com",
+  "avatar": "c013.jpg",
+  "html": "<p>Gracias por el aviso en el blog 🙂</p>"
+ },
+ {
+  "id": 354,
+  "parent": null,
+  "date": "2007-04-01T04:13:13",
+  "author": "blackhat",
+  "url": "",
+  "url_dead": "",
+  "avatar": "c126.jpg",
+  "html": "<p>Gracias Brother =)</p>"
+ },
+ {
+  "id": 355,
+  "parent": null,
+  "date": "2007-04-07T06:49:25",
+  "author": "Otháner",
+  "url": "",
+  "url_dead": "",
+  "avatar": "c130.jpg",
+  "html": "<p>Sir, seguro que está solucionado el problema???</p>\n<p>Si buscas \"share this problemas contenido duplicado\" en google (sin las comillas) los dos primeros puestos corresponden a tu blog.</p>\n<p>El primero es éste post precisamente y el segundo es lo mismo pero en su versión share-this.</p>\n<p><a href=\"https://www.google.com.mx/search?hl=es&amp;rls=GGGL,GGGL:2006-18,GGGL:es&amp;q=share this problemas contenido duplicado&amp;btnG=Búsqueda&amp;meta=&amp;aq=t\" rel=\"nofollow\">Búsqueda en Google</a></p>"
+ },
+ {
+  "id": 353,
+  "parent": null,
+  "date": "2007-04-09T23:27:27",
+  "author": "David Arcos",
+  "url": "/",
+  "url_dead": "",
+  "avatar": "c001.jpg",
+  "html": "<p>@Othaner, cierto, soy tan despistado que he corregido el código, pero me he olvidado de reinstalarlo en mi propio blog xD</p>\n<p>Gracias por el aviso.</p>"
+ }
+]

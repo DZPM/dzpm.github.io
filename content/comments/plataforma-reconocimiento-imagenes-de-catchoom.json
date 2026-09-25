@@ -1,0 +1,22 @@
+[
+ {
+  "id": 589,
+  "parent": null,
+  "date": "2013-06-05T11:21:39",
+  "author": "Mybrana",
+  "url": "",
+  "url_dead": "",
+  "avatar": "c222.svg",
+  "html": "<p>Interesante post y blog. Nos hemos hecho referencia de él en blog.mybrana.es que te invitamos a visitar si te gusta la tecnología en general y la Realidad Aumentada en particular!</p>"
+ },
+ {
+  "id": 590,
+  "parent": 589,
+  "date": "2013-06-05T19:51:30",
+  "author": "David Arcos",
+  "url": "/",
+  "url_dead": "",
+  "avatar": "c001.jpg",
+  "html": "<p>Gracias, creo que lo habéis resumido bien.</p>\n<p>Saludos,</p>"
+ }
+]

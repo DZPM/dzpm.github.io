@@ -1,0 +1,52 @@
+[
+ {
+  "id": 111,
+  "parent": null,
+  "date": "2006-09-22T02:17:32",
+  "author": "Taikochu",
+  "url": "",
+  "url_dead": "",
+  "avatar": "c029.jpg",
+  "html": "<p>Pues te ha venido todo redondo cogjones. Enhorabuena y lo del PBS parece ser un tipo de protocolo de clustering. Un saludo!</p>"
+ },
+ {
+  "id": 112,
+  "parent": null,
+  "date": "2006-09-22T13:08:13",
+  "author": "jotape",
+  "url": "",
+  "url_dead": "http://monobits.net/blog/",
+  "avatar": "c157.jpg",
+  "html": "<p>Enhorabuena, tío, a mí también me pondría palote xD</p>\n<p>Por cierto, lo harás OS, no?  🙄</p>"
+ },
+ {
+  "id": 113,
+  "parent": null,
+  "date": "2006-09-22T15:37:26",
+  "author": "Atxe",
+  "url": "",
+  "url_dead": "http://atxeinfinland.blogspot.com",
+  "avatar": "c046.jpg",
+  "html": "<p>¡Enhorabuena por el proyecto tio!</p>\n<p>Python lo probé hace algunos meses; me picó la curiosidad de los lenguajes interpretados después de tocar el ML en clase. La verdad, desconozco hasta donde llega su potencial, hice un par de scripts chorras y lo usé a modo de calculadora (lo prefiero a  aprender a programar la de mano x'D).</p>\n<p>¡Espero que te entusiasme!</p>"
+ },
+ {
+  "id": 114,
+  "parent": null,
+  "date": "2006-09-24T13:05:25",
+  "author": "PerkiPat",
+  "url": "",
+  "url_dead": "http://blog.lafalaciadelabarbaverde.com/",
+  "avatar": "c050.svg",
+  "html": "<p>Sobre PBS (Portable Batch System)<br />\nMe parecía haberlo visto: <a href=\"http://www.oreilly.com/catalog/highperlinuxc/toc.html\" rel=\"nofollow\">http://www.oreilly.com/catalog/highperlinuxc/toc.html</a></p>\n<p>capítulo 11 (parte 3): Scheduling Software, hay un apartado llamado OpenPBS</p>\n<p><a href=\"http://www.openpbs.org/about.html\" rel=\"nofollow\">http://www.openpbs.org/about.html</a><br />\n<a href=\"https://en.wikipedia.org/wiki/Portable_Batch_System\" rel=\"nofollow\">http://en.wikipedia.org/wiki/Portable_Batch_System</a></p>"
+ },
+ {
+  "id": 115,
+  "parent": null,
+  "date": "2006-10-05T09:35:46",
+  "author": "Javi",
+  "url": "",
+  "url_dead": "",
+  "avatar": "c057.svg",
+  "html": "<p>Hola, solo un consejillo, no se te ocurra usar OpenPBS ni torque ni nada parecido, funciona como el culo. Mejor usa SGE (Sun Grid Engine)</p>"
+ }
+]

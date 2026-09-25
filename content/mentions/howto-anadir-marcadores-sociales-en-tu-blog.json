@@ -1,0 +1,101 @@
+[
+ {
+  "id": 257,
+  "type": "pingback",
+  "date": "2007-01-02T13:49:54",
+  "url": "http://weblog.topopardo.com/?p=1480",
+  "title": "Punto y aparte | Archivo del weblog | Compartir los artículos",
+  "excerpt": "[...] He instalado la versión de DZPM del plugin \"share-this\", que es el icono verde que aparece a la derecha del todo de la barra inferior de cada artículo. [...]",
+  "dead": true
+ },
+ {
+  "id": 263,
+  "type": "pingback",
+  "date": "2007-01-02T20:01:41",
+  "url": "http://www.picallo.info/2007/01/02/share-this-un-icono-social-para-todo/",
+  "title": "Share this un icono social para todo at Picallo.info",
+  "excerpt": "[...] David Arcos tambien ha hecho una versión de este plugin que mejora la versión en español hecha por Artux. Por mi cuenta he decidido hacer una nueva versión, añadiendo a la versión de David Arcos las webs sociales incluidas en la version de Artux y la de Alex King. A mayores he incluido Chuza! ",
+  "dead": true
+ },
+ {
+  "id": 264,
+  "type": "pingback",
+  "date": "2007-01-03T07:02:24",
+  "url": "http://www.fireblog.net/2007/01/compartir-tus-post-ahora-es-mas-facil",
+  "title": "fire blog! | Compartir tus post ahora es mas Facil",
+  "excerpt": "[...] El plug-in de Alex no le gusto a muchos (Muy pesado, no es UTF-8, solo incluye servicios en Ingles, etc) por eso David Arcos decidió darle unas ligeras mejoras y lanzo una versión traducida y ligeramente retocada del plug-in Share This , que al final fue la que yo elegí . [...]",
+  "dead": true
+ },
+ {
+  "id": 265,
+  "type": "pingback",
+  "date": "2007-01-09T12:32:44",
+  "url": "http://sys3.es/migue/blog/2007/01/09/actualizacion-del-blog/",
+  "title": "Verdad de la Buena | Blog Archive | Actualización del blog",
+  "excerpt": "[...] Usando el plugin share this ,en la versión modificada por david arcos, podéis enviar algunos de mis artículos a menéame, digg, del.icio.us, fresqui, correo electrónico, .... [...]",
+  "dead": true
+ },
+ {
+  "id": 267,
+  "type": "pingback",
+  "date": "2007-01-27T16:12:52",
+  "url": "http://www.lamateporunyogur.net/archivos/2007/01/27/share-this-plugin-para-compartir-tu-informacion/",
+  "title": "Share This: Plugin para compartir tu información | La mate por un yogur",
+  "excerpt": "[...] Share This | Versión original de Alex King Compártelo | Versión hispana de Artux Share This ES | Versión hispana de Picallo.info Share This ES | Versión hispana de David Arcos Compárteo | En gallego Wordpress | ¡Compártelo! [...]",
+  "dead": false
+ },
+ {
+  "id": 269,
+  "type": "pingback",
+  "date": "2007-01-29T08:52:41",
+  "url": "http://www.anibalk.es/?p=24",
+  "title": "anibal_k blog | HOWTO Añadir marcadores sociales en tu blog",
+  "excerpt": "[...] via | davidmarcos [...]",
+  "dead": true
+ },
+ {
+  "id": 270,
+  "type": "pingback",
+  "date": "2007-01-29T19:01:14",
+  "url": "http://www.southlol.com/escrito/plugin-share-this-en-espanol/",
+  "title": "Desvariando | Plugin \"Share this\" en Español",
+  "excerpt": "[...] En un post de David Arcos explica el funcionamiento de este script, y enseña su versión traducida al Castellano. 1. Descargar y descomprimir el archivo. 2. Guardar el directorio \"share-this\" en el \"wp-content/plugins/\" de tu blog. 3. Activar el plugin desde el panel de control del blog. 4. Aña",
+  "dead": true
+ },
+ {
+  "id": 271,
+  "type": "pingback",
+  "date": "2007-01-29T21:43:52",
+  "url": "http://www.labitacoradeltigre.com/2007/01/29/share-this-para-la-gestion-de-marcadores-sociales/",
+  "title": "La Bitácora del Tigre · Share This para la gestión de marcadores sociales",
+  "excerpt": "[...] El propio King ha creado Share This, un plugin para WordPress que permite gestionar de una manera elegante la enorme cantidad de aplicaciones y servicios web que forman parte de la llamada \"Web social\". Enseguida lo he descargado, instalado y traducido para que el texto de la ventana emergente",
+  "dead": true
+ },
+ {
+  "id": 272,
+  "type": "pingback",
+  "date": "2007-02-21T16:21:22",
+  "url": "http://www.oleblog.com/2007/02/21/share-this-comparte-las-entradas-de-tu-blog/",
+  "title": "OLEBlog | OnLine Experience! | Share This: Comparte las entradas de tu blog",
+  "excerpt": "[...] Aquí os dejo un famoso plugin que he adherido hace apenas dos días, se trata de la versión en castellano de Share This. La version que yo he instalado es la 1.4, que tiene añadido los servicios españoles de más interés y traducido el texto para los usuarios con javascript deshabilitado. -- Sha",
+  "dead": true
+ },
+ {
+  "id": 276,
+  "type": "pingback",
+  "date": "2007-03-04T23:21:54",
+  "url": "http://sys3.es/migue/blog/2007/02/20/mi-blog-lista-de-plugins-usados/",
+  "title": "Verdad de la Buena | Blog Archive | Mi blog, lista de plugins usados",
+  "excerpt": "[...] Share This, coloca un único icono para compartir tus artículos en las redes sociales más importantes. Versión en español. [...]",
+  "dead": true
+ },
+ {
+  "id": 273,
+  "type": "pingback",
+  "date": "2007-03-27T22:44:04",
+  "url": "http://www.lamateporunyogur.net/archivos/2007/03/27/cuidado-con-los-plugins-basados-en-share-this/",
+  "title": "Cuidado con los plugins basados en Share This | La mate por un yogur",
+  "excerpt": "[...] antiguas de Share This y a las actuales de Compártelo, Share This ES (Versión Picallo.info), Share This ES (Versión David Arcos) y Compárteo. En caso del primero basta con actualizar a la 1.4 mientras que [...]",
+  "dead": false
+ }
+]
