@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% from "marks.html" import media_marks, comment_mark, meneame_mark %}
+{% block title %}Blog | {{ AUTHOR }}{% endblock %}
+{% block description %}Todas las entradas de {{ SITENAME }}, por año.{% endblock %}
+{% block canonical %}<link rel="canonical" href="{{ SITEURL }}/blog/">{% endblock %}
+{% block content %}
+<h1 class="page-title">Blog</h1>
+<p class="page-lead"><span class="num">{{ articles | length }}</span> entradas desde <span class="yr">{{ (articles | last).date.year }}</span>: las charlas y los artículos primero, y debajo <a href="#archivo">el archivo</a> de la etapa personal. También por <a href="{{ SITEURL }}/blog/etiquetas/">etiquetas</a>, por el <a href="{{ SITEURL }}/{{ FEED_ATOM_URL }}">feed Atom</a>, y <a href="{{ SITEURL }}/sobre-el-blog/">sobre el blog</a>.</p>
+{% with posts = articles, divider = "full" %}{% include "post_list.html" %}{% endwith %}
+{% endblock %}

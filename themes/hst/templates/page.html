@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block title %}{{ page.title | striptags }} | {{ AUTHOR }}{% endblock %}
+{% block og_title %}{{ page.title | striptags | e }}{% endblock %}
+{% block description %}{{ (page.summary or SITEDESCRIPTION) | striptags | e }}{% endblock %}
+{% block canonical %}<link rel="canonical" href="{{ SITEURL }}/{{ page.url }}">{% endblock %}
+{% block robots %}<meta name="robots" content="{% if page.status == "hidden" %}noindex{% else %}max-image-preview:large{% endif %}">{% endblock %}
+{% block content %}
+<article class="post page">
+  <header class="post-header"><h1 class="post-title">{{ page.title }}</h1></header>
+  <div class="post-content">
+    {{ page.content }}
+  </div>
+</article>
+{% endblock %}

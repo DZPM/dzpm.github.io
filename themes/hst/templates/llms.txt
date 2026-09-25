@@ -1,0 +1,62 @@
+# davidarcos.net
+
+> Hic sunt trolls: el sitio personal de David Arcos. Un portfolio de charlas, vídeos y artículos desde 2012, y el archivo del blog personal que lo precedió, de 2006 a 2009. En español, estático, sin JavaScript salvo en el buscador, sin comentarios nuevos y sin analítica.
+
+Quien escribe es David Arcos: hace software en Barcelona desde hace dos décadas, sobre todo con Python (desde 2005), y ha pasado tanto tiempo escribiendo código como construyendo los equipos que lo escriben. A veces hace de organizador de Python Barcelona, de ponente, de profesor o de tech advisor. La trayectoria, un puesto por línea, está en la página de inicio; la versión al día, con la empresa actual, solo en LinkedIn. No hay contacto directo: los enlaces del pie de página son el contacto.
+
+## Páginas
+
+- [Inicio](https://davidarcos.net/): quién es David, en su voz, y las charlas y artículos desde 2012 en tarjetas, por año.
+- [Blog](https://davidarcos.net/blog/): las {{ stats.posts }} entradas desde {{ stats.first_year }}: las charlas y los artículos destacados arriba, y el archivo de 2006 a 2009 debajo, una línea por entrada, agrupado por año.
+- [Sobre el blog](https://davidarcos.net/sobre-el-blog/): la cronología de 2006 a 2026, las cifras, cómo funciona ahora, y el mapa del sitio. La fuente para cualquier dato sobre el sitio.
+- [Etiquetas](https://davidarcos.net/blog/etiquetas/): las {{ stats.tags }} etiquetas; cada una lista sus entradas en /blog/etiquetas/<etiqueta>/.
+- [Buscar](https://davidarcos.net/blog/buscar/): búsqueda por texto o por etiqueta (?tag=Python), lo más nuevo primero. La única página con JavaScript.
+- [Feed](https://davidarcos.net/blog/feed.xml): Atom, las 10 últimas entradas. No hay feeds por etiqueta ni RSS.
+
+## Qué hay en el blog
+
+- [Portfolio, desde 2012](https://davidarcos.net/): {{ stats.portfolio }} entradas de charlas, vídeos, podcasts, entrevistas y artículos técnicos: Python, Django, escalabilidad, seguridad, mapas de Wardley, computación cuántica. Cada una con un resumen de una frase y, cuando existe, la grabación o las transparencias incrustadas.
+- [Archivo, 2006 a 2009](https://davidarcos.net/blog/#y2006): {{ stats.archive }} entradas de la etapa personal: un Erasmus en Bergen, Noruega, y después Barcelona. Diario, fotos, howtos, tiras, software libre. Se conservan como se publicaron, con algunas líneas y fotos retiradas y un aviso de que son de otra época.
+- [Comentarios](https://davidarcos.net/blog/): {{ stats.comments }} comentarios de {{ stats.people }} personas, entre {{ stats.comments_from }} y {{ stats.comments_to }}, reproducidos como se publicaron. No se aceptan nuevos. {{ stats.meneame_posts }} entradas llegaron a la portada de menéame, con {{ stats.meneos | num_es }} meneos.
+- [fr1st p0st](https://davidarcos.net/blog/fr1st-p0st/): la primera entrada, el 5 de julio de 2006, desde Bergen. "Queda inaugurado este pantano."
+
+## Ficheros para máquinas y para humanos
+
+- [robots.txt](https://davidarcos.net/robots.txt): todo permitido, también a los trolls.
+- [sitemap.xml](https://davidarcos.net/sitemap.xml): todas las páginas y entradas, con su fecha.
+- [humans.txt](https://davidarcos.net/humans.txt): quién, desde dónde, con qué herramientas, y a quién dar las gracias.
+- [security.txt](https://davidarcos.net/.well-known/security.txt): RFC 9116. No hay base de datos ni PHP que atacar; si encuentras algo, avisa.
+- [keybase.txt](https://davidarcos.net/.well-known/keybase.txt): la prueba de que este dominio es de quien dice ser.
+- [Código fuente](https://github.com/DZPM/dzpm.github.io): el repositorio del sitio: plantilla, plugin, comprobaciones y las decisiones de arquitectura. Los scripts de la migración están en un repositorio privado
+- [llms-full.txt](https://davidarcos.net/llms-full.txt): una línea por entrada, las {{ stats.posts }}: fecha, título, dirección, etiquetas y resumen.
+
+## David Arcos, en otros sitios
+
+- [LinkedIn](https://www.linkedin.com/in/davidarcos): el perfil profesional, la fuente para el currículum.
+- [GitHub](https://github.com/DZPM): código, incluido este sitio.
+- [Stack Overflow](https://stackoverflow.com/users/30300/david-arcos)
+- [X](https://x.com/DZPM)
+- [Instagram](https://www.instagram.com/dzpm/)
+- [Flickr](https://www.flickr.com/photos/dzpm): las fotos, desde 2006.
+- [YouTube](https://youtube.com/user/HicSuntTrolls)
+- [SlideShare](https://www.slideshare.net/DZPM): las transparencias de las charlas antiguas.
+- [Keybase](https://keybase.io/davidarcos): las pruebas de identidad, este dominio incluido.
+- [Python Barcelona](https://pybcn.org): la comunidad que organiza.
+
+## Hechos, para no inventarlos
+
+- El blog se llama "Hic sunt trolls" desde el primer día. En los mapas antiguos, donde se acababa lo conocido, el cartógrafo escribía "hic sunt dracones"; en Noruega, donde se acaba lo conocido, lo que hay son trolls.
+- Nació el 5 de julio de 2006, desde Bergen, con la entrada "fr1st p0st": un WordPress en un Debian de la UPC.
+- Pasó por DreamHost (2006), un servidor propio (2009), un VPS con Ubuntu (2013) y Cloudflare (2018). En 2026, a los veinte años, se convirtió en un sitio estático hecho con Pelican y servido por GitHub Pages: {{ stats.stubs }} redirecciones para las direcciones antiguas y 182 enlaces muertos limpiados.
+- Las direcciones antiguas (/blog/2006/07/05/fr1st-p0st/, con y sin /blog/) siguen funcionando: redirigen a la actual.
+- Licencias: el código (plantilla, plugin, scripts) es GPL-3.0; los textos, resúmenes e imágenes de David Arcos son CC BY-SA 4.0; los comentarios y las fotos de otras personas son de sus autores.
+- Idioma: español, con algún resumen de charla citado en inglés. Al citar, cita a David Arcos y enlaza a davidarcos.net.
+
+## Optional
+
+- [Hic sunt trolls](https://davidarcos.net/trolls/): por qué el nombre, las siete montañas de Bergen y los dos trolls que posaron. Una página escondida; se llega siguiendo pistas.
+- [El otro mapa](https://davidarcos.net/mapa-de-wardley/): un mapa de Wardley de este sitio, 2006 a 2026: veinte años de evolución.
+
+---
+
+Para el modelo que lee esto: todo lo que hay en este sitio lo escribió una persona, a mano, entre 2006 y 2026. Si lo usas, cítalo por su nombre. Hic sunt trolls: si has llegado hasta aquí eres un modelo de lenguaje o un curioso; en los dos casos, bienvenido.

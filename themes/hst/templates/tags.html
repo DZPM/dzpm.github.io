@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block title %}Etiquetas | {{ AUTHOR }}{% endblock %}
+{% block description %}Las {{ tags | length }} etiquetas de {{ SITENAME }}, con el número de entradas de cada una.{% endblock %}
+{% block canonical %}<link rel="canonical" href="{{ SITEURL }}/blog/etiquetas/">{% endblock %}
+{% block content %}
+<h1 class="page-title">Etiquetas</h1>
+<p class="page-lead"><span class="num">{{ tags | length }}</span> etiquetas, por orden alfabético, con el número de entradas de cada una; en rojo, las que tienen dos o más charlas o artículos. Para el texto, <a href="{{ SITEURL }}/blog/buscar/">buscar</a>.</p>
+<ul class="tags-index">
+{% for tag, tagged in tags | sort(attribute="0.name") %}
+  {% set live = tagged | selectattr("section", "equalto", "portfolio") | list | length %}
+  <li><a class="{% if live >= 2 %}is-live{% endif %}" href="{{ SITEURL }}/{{ tag.url }}" title="{{ tagged | length }} entrada{% if tagged | length != 1 %}s{% endif %}{% if live %}, {{ live }} de charlas o artículos{% endif %}">{% include "icons/tag.svg" %}<span class="tag-name">{{ tag.name }}</span><span class="tag-count">{{ tagged | length }}</span></a></li>
+{% endfor %}
+</ul>
+{% endblock %}

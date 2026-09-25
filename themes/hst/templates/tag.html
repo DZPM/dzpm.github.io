@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block title %}Etiqueta {{ tag.name }} | {{ AUTHOR }}{% endblock %}
+{% block og_title %}Etiqueta {{ tag.name | e }}{% endblock %}
+{% block description %}{{ articles | length }} entrada{% if articles | length != 1 %}s{% endif %} de {{ SITENAME }} con la etiqueta {{ tag.name | e }}.{% endblock %}
+{% block canonical %}<link rel="canonical" href="{{ SITEURL }}/{{ tag.url }}">{% endblock %}
+{% block content %}
+<h1 class="page-title">{% include "icons/tag.svg" %} {{ tag.name }}</h1>
+<p class="page-lead"><span class="num">{{ articles | length }}</span> entrada{% if articles | length != 1 %}s{% endif %} con esta etiqueta, de la más reciente a la más antigua.<br><a href="{{ SITEURL }}/blog/buscar/?tag={{ tag.name | urlencode }}">Buscar dentro de ellas</a>, o <a href="{{ SITEURL }}/blog/etiquetas/">todas las etiquetas</a>.</p>
+{% with posts = articles, divider = "short" %}{% include "post_list.html" %}{% endwith %}
+{% endblock %}

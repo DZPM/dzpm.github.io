@@ -1,0 +1,7 @@
+# davidarcos.net, todas las entradas
+
+> Una línea por entrada, de la más reciente a la más antigua: fecha, título, dirección, etiquetas y un resumen. La versión corta, con lo que es el sitio, está en https://davidarcos.net/llms.txt
+
+{% for article in articles %}
+- {{ article.date.date().isoformat() }} | {{ article.title | striptags }} | {{ SITEURL }}/{{ article.url }} | {% for tag in article.tags %}{{ tag.name }}{% if not loop.last %}, {% endif %}{% endfor %} | {{ (article.summary or article.excerpt) | striptags }}
+{% endfor %}

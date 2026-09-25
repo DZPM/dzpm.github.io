@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block title %}Hic sunt trolls | {{ AUTHOR }}{% endblock %}
+{% block description %}Esa página no existe. Buscamos algo parecido.{% endblock %}
+{% block robots %}<meta name="robots" content="noindex">{% endblock %}
+{% block og_url %}{% endblock %}
+{% block body_attrs %} data-search="404"{% endblock %}
+{% block content %}
+<h1 class="page-title">Esa página no existe</h1>
+<p>Te has salido del mapa. <span lang="la">Hic sunt trolls.</span> Buscamos algo parecido a la dirección que has escrito; si no aparece, prueba en el <a href="{{ SITEURL }}/blog/">blog</a>, <a href="{{ SITEURL }}/blog/buscar/">busca</a>, o mira el mapa del sitio en <a href="{{ SITEURL }}/sobre-el-blog/#mapa">Sobre el blog</a>.</p>
+<form class="search-form" id="search-form" action="{{ SITEURL }}/blog/buscar/" method="get" role="search">
+  <label for="q" class="visually-hidden">Buscar</label>
+  <input type="search" id="q" name="q" placeholder="Buscar en el blog" enterkeyhint="search">
+  <button type="submit">Buscar</button>
+</form>
+<noscript><p class="search-status">La búsqueda necesita JavaScript. Sin él, <a href="{{ SITEURL }}/blog/">el blog</a> lista todas las entradas, y <a href="{{ SITEURL }}/blog/etiquetas/">las etiquetas</a> las agrupan por tema.</p></noscript>
+<p class="search-status" id="search-status" aria-live="polite"></p>
+<ol class="search-results" id="search-results"></ol>
+<script type="module" src="{{ SITEURL }}/theme/js/search.js?v={{ ASSET_VERSION }}"></script>
+{% endblock %}
