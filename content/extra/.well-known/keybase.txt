@@ -1,0 +1,71 @@
+==================================================================
+https://keybase.io/DavidArcos
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of http://davidarcos.net
+  * I am DavidArcos (https://keybase.io/DavidArcos) on keybase.
+  * I have a public key with fingerprint 22D4 88F4 6C90 8EDE 33D3  83D7 C77A 3FF4 B7FB AD91
+
+To claim this, I am signing this object:
+
+{
+    "body": {
+        "key": {
+            "fingerprint": "22d488f46c908ede33d383d7c77a3ff4b7fbad91",
+            "host": "keybase.io",
+            "key_id": "C77A3FF4B7FBAD91",
+            "uid": "2afe1f72c38a7b202f1e24152df89f00",
+            "username": "DavidArcos"
+        },
+        "service": {
+            "hostname": "davidarcos.net",
+            "protocol": "http:"
+        },
+        "type": "web_service_binding",
+        "version": 1
+    },
+    "ctime": 1395919067,
+    "expire_in": 157680000,
+    "prev": "8aba5bbad7f1bd33715d22ccdabbd741e572d2f8feb0b227c602a4e4c0569705",
+    "seqno": 6,
+    "tag": "signature"
+}
+
+with the aforementioned key, yielding the PGP signature:
+
+-----BEGIN PGP MESSAGE-----
+Version: GnuPG v1.4.11 (GNU/Linux)
+
+owGbwMvMwMR4vMr+y/bfaycynj7wNYkh2ITjdrVSUn5KpZJVtVJ2KphKy8xLTy0q
+KMrMK1GyUjIySjGxsEgzMUu2NLBITUk1Nk4xtjBOMU82N080TkszSTJPS0pMsTRU
+0lHKyC8G6QAak5RYnKqXmQ8UA3LiM1OAos7m5o7Gbm4mTuZuTo4uYPWlYAmjxLRU
+wzRzo2Rji0TzJCMDozTDVCMTQ1OjlDQLyzQDA5DC4tSivMTcVKBql8SyzBTHouT8
+YqVaHSWgeFlmcirI1SDLoWpSQGoSQWr08lJLgPoLivJL8pPzc4ByGSUlBVYgrSWV
+BSC15alJ8VBT4pMy81KAfgdqKEstKs7Mz1OyMgSqTC7JBBlraGxpamloaWBmrqOU
+WlGQWZQanwlSYWpuZmEABCBrUsuARlokJiWaJgEDxTzNMCnF2Njc0DTFyCg5OSUx
+KSnF3MQw1dTcKMUozSItNckgycjIPNnMwCjRJNUk2cDUzNLcwFQJ5K/CvHwlKzOg
+MxPTgUYWZ6bnJZaUFqUq1XYyybAwMDIxsLEygWKPgYtTABanLDoCDHMuHH+8M/fq
+Q9XLGsL8i/5pJtfIRt5je3D4QqiPxIvb1cd8H26++eObTUH94WbxhDsnry9zi2tq
+45/5tyRi4pxTUleyf/QEMJV9uBr1prZpdbqzk8ZWlz3JSxNqJPetLDjkl1RpV34z
+cZ55m1j4siuxGaL+m1nX9NiHZ50/tNHte1vkMWcb5Xl56xnEk/TTl+RIVisVmtyb
+q6e+e4vxK6V3j6fdVXvnfemo5mXG/J3/etfY+E5Y8fTw3HlrPk81OrNma47q+l9X
+txXryhqdV99xIErQzt7syPbs7C75va/iBVheHFFOV5rgO+WrozizhZrML1lGjp5b
+S2OPKSlsW/95r+bO9NPNfKqz3q/zY29esfpmlPVrtnYb3d9Pl6TZqrWYMRdOCvoZ
+dj7VqXvRjkUZUk+ePE+ZUez4Rvj8ZknpmmLLSwqXuJVuFjSoFZT+79ns4J2hbXHh
+1L2PukenV5o8m22XX7Htxau5ZbPuS3Mre9Xdb7jf+l9YmyPhaX5XmknZjpk38q4X
+F0hItH64L2W8geX/boUl89ffPBTrePTBY96JB7fP3W3x7ijj4bCSK7F5sr1rdLU6
+4vd4dnekaK9fn3SrW+zp9rVGwR0uL1asmPllz6kJ30U2crxN2+e9JiLW1Gnm/d/p
+dhnxCw9uucpgFPwtTbxEwGrj1vlKm67477/M/WPWhEUFyUZJH2o1riaFl56fv+XD
+Jc7ST58B
+=4yyS
+-----END PGP MESSAGE-----
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/DavidArcos
+
+==================================================================
+
