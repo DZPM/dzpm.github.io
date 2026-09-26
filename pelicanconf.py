@@ -15,7 +15,7 @@ AUTHOR = "David Arcos"
 SITENAME = "David Arcos"
 SITESUBTITLE = "Hic sunt trolls"
 SITEURL = ""
-SITEDESCRIPTION = "Charlas, vídeos y artículos de David Arcos, y el archivo del blog."
+SITEDESCRIPTION = "Hic sunt trolls: charlas, vídeos y artículos de David Arcos, desde 2006"
 
 PATH = "content"
 ARTICLE_PATHS = ["posts"]

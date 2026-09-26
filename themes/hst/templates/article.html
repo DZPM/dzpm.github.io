@@ -15,7 +15,6 @@
 {% for tag in article.tags %}<meta property="article:tag" content="{{ tag | e }}">
 {% endfor %}
 {% endblock %}
-{% block twitter_card %}summary_large_image{% endblock %}
 {% block content %}
 {% include "post_body.html" %}
 {% endblock %}
