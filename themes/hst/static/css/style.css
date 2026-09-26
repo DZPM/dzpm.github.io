@@ -6,34 +6,34 @@
 @font-face { font-family: "Inter"; font-style: normal; font-weight: 100 900; font-display: fallback; src: url("../fonts/inter-latin.woff2") format("woff2"); }
 @font-face { font-family: "Fira Code"; font-style: normal; font-weight: 300 700; font-display: fallback; src: url("../fonts/fira-code-latin.woff2") format("woff2"); }
 
-/* the ground. Every token holds its light and its dark value in light-dark(); which one applies follows color-scheme:
+/* the ground. :root holds the light value of every token, and the dark values follow below it. Which set applies follows
    the reader's browser by default, or the value the switch in the header sets on <html data-theme> */
 :root {
   color-scheme: light dark;
   /* the wardrobe: black jeans, a red or a blue plaid shirt; and the troll: brown and moss. Every colour on the site derives from these */
   --jeans: #232321;
-  --red: light-dark(#b8322f, #e5776f);
-  --blue: light-dark(#2f5f8f, #8ab4e6);
-  --brown: light-dark(#6f4e2c, #b3926b);
-  --moss: light-dark(#5f6b3b, #a3b06e);
+  --red: #b8322f;
+  --blue: #2f5f8f;
+  --brown: #6f4e2c;
+  --moss: #5f6b3b;
   /* light: a soft warm grey, not white, easier on the eyes over a long read; dark: the jeans, a shade darker */
-  --bg: light-dark(#e8e6e0, #1a1917);             /* a warm grey, a step darker than paper, so the light mode does not glare */
-  --bg-2: light-dark(#dedbd3, #1f1e1b);           /* the bottom of the page gradient */
-  --fg: light-dark(var(--jeans), #e9e6df);
-  --muted: light-dark(#66665f, #a3a39c);
-  --line: light-dark(#cbc9c0, #302f2b);
+  --bg: #e8e6e0;             /* a warm grey, a step darker than paper, so the light mode does not glare */
+  --bg-2: #dedbd3;           /* the bottom of the page gradient */
+  --fg: var(--jeans);
+  --muted: #66665f;
+  --line: #cbc9c0;
   --accent: var(--red);      /* links, hovers, focus, dates: everything that answers the reader */
   --accent-2: var(--blue);   /* the signature: the big years and the rule of a quote */
-  --accent-fg: light-dark(#ffffff, #0f1b2e);
-  --card: light-dark(#dddbd3, #252420);
-  --banner-bg: light-dark(color-mix(in oklab, var(--brown) 10%, var(--bg)), color-mix(in oklab, var(--brown) 16%, var(--bg)));
-  --banner-fg: light-dark(#4a3620, #e8d9c4);
-  --tag-bg: light-dark(color-mix(in oklab, var(--moss) 14%, var(--bg)), color-mix(in oklab, var(--moss) 18%, var(--bg)));
-  --badge: light-dark(#bf4f18, #ee6f27);        /* the menéame orange, darkened to AA on the light ground */
-  --badge-ink: light-dark(#a84512, #ee6f27);    /* the same orange as small text (the marks): AA at 0.9rem */
-  --badge-fg: light-dark(#ffffff, #1a1208);
-  --badge-hover: light-dark(#a84512, #f58a4a);
-  --line-strong: light-dark(#8d8d85, #6e6e67);
+  --accent-fg: #ffffff;
+  --card: #dddbd3;
+  --banner-bg: color-mix(in oklab, var(--brown) 10%, var(--bg));
+  --banner-fg: #4a3620;
+  --tag-bg: color-mix(in oklab, var(--moss) 14%, var(--bg));
+  --badge: #bf4f18;        /* the menéame orange, darkened to AA on the light ground */
+  --badge-ink: #a84512;    /* the same orange as small text (the marks): AA at 0.9rem */
+  --badge-fg: #ffffff;
+  --badge-hover: #a84512;
+  --line-strong: #8d8d85;
   --rule: color-mix(in oklab, var(--accent-2) 35%, var(--line));   /* the separators between things: the line with a touch of blue */
   --rule-strong: color-mix(in oklab, var(--accent-2) 55%, var(--line));   /* the left rule of a quoted thing: a comment, a mention, a mark's border */
   --date-size: 0.85rem;      /* every date, month, day and count, one size */
@@ -46,7 +46,55 @@
   --mono: "Fira Code", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;                  /* years, dates, marks, code */
 }
 :root[data-theme="light"] { color-scheme: light; }
-:root[data-theme="dark"] { color-scheme: dark; }
+/* the dark ground. The tokens switch by attribute, like the switch's icon: theme.js sets data-theme, and an attribute
+   selector applies in every browser. A token that only held light-dark() followed color-scheme, and on a phone the
+   palette did not follow a change of color-scheme made after the page loaded, while the icon did. The same list twice:
+   for the switch, and for the system's dark mode when no script runs. Change both together */
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --red: #e5776f;
+  --blue: #8ab4e6;
+  --brown: #b3926b;
+  --moss: #a3b06e;
+  --bg: #1a1917;
+  --bg-2: #1f1e1b;
+  --fg: #e9e6df;
+  --muted: #a3a39c;
+  --line: #302f2b;
+  --accent-fg: #0f1b2e;
+  --card: #252420;
+  --banner-bg: color-mix(in oklab, var(--brown) 16%, var(--bg));
+  --banner-fg: #e8d9c4;
+  --tag-bg: color-mix(in oklab, var(--moss) 18%, var(--bg));
+  --badge: #ee6f27;
+  --badge-ink: #ee6f27;
+  --badge-fg: #1a1208;
+  --badge-hover: #f58a4a;
+  --line-strong: #6e6e67;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --red: #e5776f;
+    --blue: #8ab4e6;
+    --brown: #b3926b;
+    --moss: #a3b06e;
+    --bg: #1a1917;
+    --bg-2: #1f1e1b;
+    --fg: #e9e6df;
+    --muted: #a3a39c;
+    --line: #302f2b;
+    --accent-fg: #0f1b2e;
+    --card: #252420;
+    --banner-bg: color-mix(in oklab, var(--brown) 16%, var(--bg));
+    --banner-fg: #e8d9c4;
+    --tag-bg: color-mix(in oklab, var(--moss) 18%, var(--bg));
+    --badge: #ee6f27;
+    --badge-ink: #ee6f27;
+    --badge-fg: #1a1208;
+    --badge-hover: #f58a4a;
+    --line-strong: #6e6e67;
+  }
+}
 
 * { box-sizing: border-box; }
 html { font-synthesis: none; font-size: 106.25%; line-height: 1.6; font-family: var(--font); background: var(--bg); color: var(--fg); -webkit-text-size-adjust: 100%; }
@@ -71,25 +119,30 @@ blockquote p { margin: 0.5rem 0; }
 .site-main, .site-footer-inner { width: min(100% - 2rem, var(--measure)); margin-inline: auto; }
 .site-header { border-bottom: 2px solid var(--rule); }
 .site-header-inner { width: min(100% - 2rem, var(--measure)); margin-inline: auto; padding: 1.5rem 0 0; }
-/* the header follows the reader. theme.js measures it (--header-h), keeps its place with the spacer, and sets html.is-scrolled once the
+/* the header follows the reader, on every width. theme.js measures it (--header-h), keeps its place with the spacer, and sets html.is-scrolled once the
    page has moved past the sentinel: then it is fixed at the top and folds into one row, the face small, the name and the motto side by
    side, the search and the switch; the sections wait upstairs. Out of the flow, so nothing below it moves when it folds */
 .scroll-sentinel { position: absolute; top: 5rem; height: 1px; width: 1px; }
-@media (min-width: 40rem) {
-  .js-header .site-header-space { height: var(--header-h, 9.5rem); }
-  .js-header .site-header { position: fixed; top: 0; left: 0; right: 0; z-index: 10; background: color-mix(in oklab, var(--bg) 92%, transparent); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); }
-  .site-header-inner { transition: padding 0.25s ease; }
-  .site-avatar img, .site-title { transition: width 0.25s ease, height 0.25s ease, font-size 0.25s ease; }
-  .is-scrolled .site-header-inner { display: flex; align-items: center; gap: 1.25rem; padding: 0.4rem 0; }
-  .is-scrolled .site-brand { margin: 0; flex: 0 0 auto; gap: 0.6rem; }
-  .is-scrolled .site-brand > div { display: flex; align-items: baseline; gap: 0.6rem; }
-  .is-scrolled .site-avatar img { width: 2rem; height: 2rem; }
-  .is-scrolled .site-title { font-size: 1.15rem; }
-  .is-scrolled .site-tagline { margin: 0; font-size: 0.85rem; }
-  .is-scrolled .site-nav { flex: 1 1 auto; padding: 0; margin: 0; gap: 0.9rem; }
-  .is-scrolled .site-nav > a { display: none; }   /* folded: the name is the way home, the sections wait upstairs; the search and the switch stay */
-  .is-scrolled .nav-search input { width: 8rem; padding: 0.3rem 0.7rem; font-size: 0.9rem; }
-  .is-scrolled .nav-search input:focus { width: 12rem; }
+.js-header .site-header-space { height: var(--header-h, 9.5rem); }
+.js-header .site-header { position: fixed; top: 0; left: 0; right: 0; z-index: 10; background: color-mix(in oklab, var(--bg) 92%, transparent); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); }
+.site-header-inner { transition: padding 0.25s ease; }
+.site-avatar img, .site-title { transition: width 0.25s ease, height 0.25s ease, font-size 0.25s ease; }
+.is-scrolled .site-header-inner { display: flex; align-items: center; gap: 1.25rem; padding: 0.4rem 0; }
+.is-scrolled .site-brand { margin: 0; flex: 0 0 auto; gap: 0.6rem; }
+.is-scrolled .site-brand > div { display: flex; align-items: baseline; gap: 0.6rem; }
+.is-scrolled .site-avatar img { width: 2rem; height: 2rem; }
+.is-scrolled .site-title { font-size: 1.15rem; }
+.is-scrolled .site-tagline { margin: 0; font-size: 0.85rem; }
+.is-scrolled .site-nav { flex: 1 1 auto; justify-content: flex-end; padding: 0; margin: 0; gap: 0.9rem; }
+.is-scrolled .site-nav > a { display: none; }   /* folded: the name is the way home, the sections wait upstairs; the search and the switch stay */
+.is-scrolled .nav-search input { width: 8rem; padding: 0.3rem 0.7rem; font-size: 0.9rem; }
+.is-scrolled .nav-search input:focus { width: 12rem; }
+@media (max-width: 40rem) {   /* folded on a phone: the face, the name and what is left of the nav; the motto waits upstairs */
+  .is-scrolled .site-header-inner { gap: 0.75rem; }
+  .is-scrolled .site-tagline { display: none; }
+  .is-scrolled .site-nav { flex-wrap: nowrap; min-width: 0; }
+  .is-scrolled .nav-search { flex: 1 1 auto; min-width: 0; }
+  .is-scrolled .nav-search input, .is-scrolled .nav-search input:focus { width: 100%; font-size: 1rem; }   /* 16px or more: a phone does not zoom into the field */
 }
 @media (prefers-reduced-motion: reduce) { .site-header-inner, .site-avatar img, .site-title { transition: none; } }
 /* the seven mountains of Bergen close every page, under the footer: the edge of the map */
@@ -104,15 +157,21 @@ blockquote p { margin: 0.5rem 0; }
 .site-brand { display: flex; align-items: center; gap: 0.9rem; margin-bottom: 0.25rem; }   /* the face and the name, side by side: the site is a person */
 /* the menu row sticks to the top while the page scrolls (the face and the name scroll away), over the paper with a light blur */
 .comments, .comment, .archive-divider, .year-group, .mention, [id] { scroll-margin-top: 4rem; }   /* an anchor lands under the sticky header, not behind it */
-.site-avatar img { display: block; width: 3.75rem; height: 3.75rem; border-radius: 50%; object-fit: cover; box-shadow: 0 0 0 1px color-mix(in oklab, var(--fg) 15%, transparent); }
+.site-avatar img { display: block; width: 3.75rem; height: 3.75rem; border-radius: 50%; object-fit: cover; }
+.site-avatar { display: block; flex: 0 0 auto; border-radius: 50%; overflow: hidden; box-shadow: 0 0 0 1px color-mix(in oklab, var(--fg) 15%, transparent); }   /* the round frame: it carries the hairline ring and clips the photo when it comes closer */
+.site-avatar img { transition: width 0.25s ease, height 0.25s ease, transform 0.2s linear; }   /* the fold's resize and the zoom, together */
+@media (prefers-reduced-motion: no-preference) {   /* the photo comes closer inside its frame, as the Home's cards do; no motion when the reader asks for none */
+  .site-avatar:hover img, .site-brand:focus-within .site-avatar img { transform: scale(1.2); }   /* on hover, and when the name has the keyboard focus */
+  .site-brand:has(.site-title:hover) .site-avatar img { transform: scale(1.2); }   /* and with the pointer on the name: a rule of its own, so a browser with no :has() drops only this one */
+}
 .site-tagline { margin: 0.1rem 0 0; color: var(--muted); font-family: var(--mono); font-size: 0.95rem; }   /* the motto in the mono voice, like the nav */
 .motto { font-family: var(--mono); font-size: 0.95em; }   /* a motto quoted in the text (hic sunt dracones): the same voice as the tagline */
 .site-nav { display: flex; gap: 1.25rem; align-items: center; padding: 0.5rem 0 0.75rem; }
 .nav-search { margin-left: auto; }
-.nav-buscar { display: none; }   /* the search as a link: only on a phone, where the field would take a row of its own */
+.nav-buscar { display: none; }   /* the search as a link: for a page read with no stylesheet; styled, every width has the field */
 body.search .nav-search { visibility: hidden; }   /* the search page has its own field; the space stays so the header does not move */
 .nav-search input { font: inherit; font-size: 1rem; padding: 0.45rem 0.9rem; width: 13rem; max-width: 100%; border: 1px solid var(--line-strong); border-radius: 999px; background: var(--card); color: var(--fg); }
-@media (min-width: 40rem) { .nav-search input:focus { width: 20rem; } }   /* the field grows while it is used; on a phone it is a link */
+@media (min-width: 40rem) { .nav-search input:focus { width: 20rem; } }   /* the field grows while it is used; on a phone it fills its row */
 .site-nav a { color: var(--fg); text-decoration: none; font-family: var(--mono); font-size: 1.05rem; font-weight: 600; }
 .site-nav a:hover { color: var(--accent); }
 .site-nav a[aria-current="page"], .site-nav a.is-here { color: var(--accent-2); }   /* where you are (the page, or the section a post belongs to): a statement, so blue */
@@ -197,8 +256,8 @@ hr { border: 0; border-top: 2px solid var(--rule); margin: 1rem 0; }   /* a rule
   .card-title { font-size: 1.05rem; }
   .card-summary { display: none; }   /* the summary waits on the post; the row is title, kind and date */
   .site-nav { flex-wrap: wrap; gap: 0.75rem 1rem; }
-  .nav-search { display: none; }
-  .nav-buscar { display: inline; }
+  .nav-search { flex: 1 1 10rem; margin-left: 0; }   /* the field takes the row under the sections, the switch at its end */
+  .nav-search input { width: 100%; }
 }
 
 /* blog: the portfolio first, the home's timeline with a small cover and no summary; then the archive as an index */
@@ -445,11 +504,15 @@ a.mark:hover { color: var(--accent); border-color: var(--accent); }
 .card:focus-within, .year-item-text:focus-within, .search-results li:focus-within { outline: 2px solid var(--accent); outline-offset: 2px; }
 
 /* skip link: only visible when it has focus */
-.skip { position: absolute; left: -999px; top: 1rem; z-index: 10; padding: 0.5rem 0.75rem; background: var(--accent); color: var(--accent-fg); border-radius: 6px; text-decoration: none; }
-.skip:focus { left: 1rem; }
+.skip { position: absolute; left: -999px; top: 1rem; z-index: 20; padding: 0.5rem 0.75rem; background: var(--accent); color: var(--accent-fg); border-radius: 6px; text-decoration: none; }
+.skip:focus { left: 1rem; }   /* over the fixed header (z-index 10), which comes after it in the page */
 
 /* footer: the icons wrap into a narrow block on a phone */
-@media (max-width: 40rem) { .social { max-width: 15rem; margin-inline: auto; } }
+@media (max-width: 40rem) {   /* on a phone the eleven icons make two rows, six and five, centred: the row is as wide as six 44px targets
+   and five 0.2rem gaps (281px), which fits the column from a 320px screen up (286px) */
+  .social { max-width: calc(6 * 44px + 5 * 0.2rem); gap: 0.2rem; margin-inline: auto; }
+  .social a { min-width: 44px; min-height: 44px; justify-content: center; align-items: center; }
+}
 
 .print-url { display: none; }
 /* print: paper, black ink, the page's address under the name, links with their address, the embeds as their address, no chrome */
@@ -465,6 +528,7 @@ a.mark:hover { color: var(--accent); border-color: var(--accent); }
   .site-brand { gap: 0.6rem; }
   .site-brand > div { display: flex; align-items: baseline; gap: 0.6rem; }
   .site-avatar img { width: 1cm; height: 1cm; box-shadow: none; border: 1px solid #999; }
+  .site-avatar { box-shadow: none; }
   .site-title { font-size: 14pt; }
   .site-tagline { font-size: 9pt; }
   .site-header-inner, .site-main, .site-footer-inner { width: auto; }
