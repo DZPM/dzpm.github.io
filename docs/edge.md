@@ -102,7 +102,7 @@ The rule is created in the dashboard: the scoped token has no Transform Rules pe
 
 ## Cutover, in order
 
-The cutover ran on 2026-09-26, from 00:20 to 00:40 (Barcelona): the domain now serves the static site, the old server is still on as the way back.
+The cutover ran on 2026-09-26, from 00:20 to 00:40 (Barcelona): the domain now serves the static site, the old server is kept, powered off, as the way back (step 7).
 
 1. Push `main`; the workflow deploys to `https://dzpm.github.io/`. Test there: search (the Content-Security-Policy), fonts, a redirect stub, the feed, a tag page, a shared link preview.
 2. Add `content/extra/CNAME` (one line, `davidarcos.net`) and the domain in the Pages settings; add the TXT record GitHub asks for.
