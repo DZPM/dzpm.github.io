@@ -17,42 +17,43 @@
             {% if peek_img %}<div class="peek-cover"><img src="{{ peek_img }}"{% if article.peek_size[0] %} width="{{ article.peek_size[0] }}" height="{{ article.peek_size[1] }}"{% endif %} alt="" loading="lazy"></div>{% endif %}
           </div>
 {%- endmacro %}
+{# lists, not divs: each year of talks is ol > li with an article per card, each year of notes or archive is a list of months, and each month a list of posts. A reader mode (Readability) drops a div of short, linky entries and every aside, and keeps lists and articles; a screen reader reads the same structure #}
 {% set portfolio = posts | selectattr("section", "equalto", "portfolio") | list %}
 {% if portfolio %}
 <section class="timeline featured" aria-label="Charlas y artículos">
 {% for year, items in portfolio | groupby("date.year") | reverse %}
   <div class="year-row">
     <div class="year-big" aria-hidden="true">{{ year }}</div>
-    <div class="year-cards">
+    <ol class="year-cards">
     {% for article in items %}
-      <article class="card card-small">
+      <li class="card card-small">
         <div class="card-cover{% if not article.cover %} is-empty{% endif %}" aria-hidden="true">
           {% if article.cover %}<img src="{{ article.cover_card_url or article.cover_url }}"{% if article.cover_card_url %} srcset="{{ article.cover_card_url }} 480w, {{ article.cover_url }} {{ article.cover_width }}w" sizes="(max-width: 40rem) 6rem, 7rem"{% endif %}{% if article.card_size[0] %} width="{{ article.card_size[0] }}" height="{{ article.card_size[1] }}"{% endif %} alt="" loading="lazy">{% endif %}
         </div>
-        <div class="card-body">
+        <article class="card-body">
           <h2 class="card-title"><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></h2>
           <p class="card-date">{% if article.kind %}<span class="card-kind"><span aria-hidden="true">{{ article.kind_emoji }}</span> {{ article.kind_label }}</span> <span class="card-del">del</span> {% endif %}<time datetime="{{ article.date.isoformat() }}">{{ article.date | fecha_es }}</time></p>
-        </div>
+        </article>
         {{ peek(article) }}
-      </article>
+      </li>
     {% endfor %}
-    </div>
+    </ol>
   </div>
 {% endfor %}
 </section>
 {% endif %}
 {% set notes = posts | selectattr("section", "equalto", "notes") | list %}
 {% if notes %}
-<aside class="archive-divider notes-divider" id="notas">
+<div class="archive-divider notes-divider" id="notas">
   <h2>Notas</h2>
   <p>{{ notes | length }} nota{% if notes | length != 1 %}s{% endif %} cortas, escritas desde <span class="yr">2026</span>: lo que no es una charla ni un artículo.</p>
-</aside>
+</div>
 {% for year, items in notes | groupby("date.year") | reverse %}
 <section class="year-group" id="n{{ year }}">
   <h2 class="year">{{ year }}</h2>
-  <div class="month-groups">
+  <ol class="month-groups">
   {% for month, in_month in items | groupby("date.month") | reverse %}
-    <div class="month-group">
+    <li class="month-group">
       <h3 class="month">{{ month | mes_corto }}</h3>
       <ol class="year-list">
       {% for article in in_month %}
@@ -70,25 +71,25 @@
         </li>
       {% endfor %}
       </ol>
-    </div>
+    </li>
   {% endfor %}
-  </div>
+  </ol>
 </section>
 {% endfor %}
 {% endif %}
 {% set archive = posts | selectattr("section", "equalto", "archive") | list %}
 {% if archive %}
-<aside class="archive-divider" id="archivo">
+<div class="archive-divider" id="archivo">
   <h2>Archivo</h2>
   {% if divider == "full" %}<p>De aquí para abajo, la etapa personal del blog: {{ archive | length }} entradas entre <span class="yr">2006</span> y <span class="yr">2009</span>, con Erasmus, viajes, fotos y trolls. Se conservan como se publicaron, por nostalgia, con algunas líneas y fotos retiradas; algunos enlaces se han roto, y los comentarios y las opiniones son de su época.</p>{% else %}<p>{{ archive | length }} entrada{% if archive | length != 1 %}s{% endif %} de la etapa personal del blog, <span class="yr">2006</span> a <span class="yr">2009</span>.</p>{% endif %}
-</aside>
+</div>
 {% endif %}
 {% for year, items in archive | groupby("date.year") | reverse %}
 <section class="year-group archive" id="y{{ year }}">
   <h2 class="year">{{ year }}</h2>
-  <div class="month-groups">
+  <ol class="month-groups">
   {% for month, in_month in items | groupby("date.month") | reverse %}
-    <div class="month-group">
+    <li class="month-group">
       <h3 class="month">{{ month | mes_corto }}</h3>
       <ol class="year-list">
       {% for article in in_month %}
@@ -106,8 +107,8 @@
         </li>
       {% endfor %}
       </ol>
-    </div>
+    </li>
   {% endfor %}
-  </div>
+  </ol>
 </section>
 {% endfor %}
