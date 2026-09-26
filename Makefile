@@ -1,7 +1,7 @@
 PY = .venv/bin/python
 PELICAN = .venv/bin/pelican
 
-.PHONY: setup build search check serve clean publish
+.PHONY: setup build search check serve clean publish edge
 
 setup:            ## create the venv, install the pinned toolchain, enable the pre-commit hook
 	python3 -m venv .venv
@@ -28,6 +28,9 @@ check:            ## PII gate over the tree and the built site, the redirect stu
 	$(PY) tools/check_stubs.py output
 	$(PY) tools/check_links.py output
 	$(PY) tools/check_csp.py output
+
+edge:             ## check that GitHub Pages and Cloudflare serve the pushed commit (no purge; docs/adr/0010)
+	$(PY) tools/purge_edge.py --commit $$(git rev-parse origin/main) --check
 
 serve: build search   ## build, index and serve at http://127.0.0.1:8000
 	$(PY) tools/serve.py 8000

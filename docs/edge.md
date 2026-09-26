@@ -71,14 +71,17 @@ It covers `/feed/`, `/blog/feed/`, `/blog/feed/atom/`, `/blog/comments/feed/`, `
 
 ## Cache rules
 
-GitHub Pages sends `max-age=600` on every file. Two **Cache Rules** keep the static files longer (Rules, Cache Rules; created in the dashboard, the token has no Cache Rules permission):
+GitHub Pages sends `max-age=600` on every file. Three **Cache Rules** keep the files longer at the edge (Rules, Cache Rules; created in the dashboard, the token has no Cache Rules permission):
 
 | Name | Expression | Edge TTL | Browser TTL |
 |---|---|---|---|
+| `HTML, purged on deploy` | `http.host eq "davidarcos.net" and not starts_with(http.request.uri.path, "/theme/") and not starts_with(http.request.uri.path, "/images/")` | one week, ignore the origin | respect the origin (600 s) |
 | `Theme assets, one year` | `starts_with(http.request.uri.path, "/theme/")` | one year, ignore the origin | one year, override the origin |
 | `Images, one week` | `starts_with(http.request.uri.path, "/images/")` | one month, ignore the origin | one week, override the origin |
 
-A year is safe for `/theme/` only because every address under it that a page loads changes when its file changes: `style.css` and the scripts carry the commit (`ASSET_VERSION`), and the fonts and the theme images carry a hash of their content (`ASSET_HASH` in `pelicanconf.py`; the plugin gives the stylesheet's `url()` the same hash, so the preloaded font and the one the stylesheet asks for are one download). A new file under `/theme/` must be loaded the same way, or a change to it stays in the readers' browsers for a year. `/images/` gets a week and not a year because a post's image is sometimes replaced under the same name (a new crop); to show a replaced image at once, purge its address. `/pagefind/` has no rule: `pagefind.js` has no version in its address.
+The HTML rule (docs/adr/0010) is safe only because every deploy purges the cache and checks the result: after `actions/deploy-pages`, `tools/purge_edge.py` waits until GitHub Pages serves the new commit (asked directly, through its four addresses, not through Cloudflare), purges the whole zone, and fails the deploy if Cloudflare does not serve the same commit. Create the rule only after the first deploy that runs the purge, and set it "Eligible for cache". The token is a Cloudflare API token with one permission, Zone, Cache Purge, Purge, on `davidarcos.net` only, stored as the secret `CLOUDFLARE_PURGE_TOKEN` of the `github-pages` environment (deploys from `main` only), with the variable `CLOUDFLARE_ZONE_ID`; it expires after a year and a reminder says when. When the deploy is red at the purge step: run the job again; `make edge` checks the origin and the edge without a purge; the dashboard purges by hand (Caching, Configuration, Purge Everything).
+
+A year is safe for `/theme/` only because every address under it that a page loads changes when its file changes: `style.css` and the scripts carry the commit (`ASSET_VERSION`), and the fonts and the theme images carry a hash of their content (`ASSET_HASH` in `pelicanconf.py`; the plugin gives the stylesheet's `url()` the same hash, so the preloaded font and the one the stylesheet asks for are one download). A new file under `/theme/` must be loaded the same way, or a change to it stays in the readers' browsers for a year. `/images/` gets a week and not a year because a post's image is sometimes replaced under the same name (a new crop); to show a replaced image at once, purge its address. `/pagefind/` falls under the HTML rule, not a longer one: `pagefind.js` has no version in its address, and the purge on deploy renews it with the pages.
 
 ## Response headers
 

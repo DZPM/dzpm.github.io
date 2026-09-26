@@ -43,7 +43,7 @@ content/mentions/         one JSON file per post with pingbacks or trackbacks, p
 content/extra/            files served as they are: favicon, robots.txt, the Keybase proof, files/
 themes/hst/               the theme: templates, icons as inline SVG, style.css
 plugins/hst.py            embeds, section and cover derivation, redirect stubs, comment and mention loading, the years and the tag names in a text marked and linked at build time
-tools/                    the checks: the PII gate, the redirect stub check, the image metadata stripper
+tools/                    the checks: the PII gate, the redirect stub check, the image metadata stripper; and the edge purge the deploy runs
 ```
 
 ## Adding a post
