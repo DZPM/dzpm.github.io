@@ -2,7 +2,7 @@ Title: Diez años de "Hic sunt trolls"
 Date: 2016-07-05 11:47:49
 Slug: diez-anos-de-hic-sunt-trolls
 Tags: Meta, Troll, WordPress
-Summary: Décimo aniversario del blog, y una lanza a favor de mantener un WordPress propio.
+Summary: Décimo aniversario del blog, y una lanza a favor de mantener un WordPress propio, a pesar de las migraciones, los plugins rotos y alguna brecha.
 Kind: artículo
 Cover: diez-anos-de-hic-sunt-trolls.jpg
 Original_url: https://davidarcos.net/blog/2016/07/05/diez-anos-de-hic-sunt-trolls/

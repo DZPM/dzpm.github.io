@@ -2,11 +2,12 @@
 {% block title %}{{ page.title | striptags | e }} | {{ AUTHOR }}{% endblock %}
 {% block og_title %}{{ page.title | striptags | e }}{% endblock %}
 {% block description %}{{ (page.summary or SITEDESCRIPTION) | striptags | e }}{% endblock %}
+{% block og_image %}<meta property="og:image" content="{{ page.og_image or SITEURL ~ '/og.png' }}">{% endblock %}
 {% block canonical %}<link rel="canonical" href="{{ SITEURL }}/{{ page.url }}">{% endblock %}
 {% block robots %}<meta name="robots" content="{% if page.status == "hidden" %}noindex{% else %}max-image-preview:large{% endif %}">{% endblock %}
 {% block content %}
-<article class="post page">
-  <header class="post-header"><h1 class="post-title">{{ page.title }}</h1></header>
+<article class="post page" itemscope itemtype="https://schema.org/{{ page.schema_type }}"><link itemprop="url" href="{{ SITEURL }}/{{ page.url }}">{% if page.og_image %}<link itemprop="image" href="{{ page.og_image }}">{% endif %}<meta itemprop="inLanguage" content="es">{% if page.summary %}<meta itemprop="description" content="{{ page.summary | striptags | e }}">{% endif %}{% if page.schema_type == "ProfilePage" %}<span itemprop="mainEntity" itemscope itemtype="https://schema.org/Person"><meta itemprop="name" content="{{ AUTHOR }}"><link itemprop="url" href="{{ SITEURL }}/"></span>{% endif %}
+  <header class="post-header"><h1 class="post-title" itemprop="name">{{ page.title }}</h1></header>
   <div class="post-content">
     {{ page.content }}
   </div>

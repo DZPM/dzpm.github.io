@@ -3,6 +3,7 @@
 {% block og_title %}{{ AUTHOR }} | {{ SITESUBTITLE }}{% endblock %}
 {% block canonical %}<link rel="canonical" href="{{ SITEURL }}/">{% endblock %}
 {% block content %}
+<span itemscope itemtype="https://schema.org/WebSite"><link itemprop="url" href="{{ SITEURL }}/"><meta itemprop="name" content="{{ SITESUBTITLE }}"><meta itemprop="alternateName" content="{{ SITENAME }}"><meta itemprop="description" content="{{ SITEDESCRIPTION }}"><meta itemprop="inLanguage" content="es"></span>
 <section class="intro" itemscope itemtype="https://schema.org/Person" id="me">
 <meta itemprop="name" content="{{ AUTHOR }}"><link itemprop="url" href="{{ SITEURL }}/"><meta itemprop="jobTitle" content="Technology Executive">{% for name, url, icon, label in SOCIAL if icon != "pybcn" %}<link itemprop="sameAs" href="{{ url }}">{% endfor %}<span itemprop="address" itemscope itemtype="https://schema.org/PostalAddress"><meta itemprop="addressLocality" content="Barcelona"><meta itemprop="addressCountry" content="ES"></span>
 {{ page.content }}

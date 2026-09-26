@@ -2,7 +2,7 @@ Title: 'Quantum Problem Solving' en el CPS Live 2025
 Date: 2025-03-15 12:00
 Slug: quantum-problem-solving-cps-live-2025
 Tags: Quantum Computing, Problemas Complejos, Slides, Video, Estrategia, Madrid
-Summary: Qué problemas puede abordar la computación cuántica, cuáles no, y por qué no basta con más GPUs.
+Summary: Qué problemas puede abordar la computación cuántica, cuáles no, y por qué no basta con más GPUs: la complejidad computacional, sin hype y con evidencia.
 Kind: charla
 Cover: quantum-problem-solving-cps-live-2025.jpg
 

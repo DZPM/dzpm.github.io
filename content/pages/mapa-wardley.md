@@ -2,7 +2,7 @@ Title: El otro mapa
 Slug: mapa-de-wardley
 Status: hidden
 Template: page
-Summary: Un mapa de Wardley de este sitio: la cadena de valor de un blog, y veinte años de evolución.
+Summary: Un mapa de Wardley de este sitio: la cadena de valor de un blog, y veinte años de evolución, de WordPress en un VPS a Pelican en GitHub Pages.
 
 Un [mapa de Wardley](/blog/definiendo-estrategia-mapas-de-wardley/) de este sitio. Arriba, lo que ve el lector; abajo, lo que lo sostiene. A la izquierda, lo que en su día hubo que inventar; a la derecha, lo que hoy es commodity.
 

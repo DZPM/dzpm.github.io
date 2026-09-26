@@ -2,7 +2,7 @@ Title: 'Computación Cuántica: Realidades, Hype y Futuro' en Código Abierto
 Date: 2024-12-18 10:00
 Slug: computacion-cuantica-podcast-codigo-abierto
 Tags: Quantum Computing, Audio
-Summary: Computación cuántica sin adornos: qué es real hoy, qué es hype, y qué esperar en los próximos años.
+Summary: Computación cuántica sin adornos: qué es real hoy, qué es hype, y qué esperar en los próximos años, de las GPUs al MareNostrum y al invierno cuántico.
 Kind: podcast
 Cover: computacion-cuantica-podcast-codigo-abierto.jpg
 

@@ -1,7 +1,7 @@
 Title: Sobre el blog
 Slug: sobre-el-blog
 Template: sobre
-Summary: Cuándo se creó este blog, por dónde ha pasado, cómo funciona ahora, y el mapa del sitio.
+Summary: Cuándo se creó este blog, por dónde ha pasado, cómo funciona ahora, y el mapa del sitio: veinte años, del servidor de la UPC a GitHub Pages.
 
 **Hic sunt trolls** nace en julio de 2006, antes de [un Erasmus en Bergen](/blog/por-que-este-blog/) (Noruega).  
 En los mapas antiguos, donde se acaba lo conocido, ponían <span class="motto">hic sunt dracones</span>. En Noruega hay trolls.  

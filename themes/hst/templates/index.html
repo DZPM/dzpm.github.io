@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% from "marks.html" import media_marks, comment_mark, meneame_mark %}
 {% block title %}Blog | {{ AUTHOR }}{% endblock %}
-{% block description %}Todas las entradas de {{ SITENAME }}, por año.{% endblock %}
+{% block description %}Todas las entradas de {{ SITESUBTITLE }}, el blog de {{ AUTHOR }}, por año: las charlas y los artículos, las notas, y el archivo desde 2006.{% endblock %}
 {% block canonical %}<link rel="canonical" href="{{ SITEURL }}/blog/">{% endblock %}
 {% block content %}
 <h1 class="page-title">Blog</h1>

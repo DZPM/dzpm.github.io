@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="color-scheme" content="light dark">
 <meta name="theme-color" content="#e8e6e0" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#161615" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#1a1917" media="(prefers-color-scheme: dark)">
 <script src="{{ SITEURL }}/theme/js/theme.js?v={{ ASSET_VERSION }}"></script>
 <title>{% block title %}{{ SITESUBTITLE }} | {{ AUTHOR }}{% endblock %}</title>
 <meta name="description" content="{% block description %}{{ SITEDESCRIPTION }}{% endblock %}">
@@ -21,8 +21,17 @@
 {% block og_url %}<meta property="og:url" content="{{ SITEURL }}/{{ output_file | replace("index.html", "") }}">{% endblock %}
 <meta property="og:description" content="{{ self.description() }}">
 {% block og %}<meta property="og:type" content="website">{% endblock %}
+{#- the share card: a post's or a page's own (plugins/hst.py, og_card), or og.png for the home and the lists. Both are 1200x630 -#}
+{%- set share = article if article is defined and article.og_image is defined else (page if page is defined and page.og_image is defined else none) %}
 {% block og_image %}<meta property="og:image" content="{{ SITEURL }}/og.png">{% endblock %}
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:type" content="{{ share.og_image_type if share else 'image/png' }}">
+<meta property="og:image:alt" content="{{ (share.og_image_alt if share else OG_IMAGE_ALT) | e }}">
+<meta name="twitter:image:alt" content="{{ (share.og_image_alt if share else OG_IMAGE_ALT) | e }}">
 <meta name="twitter:card" content="{% block twitter_card %}summary_large_image{% endblock %}">
+<meta name="twitter:site" content="{{ X_HANDLE }}">
+<meta name="twitter:creator" content="{{ X_HANDLE }}">
 <link rel="alternate" type="application/atom+xml" title="{{ SITENAME }}" href="{{ SITEURL }}/{{ FEED_ATOM_URL }}">
 <link rel="icon" href="{{ SITEURL }}/icon-32.png" sizes="32x32">
 <link rel="icon" href="{{ SITEURL }}/icon-192.png" sizes="192x192">

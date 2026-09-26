@@ -2,7 +2,7 @@ Title: Entrevista en ScannerFM
 Date: 2015-06-20 13:37:51
 Slug: entrevista-en-scannerfm
 Tags: Audio, Barcelona, Immfly, ScannerFM
-Summary: En el programa Mayday de ScannerFM, sobre el wifi de a bordo de Immfly y su intranet.
+Summary: En el programa Mayday de ScannerFM, sobre el wifi de a bordo de Immfly y su intranet: la información del vuelo y del destino, desde el móvil.
 Kind: entrevista
 Cover: entrevista-en-scannerfm.jpg
 Original_url: https://davidarcos.net/blog/2015/06/20/entrevista-en-scannerfm/

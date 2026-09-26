@@ -2,7 +2,7 @@ Title: 'Does Django scale? Introducción a la escalabilidad' en el PyBCN Meetup
 Date: 2019-05-06 07:59:50
 Slug: does-django-scale-pybcn
 Tags: Barcelona, Django, Lead Ratings, Python, Python Barcelona, Slides, Software Libre, Video
-Summary: Qué es la escalabilidad y cómo conseguirla en una aplicación web, con Django como ejemplo.
+Summary: Qué es la escalabilidad y cómo conseguirla en una aplicación web, con Django como ejemplo: la versión breve de Efficient Django, con vídeo y slides.
 Kind: charla
 Cover: does-django-scale-pybcn.jpg
 Original_url: https://davidarcos.net/blog/2019/05/06/does-django-scale-pybcn/

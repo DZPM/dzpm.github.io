@@ -2,7 +2,7 @@ Title: 'Security for Data Scientists' en la PyDataBCN 2017
 Date: 2017-07-10 18:00:07
 Slug: security-for-data-scientists-pydatabcn-2017
 Tags: Barcelona, Data Science, ESADE, Lead Ratings, Python Barcelona, Python, Seguridad, Slides, Software Libre, Video
-Summary: Closing keynote: los riesgos de seguridad de los data scientists, ataques reales y cómo defenderse.
+Summary: Closing keynote: los riesgos de seguridad de los data scientists, ataques reales y cómo defenderse, en la PyDataBCN que ayudé a organizar.
 Kind: charla
 Cover: security-for-data-scientists-pydatabcn-2017.jpg
 Original_url: https://davidarcos.net/blog/2017/07/10/security-for-data-scientists-pydatabcn-2017/

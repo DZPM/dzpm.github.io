@@ -1,20 +1,21 @@
 {% from "marks.html" import media_marks, comment_mark, meneame_mark %}
 {% set sfx = sfx | default("") %}
 <article class="post {{ article.section }}"{% if not sfx %} data-pagefind-body{% endif %} itemscope itemtype="https://schema.org/BlogPosting">
-  {% if article.modified %}<meta itemprop="dateModified" content="{{ article.modified.isoformat() }}">{% endif %}<span itemprop="author" itemscope itemtype="https://schema.org/Person"><meta itemprop="name" content="{{ AUTHOR }}"><link itemprop="url" href="{{ SITEURL }}/"></span>
+  {# schema.org microdata (docs/adr/0004: no JSON-LD, a <script>): meta and link only for what the page does not show #}
+  {% if article.modified %}<meta itemprop="dateModified" content="{{ article.modified.isoformat() }}">{% endif %}<link itemprop="mainEntityOfPage" href="{{ SITEURL }}/{{ article.url }}"><link itemprop="image" href="{{ article.og_image }}"><meta itemprop="inLanguage" content="es"><meta itemprop="articleSection" content="{{ SECTION_NAMES[article.section] }}">{% if not (article.section == "portfolio" and article.summary) %}<meta itemprop="description" content="{{ (article.summary or article.excerpt) | striptags | e }}">{% endif %}<span itemprop="author" itemscope itemtype="https://schema.org/Person"><meta itemprop="name" content="{{ AUTHOR }}"><link itemprop="url" href="{{ SITEURL }}/"></span>
   <span data-pagefind-meta="clase:{{ article.kind_label }}"></span><span data-pagefind-meta="emoji:{{ article.kind_emoji }}"></span><span data-pagefind-meta="seccion:{{ article.section }}"></span><span data-pagefind-meta="meneos:{{ article.meneame_meneos or 0 }}"></span><span data-pagefind-meta="comentarios:{{ article.comments | length }}"></span><span data-pagefind-meta="fotos:{{ article.media['fotos'] }}"></span><span data-pagefind-meta="videos:{{ article.media['vídeos'] }}"></span><span data-pagefind-meta="presentaciones:{{ article.media['presentaciones'] }}"></span><span data-pagefind-meta="audios:{{ article.media['audios'] }}"></span><span data-pagefind-meta="menciones:{{ article.media['menciones'] }}"></span>
   <header class="post-header">
     <p class="print-url" aria-hidden="true">davidarcos.net/{{ article.url }}</p>
     <h1 class="post-title" itemprop="headline">{{ article.title }}</h1>
     <p class="post-meta">
       <span class="post-kind" data-pagefind-ignore><span aria-hidden="true">{{ article.kind_emoji }}</span> {{ article.kind_label }} <span class="card-del">del</span></span>
-      <time datetime="{{ article.date.isoformat() }}" itemprop="datePublished" data-pagefind-sort="date[datetime]" data-pagefind-meta="date[datetime]" data-pagefind-ignore>{{ article.date | fecha_es }}</time>
+      <time datetime="{{ article.date.isoformat() }}" itemprop="datePublished{% if not article.modified %} dateModified{% endif %}" data-pagefind-sort="date[datetime]" data-pagefind-meta="date[datetime]" data-pagefind-ignore>{{ article.date | fecha_es }}</time>
       <span data-pagefind-ignore>
       {{ comment_mark(article, "#comentarios", full=true) }}
       {{ media_marks(article, full=true, mentions_href="#menciones") }}
       </span>
     </p>
-    {% if article.section == "portfolio" and article.summary %}<p class="post-lead"><abbr class="tldr" title="Resumen">TL;DR:</abbr> {{ article.summary | yr }}</p>{% endif %}
+    {% if article.section == "portfolio" and article.summary %}<p class="post-lead"><abbr class="tldr" title="Resumen">TL;DR:</abbr> <span itemprop="description">{{ article.summary | yr }}</span></p>{% endif %}
     {% if article.tags %}
     <div class="tags" data-pagefind-ignore>
       <a class="tags-label" href="{{ SITEURL }}/blog/etiquetas/" title="Todas las etiquetas">Etiquetas:</a>

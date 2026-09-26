@@ -3,6 +3,7 @@ Date: 2006-08-29 23:59:15
 Slug: hoy-he-cenado
 Tags: Cocina, Erasmus, Fotos
 Original_url: https://davidarcos.net/blog/2006/08/29/hoy-he-cenado/
+Summary: ¡Pisto manchego! (y estaba buenísimo). Una cena casera de mis primeras semanas de Erasmus en Bergen, en agosto de 2006, con su foto.
 
 ¡Pisto manchego!
 

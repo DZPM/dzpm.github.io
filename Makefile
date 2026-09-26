@@ -22,12 +22,13 @@ search:           ## build the search index over output/
 indexnow:         ## tell Bing, Yandex and the rest which pages exist (after a deploy)
 	$(PY) tools/indexnow.py
 
-check:            ## PII gate over the tree and the built site, the redirect stubs, the links, and the frames against the CSP
+check:            ## PII gate over the tree and the built site, the redirect stubs, the links, the frames against the CSP, and the share tags
 	$(PY) tools/pii_gate.py --tree
 	$(PY) tools/pii_gate.py --output output
 	$(PY) tools/check_stubs.py output
 	$(PY) tools/check_links.py output
 	$(PY) tools/check_csp.py output
+	$(PY) tools/check_meta.py output
 
 edge:             ## check that GitHub Pages and Cloudflare serve the pushed commit (no purge; docs/adr/0010)
 	$(PY) tools/purge_edge.py --commit $$(git rev-parse origin/main) --check

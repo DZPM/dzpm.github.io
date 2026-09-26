@@ -2,7 +2,7 @@ Title: 'Python Barcelona: Mapping a developer organisation' en la Map Camp 2021
 Date: 2021-12-24 11:23:04
 Slug: python-barcelona-wardley-maps
 Tags: Estrategia, Wardley Maps, Python, Python Barcelona, Slides, Software Libre, Video
-Summary: Con Rubén Berenguel: un Wardley Map de cómo funciona Python Barcelona y hacia dónde va.
+Summary: Con Rubén Berenguel: un Wardley Map de cómo funciona Python Barcelona y hacia dónde va, de meetup nacido en 2008 a asociación con más de 40 socios.
 Kind: charla
 Cover: python-barcelona-wardley-maps.png
 Original_url: https://davidarcos.net/blog/2021/12/24/python-barcelona-wardley-maps/

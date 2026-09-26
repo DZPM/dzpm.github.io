@@ -2,7 +2,7 @@ Title: 'Python in the Sky' en la EuroPython 2015
 Date: 2015-08-17 10:00:34
 Slug: python-in-the-sky-europython-2015
 Tags: Django, EuroPython, Immfly, Python, Slides, Software Libre, Video
-Summary: El entretenimiento a bordo de Immfly, en Python, y los imprevistos del software a 10.000 metros.
+Summary: El entretenimiento a bordo de Immfly, en Python: los requisitos, las decisiones de arquitectura, y los imprevistos del software a 10.000 metros.
 Kind: charla
 Cover: python-in-the-sky-europython-2015.jpg
 Original_url: https://davidarcos.net/blog/2015/08/17/python-in-the-sky-europython-2015/

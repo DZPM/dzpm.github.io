@@ -2,7 +2,7 @@ Title: 'Python on a Plane' en la PyConES 2014
 Date: 2014-11-09 18:00:00
 Slug: python-on-a-plane-pycones-2014
 Tags: Django, Immfly, PyConES, Python, Slides, Software Libre, Video
-Summary: Los retos de montar la plataforma de Immfly: del avión al hangar, y la integración con terceros.
+Summary: Los retos de montar la plataforma de Immfly: el sistema offline a bordo, la sincronización del avión al hangar, y la integración con terceros.
 Kind: charla
 Cover: python-on-a-plane-pycones-2014.jpg
 Original_url: https://davidarcos.net/blog/2015/04/09/python-on-a-plane-pycones-2014/

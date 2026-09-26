@@ -55,7 +55,7 @@ tools/                    the checks: the PII gate, the redirect stub check, the
    Date: 2027-03-01 10:00
    Slug: talk-title
    Tags: Python, Slides, Video
-   Summary: One sentence, in Spanish, for the card on the home page and the top of the post.
+   Summary: One sentence, in Spanish, for the card on the home page and the top of the post. It is also the description that search engines and shared links show: 100 to 155 characters.
    Kind: charla
    Cover: talk-title.jpg
 
@@ -64,7 +64,7 @@ tools/                    the checks: the PII gate, the redirect stub check, the
    https://www.youtube.com/watch?v=VIDEOID
    ```
 
-   The `Slug` is the address, `/blog/talk-title/`, and must be unique: the build fails on a collision. The `Kind` is one of charla, podcast, entrevista, mesa redonda, artículo. A short post that is neither a talk nor an article takes `Section: notes` instead of `Kind`, `Summary` and `Cover`: it is listed as a row on the Blog, under Notas, and never as a card. A video or a deck is embedded by putting its URL alone on a line (YouTube, Google Slides, SlideShare, Vimeo, Spreaker, Spotify). For SlideShare and Spreaker, use the address of their embed player (`/embed_code/...`, `/embed/...`). Any other URL alone on a line stays a plain link. To embed a new provider, add its origin to `EMBED_ORIGINS` in `plugins/hst.py` and its branch in `embed_html`: the CSP of every page takes its `frame-src` from that list, and `tools/check_csp.py` fails the build if a page frames an origin its CSP does not allow.
+   The `Slug` is the address, `/blog/talk-title/`, and must be unique: the build fails on a collision. The `Kind` is one of charla, podcast, entrevista, mesa redonda, artículo. A short post that is neither a talk nor an article takes `Section: notes` instead of `Kind`, `Summary` and `Cover`: it is listed as a row on the Blog, under Notas, and never as a card. A video or a deck is embedded by putting its URL alone on a line (YouTube, Google Slides, SlideShare, Vimeo, Spreaker, Spotify). For SlideShare and Spreaker, use the address of their embed player (`/embed_code/...`, `/embed/...`). Any other URL alone on a line stays a plain link. The build draws the post's share card, the 1200x630 image a shared link shows (docs/adr/0011): there is nothing to do for it. `tools/check_meta.py` fails the build when a page lacks its card or its share tags, or when the description of a talk, an article or a page is under 100 or over 160 characters; for a note and for the Archive it only warns (a note may take a `Summary` to set its description). To embed a new provider, add its origin to `EMBED_ORIGINS` in `plugins/hst.py` and its branch in `embed_html`: the CSP of every page takes its `frame-src` from that list, and `tools/check_csp.py` fails the build if a page frames an origin its CSP does not allow.
 
 2. Put the cover in `content/images/covers/talk-title.jpg`, under 300 KB and at least 1700 px wide (the column is 850 px, and screens are 2x), after `tools/strip_image_metadata.py`. The build makes the 480 px WebP card copy itself. The figures on Sobre el blog, in `llms.txt` and in `humans.txt` are counted by the build from the content (`{{ stats.posts }}` in a page becomes the number), so they never need editing.
 

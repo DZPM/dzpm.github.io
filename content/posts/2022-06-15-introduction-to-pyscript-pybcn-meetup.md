@@ -2,7 +2,7 @@ Title: 'Introduction to PyScript' en el PyBCN Meetup
 Date: 2022-06-15 09:48:52
 Slug: introduction-to-pyscript-pybcn-meetup
 Tags: Barcelona, PyScript, Python, Python Barcelona, Slides, Software Libre, Video
-Summary: PyScript, el framework recién presentado en la PyCon 2022 para ejecutar Python en el navegador.
+Summary: PyScript, el framework recién presentado en la PyCon 2022 para ejecutar Python en el navegador: qué es y cómo funciona, con vídeo y presentación.
 Kind: charla
 Cover: introduction-to-pyscript-pybcn-meetup.jpg
 Original_url: https://davidarcos.net/blog/2022/06/15/introduction-to-pyscript-pybcn-meetup/

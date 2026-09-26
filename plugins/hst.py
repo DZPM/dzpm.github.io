@@ -16,8 +16,12 @@ Three small things, kept together because they are all site specific:
 5. Card covers: a 480 px copy of every cover in images/covers/, written into the
    output at build time (never committed) for the cards on the Home and the Blog,
    exposed as `cover_card_url`.
+6. Share cards: a 1200x630 image for every post and page (not the home, which has
+   og.png), drawn at build time and never committed: what a shared link shows.
+   Exposed as `og_image`, `og_image_type` and `og_image_alt`. See docs/adr/0011.
 """
 
+import hashlib
 import html
 import json
 import os
@@ -319,6 +323,8 @@ def decorate(content):
         content._content = NOTE_RE.sub(lambda m: f'<aside class="banner note">{note_icon(content.settings)}<span>{m.group(1)}</span></aside>', content._content)
     date = getattr(content, "date", None)
     if date is None:
+        og_card(content)
+        content.schema_type = PAGE_TYPES.get(getattr(content, "slug", ""), "WebPage")
         return   # a page: nothing below applies
     if content._content and getattr(content, "tags", None):
         content._content = link_tags(content._content, content.tags, content.settings["SITEURL"])
@@ -394,6 +400,7 @@ def decorate(content):
         for m in content.mentions:
             m["excerpt"] = ugc(mark_years(m.get("excerpt", "")))
     content.media["menciones"] = len(content.mentions)
+    og_card(content)
 
 
 # --- redirect stubs ----------------------------------------------------------
@@ -689,6 +696,191 @@ def write_card_covers(pelican):
     print(f"card covers and caption photos: {n}")
 
 
+# --- share cards --------------------------------------------------------------
+
+OG_SIZE = (1200, 630)   # what LinkedIn, X, WhatsApp and Slack ask for: a 1.91:1 image, 1200 px wide
+OG_DESIGN = "1"         # the layout's version: it is part of every card's hash, so a new design gives every card a new address
+OG_COLORS = {"bg": (0x16, 0x16, 0x15), "fg": (0xe9, 0xe6, 0xdf), "muted": (0xa3, 0xa3, 0x9c), "blue": (0x8a, 0xb4, 0xe6)}   # og.png's ground and the dark palette
+_OG_QUEUE = {}          # file name under images/og/ -> (title, line, note, cover file): what write_og_cards draws at the end of the build
+
+
+def og_card(content):
+    """Decide the share card of a post or a page: its address, type and alt text. The file is drawn by write_og_cards.
+    The address carries a hash of everything the card shows, so a changed title or cover gives a new address and the
+    platforms fetch the new card. The home keeps og.png, the designed card of the whole site."""
+    from pelican.contents import Article, Page
+    if not isinstance(content, (Article, Page)) or getattr(content, "save_as", "") == "index.html":
+        return   # a static file (an image, a file under extra/) is a content object too, and needs no card
+    title = html.unescape(re.sub(r"<[^>]+>", "", getattr(content, "title", "") or "")).strip()
+    date = getattr(content, "date", None)
+    line = ""
+    if date is not None:
+        when = content.settings["JINJA_FILTERS"]["fecha_es"](date)
+        label = getattr(content, "kind_label", "")
+        line = f"{label}, {when}" if label and getattr(content, "section", "") != "archive" else when   # an Archive card shows its date only
+    cover = getattr(content, "cover", "")
+    base = content.settings["PATH"]
+    cover_file = ""
+    if cover:
+        candidates = (base + cover, os.path.join(base, "extra") + cover) if cover.startswith("/") else (os.path.join(base, "images", "covers", cover),)
+        cover_file = next((c for c in candidates if os.path.isfile(c)), "")
+    # a page has no kind and no date: its summary goes under the title instead
+    note = "" if date is not None else html.unescape(re.sub(r"<[^>]+>", "", getattr(content, "summary", "") or "")).strip()
+    digest = hashlib.sha256()
+    for part in (OG_DESIGN, title, line, note):
+        digest.update(part.encode("utf-8") + b"\0")
+    if cover_file:
+        with open(cover_file, "rb") as f:
+            digest.update(f.read())
+    ext = "jpg" if cover_file else "png"   # a photo compresses as JPEG, flat colour and text as PNG
+    name = f"{content.slug}-{digest.hexdigest()[:10]}.{ext}"
+    _OG_QUEUE[name] = (title, line, note, cover_file)
+    content.og_image = f"{content.settings['SITEURL']}/images/og/{name}"
+    content.og_image_type = "image/jpeg" if cover_file else "image/png"
+    content.og_image_alt = f"«{title}»" + (f", {line}" if line else "") + ". Hic sunt trolls, el blog de David Arcos."
+
+
+PAGE_TYPES = {"sobre-el-blog": "AboutPage", "cv": "ProfilePage"}   # the schema.org type of a page, for its microdata; any other page is a WebPage
+
+
+_OG_FONTS = {}
+_OG_FACES = {}
+
+
+def _og_font(path, size, weight):
+    """A size and a weight of one of the theme's variable fonts (Inter has an optical size axis, Fira Code has not).
+    Kept once made: loading a woff2 file decompresses it, and a card asks for a font a dozen times."""
+    from PIL import ImageFont
+    if (path, size, weight) in _OG_FONTS:
+        return _OG_FONTS[(path, size, weight)]
+    font = ImageFont.truetype(path, size)
+    axes = [a["name"] for a in font.get_variation_axes()]
+    font.set_variation_by_axes([min(size, 32) if a == b"Optical size" else weight for a in axes])
+    _OG_FONTS[(path, size, weight)] = font
+    return font
+
+
+def _og_wrap(text, font, width):
+    """The words of the text in lines no wider than width."""
+    lines, current = [], ""
+    for word in text.split():
+        trial = f"{current} {word}".strip()
+        if current and font.getlength(trial) > width:
+            lines.append(current)
+            current = word
+        else:
+            current = trial
+    return lines + ([current] if current else [])
+
+
+def draw_og_card(title, line, note, cover_file, fonts, avatar):
+    """One share card: the author and the blog at the top, the title, the kind and the date (or a page's summary), the
+    domain at the bottom, and the post's cover as a panel on the right when there is one. The title takes the largest
+    size that fits, and the block sits in the middle of the free space, so a short title does not leave a hole."""
+    from PIL import Image, ImageDraw, ImageOps
+    W, H = OG_SIZE
+    margin = 64
+    card = Image.new("RGB", (W, H), OG_COLORS["bg"])
+    right = W - margin
+    if cover_file:
+        panel_x = 700
+        with Image.open(cover_file) as im:
+            im.draft("RGB", (W - panel_x, H))   # a large JPEG decodes at a fraction of its size, still larger than the panel
+            panel = ImageOps.fit(ImageOps.exif_transpose(im).convert("RGB"), (W - panel_x, H), Image.LANCZOS)
+        card.paste(panel, (panel_x, 0))
+        # the seam: the ground fades into the photo over 90 px, so the panel reads as part of the card
+        fade = Image.linear_gradient("L").rotate(-90, expand=True).resize((90, H))   # opaque at the edge of the text, clear 90 px into the photo
+        card.paste(Image.new("RGB", (90, H), OG_COLORS["bg"]), (panel_x, 0), fade)
+        right = panel_x - 40
+    draw = ImageDraw.Draw(card)
+    # the header: the photo in a circle, the name, the blog
+    size = 72
+    if avatar not in _OG_FACES:   # the round photo is the same on every card: made once
+        with Image.open(avatar) as im:
+            face = ImageOps.fit(im.convert("RGB"), (size, size), Image.LANCZOS)
+        mask = Image.new("L", (size * 4, size * 4), 0)
+        ImageDraw.Draw(mask).ellipse((0, 0, size * 4 - 1, size * 4 - 1), fill=255)
+        _OG_FACES[avatar] = (face, mask.resize((size, size), Image.LANCZOS))
+    face, mask = _OG_FACES[avatar]
+    card.paste(face, (margin, margin), mask)
+    draw.text((margin + size + 20, margin + 6), "David Arcos", font=_og_font(fonts["inter"], 30, 650), fill=OG_COLORS["fg"])
+    draw.text((margin + size + 20, margin + 44), "Hic sunt trolls", font=_og_font(fonts["inter"], 24, 400), fill=OG_COLORS["muted"])
+    footer = H - margin - 30
+    draw.text((margin, footer), "davidarcos.net", font=_og_font(fonts["inter"], 26, 500), fill=OG_COLORS["muted"])
+    # what goes between: the title, then the kind and the date, or a page's summary in two lines at most
+    top, bottom = margin + size + 40, footer - 34
+    width = right - margin
+    below = []   # (text, font, colour, line height)
+    if line:
+        px = 28
+        while px > 20 and _og_font(fonts["fira"], px, 450).getlength(line) > width:
+            px -= 2   # "Mesa redonda, 19 de noviembre de 2024" must not run into the photo
+        below.append((line, _og_font(fonts["fira"], px, 450), OG_COLORS["blue"], px + 6))
+    if note:
+        font = _og_font(fonts["inter"], 28, 400)
+        wrapped = _og_wrap(note, font, width)
+        if len(wrapped) > 2:
+            wrapped = wrapped[:2]
+            while font.getlength(wrapped[1] + "…") > width:
+                wrapped[1] = wrapped[1].rsplit(" ", 1)[0]
+            wrapped[1] += "…"
+        below += [(text, font, OG_COLORS["muted"], 36) for text in wrapped]
+    below_h = (22 + sum(h for *_, h in below)) if below else 0
+    for px in (88, 76, 64, 58, 52, 46, 40):
+        font = _og_font(fonts["inter"], px, 700)
+        lines = _og_wrap(title, font, width)
+        step = round(px * 1.16)
+        most = 3 if px > 46 else 4   # a long title may take a fourth line at the small sizes rather than lose its end
+        if len(lines) <= most and len(lines) * step + below_h <= bottom - top:
+            break
+    if len(lines) > most:
+        lines = lines[:most]
+        while font.getlength(lines[-1] + "…") > width:
+            lines[-1] = lines[-1].rsplit(" ", 1)[0] if " " in lines[-1] else lines[-1][:-1]
+        lines[-1] += "…"
+    y = top + (bottom - top - (len(lines) * step + below_h)) // 2
+    for text in lines:
+        draw.text((margin, y), text, font=font, fill=OG_COLORS["fg"])
+        y += step
+    y += 22
+    for text, f, colour, h in below:
+        draw.text((margin, y), text, font=f, fill=colour)
+        y += h
+    return card
+
+
+def _og_job(job):
+    """Draw and save one card: the unit of work of write_og_cards, run in a worker process."""
+    path, title, line, note, cover_file, fonts, avatar = job
+    card = draw_og_card(title, line, note, cover_file, fonts, avatar)
+    if path.endswith(".jpg"):
+        card.save(path, "JPEG", quality=85)   # optimize and progressive cost 4x the time for 10 % of the size
+    else:
+        card.save(path, "PNG", compress_level=6)   # level 9 or optimize cost 3x the time for 5 % of the size
+
+
+def write_og_cards(pelican):
+    """Draw every share card og_card decided, in parallel: each card is independent. A card whose file already exists
+    has the same inputs (its name is their hash), so it is not drawn again."""
+    if not _OG_QUEUE:
+        return
+    import multiprocessing
+    from concurrent.futures import ProcessPoolExecutor
+    theme = pelican.settings["THEME"]
+    fonts = {"inter": os.path.join(theme, "static", "fonts", "inter-latin.woff2"),
+             "fira": os.path.join(theme, "static", "fonts", "fira-code-latin.woff2")}
+    avatar = os.path.join(theme, "static", "img", "david.arcos.jpg")
+    out_dir = os.path.join(pelican.output_path, "images", "og")
+    os.makedirs(out_dir, exist_ok=True)
+    jobs = [(os.path.join(out_dir, name), *spec, fonts, avatar) for name, spec in sorted(_OG_QUEUE.items())
+            if not os.path.exists(os.path.join(out_dir, name))]
+    if jobs:
+        # fork, not the default forkserver of Python 3.14: a forked worker has this module already, a new one would
+        # have to import the plugin by name from a path it does not know
+        with ProcessPoolExecutor(max_workers=os.cpu_count(), mp_context=multiprocessing.get_context("fork")) as pool:
+            list(pool.map(_og_job, jobs, chunksize=8))
+    print(f"share cards: {len(_OG_QUEUE)} ({len(jobs)} drawn)")
+
 def register():
     signals.content_object_init.connect(decorate)
     signals.article_generator_finalized.connect(remember_articles)
@@ -696,3 +888,4 @@ def register():
     signals.finalized.connect(style_feed)
     signals.finalized.connect(version_theme_urls)
     signals.finalized.connect(write_card_covers)
+    signals.finalized.connect(write_og_cards)

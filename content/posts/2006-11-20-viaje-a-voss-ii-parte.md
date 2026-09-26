@@ -3,6 +3,7 @@ Date: 2006-11-20 00:01:37
 Slug: viaje-a-voss-ii-parte
 Tags: Personal, Erasmus, Fotos, Viajes, Voss
 Original_url: https://davidarcos.net/blog/2006/11/20/viaje-a-voss-ii-parte/
+Summary: Bueno, he aquí mis fotos del viaje en tren a Voss: la segunda parte de la excursión de noviembre de 2006, durante el Erasmus en Bergen.
 
 Bueno, he aquí mis fotos del viaje en tren a Voss.
 

@@ -2,7 +2,7 @@ Title: La plataforma de reconocimiento de imágenes de Catchoom
 Date: 2013-05-23 10:08:40
 Slug: plataforma-reconocimiento-imagenes-de-catchoom
 Tags: Catchoom, Django, Image Recognition, Python, Slides, Video
-Summary: Qué es el reconocimiento de imágenes y cómo funciona la plataforma de Catchoom, recién rediseñada.
+Summary: Qué es el reconocimiento de imágenes y cómo funciona la plataforma de Catchoom, recién rediseñada, con su librería Python para integrar las APIs.
 Kind: charla
 Cover: plataforma-reconocimiento-imagenes-de-catchoom.jpg
 Original_url: https://davidarcos.net/blog/2013/05/23/plataforma-reconocimiento-imagenes-de-catchoom/

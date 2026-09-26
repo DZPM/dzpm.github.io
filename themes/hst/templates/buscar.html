@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block csp_search %} 'wasm-unsafe-eval'; connect-src 'self'{% endblock %}
 {% block title %}Buscar | {{ AUTHOR }}{% endblock %}
-{% block description %}Busca en todas las entradas de {{ SITENAME }}.{% endblock %}
+{% block description %}Busca en todas las entradas de {{ SITESUBTITLE }}, el blog de {{ AUTHOR }}: veinte años de charlas, artículos y notas, desde 2006.{% endblock %}
 {% block canonical %}<link rel="canonical" href="{{ SITEURL }}/blog/buscar/">{% endblock %}
 {% block robots %}<meta name="robots" content="noindex">{% endblock %}
 {% block body_class %}search{% endblock %}

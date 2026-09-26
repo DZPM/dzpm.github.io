@@ -2,7 +2,7 @@ Title: 'No future. ¿Seríamos soberanos en caso de conflicto global?', en la No
 Date: 2024-11-19 18:00
 Slug: mesa-redonda-soberania-no-con-name-2024
 Tags: Seguridad, Soberanía, No cON Name, Barcelona
-Summary: Dependencia tecnológica y soberanía tras el incidente de CrowdStrike, en el congreso de seguridad.
+Summary: Dependencia tecnológica y soberanía tras el incidente de CrowdStrike, en el congreso de seguridad, con la Agència de Ciberseguretat y CDmon.
 Kind: mesa redonda
 Cover: mesa-redonda-soberania-no-con-name-2024.jpg
 
