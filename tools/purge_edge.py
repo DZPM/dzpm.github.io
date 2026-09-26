@@ -53,6 +53,7 @@ def build_of(html):
 def from_origin():
     """The home page as GitHub Pages serves it, from the first of its addresses that answers."""
     ctx = ssl.create_default_context()   # checks the certificate against HOST, not against the address
+    ctx.minimum_version = ssl.TLSVersion.TLSv1_2   # the default already; said here so it cannot drift
     for ip in ORIGIN_ADDRESSES:
         try:
             conn = http.client.HTTPSConnection(HOST, 443, timeout=20, context=ctx)

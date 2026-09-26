@@ -42,13 +42,15 @@ Nothing else. The two CAA records were checked against the live issuers before t
 | Rocket Loader | off | docs/adr/0004: nothing rewrites the HTML |
 | Email Address Obfuscation | off | same |
 | Auto Minify | off | same |
-| Web Analytics automatic setup | off | same; zone analytics (server side) are the only analytics allowed |
+| Web Analytics automatic setup | off (disabled 2026-09-26) | same; zone analytics (server side) are the only analytics allowed. It was on until 2026-09-26: a Web Analytics site made on 2025-10-20, with automatic install, put its beacon script into some HTML responses, not all. The page CSP blocked it, and a request from one network never showed it |
 | Automatic HTTPS Rewrites | off | same: it rewrites `http://` links in the HTML; the site's own links are already https |
 | Minimum TLS version | 1.2 | a static site in 2026 has no reader on TLS 1.0 or 1.1 |
 | HSTS (SSL/TLS, Edge Certificates) | on: `max-age` one year, `includeSubDomains`, no preload, `nosniff` on | sets `Strict-Transport-Security` and `X-Content-Type-Options`; see Response headers |
 | Brotli | on | harmless |
 | Browser Cache TTL | Respect Existing Headers | GitHub Pages sends `max-age=600`; a reader sees a change within ten minutes, and the stylesheet carries the commit hash in its URL anyway |
 | Caching level | standard or aggressive | HTML is not cached at the edge either way (`cf-cache-status: DYNAMIC`); only the static files are |
+
+Check that nothing injects into the HTML from outside your own network: the injection does not happen on every response. Use the W3C validator with the source shown, `https://validator.w3.org/nu/?out=json&showsource=yes&doc=https://davidarcos.net/`, and search the source for `cloudflareinsights` or any `<script>` other than `theme.js` (and `search.js` on the search and not found pages).
 
 ## Redirect rules
 
@@ -122,3 +124,12 @@ UptimeRobot, the author's free account, two monitors on `https://davidarcos.net/
 
 - **The old monitor**, HTTP(s), kept: it watched `/blog/` since the WordPress years and was moved to `/` on 2026-09-26. It keeps its history and two options new monitors on this account no longer offer (Check SSL Errors, a 10 second timeout). It watched the address, not the old server, so the cutover did not break it and destroying the server will not either. This is the monitor on the status page.
 - **A keyword monitor**, added 2026-09-26: alerts when `Hic sunt trolls` is missing from the page, every 5 minutes. It catches the one failure the first cannot see, a page that answers 200 but is not this site (a parked domain, a wrong deploy). The phrase is in the `<title>` of `/`: if the home title changes, change the keyword. The public status page is UptimeRobot's, reached through `https://status.davidarcos.net/`. No analytics.
+
+## security.txt
+
+`content/extra/.well-known/security.txt` (RFC 9116) is signed with the author's OpenPGP key (`C77A3FF4B7FBAD91`, the same key that signs the commits) as a cleartext signature, as section 2.3 of the RFC recommends: a reader can check that the file comes from the author. The first contact is the repository's private vulnerability reporting. `Expires` is one year ahead. To renew it, a month before it expires:
+
+1. Remove the signature: keep only the lines between `Hash: SHA512` plus the empty line after it and `-----BEGIN PGP SIGNATURE-----`.
+2. Set `Expires` one year ahead.
+3. Sign again: `gpg --local-user C77A3FF4B7FBAD91 --digest-algo SHA512 --clearsign --output security.txt.asc security.txt`, then replace the file with `security.txt.asc`.
+4. Check: `gpg --verify` on the built `output/.well-known/security.txt` says "Good signature".

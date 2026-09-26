@@ -1,3 +1,6 @@
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA512
+
 # davidarcos.net. RFC 9116.
 # No hay base de datos, ni sesiones, ni PHP: solo HTML. En DreamHost, en 2007,
 # tampoco había nada que hackear, y mira. Si encuentras algo, gracias por avisar.
@@ -8,3 +11,19 @@ Encryption: openpgp4fpr:22D488F46C908EDE33D383D7C77A3FF4B7FBAD91
 Preferred-Languages: es, ca, en
 Canonical: https://davidarcos.net/.well-known/security.txt
 Expires: 2027-09-26T00:00:00.000Z
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAEBCgAdFiEEItSI9GyQjt4z04PXx3o/9Lf7rZEFAmq4OkMACgkQx3o/9Lf7
+rZHCzg//Zc7umU+HcXSmhCwC78TXz6nK12eSj31FNKHY4Ny/T8I3tKcZycv3G7s2
+CU/uKinvXCbMMem96uDFQvXjeq1hsIlbbJN1Zlyvx9owFhSzcjlIkKsGZR6VQyBP
+qGArUePzHx929qdTxVCZpuR9ltqa/Uo8ZNSIdxROoAvtPsvr6EkDxwmzbeZ9eF26
+hwjzZA+AsWPJIjLz6In4js7PN0m/19FCV48LF/bQ4UC3GGFG03vmA4urzlKP6mFG
+vV0S32c4zKOoT2GHeVDtMhwAsQinJFTNNMg3FDQjPIXZqyfO0tRr0ebZscSqsx5F
+bs4RuD694+2yPZ7D3/u+XU4ha4dIyTSCwiIvi4S6e+t4FKKcBmLRqk8u5p4eSN2T
+Fh6Rq11c08yxUJI/XsEBTyM6cNulaBeKo4SyisSFDXWN5SWnRLe5TSuvYGygXF/U
+yNegn112pDAxIG1o2cj/KrgHc1dsHoqJJZiuJV1kDD6bXb57BTJU+NFhaBa7DGnv
+Khaj9z3Pj85J7UxeQg3J++ry9KujojWJJqWsHGH6kkNM3J21k80wMz+yOzhIT9Cu
+LDVV4AYNmIV3Awjvv2RPAicZ0WUE/2msRLpXAzQmnQwslpROdD1ScU9p33JYFcqF
+RDZcj4aO0grwJYt2nwmlvlIp1nNZmD7dP801CGYPlYXP+PXFExk=
+=2HV4
+-----END PGP SIGNATURE-----

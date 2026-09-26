@@ -97,10 +97,11 @@ async function runSearch(params) {
     if (r.meta.seccion === "archive") li.classList.add("is-archive");
     const p = document.createElement("p");
     // the excerpt is a window into the text: say so at both ends when it does not start or end a sentence
-    const text = r.excerpt.replace(/<[^>]+>/g, "").trim();
+    const nodes = excerptNodes(r.excerpt);   // text and <mark> only, built from a parse, never from a regex over the markup
+    const text = nodes.map(n => n.textContent).join("").trim();
     const head = /^[A-ZÁÉÍÓÚÑ¿¡"(]/.test(text) ? "" : "(...) ";
     const tail = /[.!?")]$/.test(text) ? "" : " (...)";
-    p.append(head, ...excerptNodes(r.excerpt), tail);
+    p.append(head, ...nodes, tail);
     if (tag && !q) {
       // a tag search has no query term: mark the tag's name where the excerpt says it
       const re = new RegExp("(" + tag.replace(/[.*+?^${}()|[\]\\]/g, "\\$&") + ")", "gi");
