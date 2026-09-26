@@ -49,7 +49,7 @@ Un DDoS puntual me lleva a poner el blog detrás de [Cloudflare](https://www.clo
 <div class="year-row" markdown="1">
 <div class="year-big">2026</div>
 <div class="year-note" markdown="1">
-**[Veinte años](/blog/veinte-anos-de-hic-sunt-trolls/).** El blog pasa a ser un sitio estático: **133** entradas migradas de WordPress (más una recuperada de 2006 y las nuevas), **463** comentarios, **575** redirecciones y **182** enlaces muertos limpiados. El cómo, en [el repositorio](https://github.com/DZPM/dzpm.github.io).
+**[Veinte años](/blog/veinte-anos-de-hic-sunt-trolls/).** El blog pasa a ser un sitio estático: **133** entradas migradas de WordPress (más una recuperada de 2006 y las nuevas), **463** comentarios, **{{ stats.stubs }}** redirecciones y **182** enlaces muertos limpiados. El cómo, en [el repositorio](https://github.com/DZPM/dzpm.github.io).
 </div>
 </div>
 </div>
