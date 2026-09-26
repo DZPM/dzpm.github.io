@@ -10,6 +10,7 @@ Usage:  python tools/check_csp.py output
 """
 
 import os
+import pathlib
 import sys
 from html.parser import HTMLParser
 from urllib.parse import urlparse
@@ -59,6 +60,9 @@ def allowed(src, sources):
 
 
 def main(out):
+    if not any(pathlib.Path(out).rglob("*.html")):   # an empty or missing build must fail, not pass with nothing checked
+        print(f"csp: no HTML pages in {out}: nothing to check (is the build empty?)")
+        return 1
     pages = frames = 0
     bad = []
     for base, _dirs, files in os.walk(out):

@@ -5,6 +5,7 @@ Usage:  python tools/check_stubs.py output
 """
 
 import os
+import pathlib
 import re
 import sys
 
@@ -12,6 +13,9 @@ REFRESH = re.compile(r'http-equiv="refresh" content="0; url=([^"]+)"')
 
 
 def main(out):
+    if not any(pathlib.Path(out).rglob("*.html")):   # an empty or missing build must fail, not pass with nothing checked
+        print(f"stubs: no HTML pages in {out}: nothing to check (is the build empty?)")
+        return 1
     stubs = 0
     bad = []
     for base, _dirs, files in os.walk(out):

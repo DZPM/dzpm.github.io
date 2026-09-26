@@ -43,7 +43,7 @@ content/mentions/         one JSON file per post with pingbacks or trackbacks, p
 content/extra/            files served as they are: favicon, robots.txt, the Keybase proof, files/
 themes/hst/               the theme: templates, icons as inline SVG, style.css
 plugins/hst.py            embeds, section and cover derivation, redirect stubs, comment and mention loading, the years and the tag names in a text marked and linked at build time
-tools/                    the checks: the PII gate, the redirect stub check, the image metadata stripper; and the edge purge the deploy runs
+tools/                    the checks: the PII gate, the redirect stub check, the image metadata stripper; the edge purge the deploy runs; and the monthly external link check
 ```
 
 ## Adding a post
@@ -95,6 +95,8 @@ What the migration did, in order:
 5. **Restored the Archive photos** on purpose, post by post, from the Flickr dump and the server's uploads: at most 1200 px, JPEG 82, no metadata, a face or an address blurred where needed. The Archive ships text only except for that list.
 6. **Read the pingbacks and trackbacks** out of the database dump into one JSON file per post ("Menciones"), approved only, no self-pings, each URL checked with the link rules.
 7. **Generated the redirect stubs** (ADR 0002) for every old address shape: the dated permalinks with and without `/blog/`, date archives, the category, pagination, and tag pages, which land on the static tag pages.
+
+Once a month, `.github/workflows/links.yml` runs `tools/check_external_links.py` (`make links` locally) over the Portfolio posts and the main pages, not the archive, whose dead links are shown as dead on purpose. A link is dead only on 404, 410, a DNS failure or a TLS failure; a site that blocks robots is "could not check". The dead ones go to one issue labelled `links`, which the next clean run closes.
 
 The checks stayed here because they run on every commit and every deploy: `tools/pii_gate.py` refuses emails, IP addresses, long hex hashes, WordPress export fields and image metadata (pre-commit hook on staged files, whole tree, and the built output in CI); `tools/check_stubs.py` asserts every redirect stub points at a page that exists; `tools/check_links.py` asserts every link and image inside the site resolves; and the plugin refuses a build where a post has no Slug, a Portfolio post has no Summary or no Kind, a Section is unknown, or a cover is missing or over 300 KB; and the gate refuses active markup (a script, an iframe, an event handler) inside the archived comments and mentions, which are rendered as HTML.
 

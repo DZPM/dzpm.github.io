@@ -223,6 +223,9 @@ def main():
         files = tracked_files(args.staged)
         http_assets = False
 
+    if args.output and not any(f.endswith(".html") for f in files):   # an empty or missing build must fail, not pass with nothing checked
+        print(f"PII gate: no HTML pages in {args.output}: nothing to check (is the build empty?)")
+        return 1
     findings = []
     for path in files:
         rel = os.path.relpath(path, ROOT)

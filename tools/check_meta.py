@@ -17,6 +17,7 @@ Usage:  python tools/check_meta.py output
 """
 
 import os
+import pathlib
 import sys
 from html.parser import HTMLParser
 from urllib.parse import urlparse
@@ -54,6 +55,9 @@ def image_file(out, url):
 
 
 def main(out):
+    if not any(pathlib.Path(out).rglob("*.html")):   # an empty or missing build must fail, not pass with nothing checked
+        print(f"meta: no HTML pages in {out}: nothing to check (is the build empty?)")
+        return 1
     from PIL import Image
     pages = 0
     errors, warnings = [], []

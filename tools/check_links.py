@@ -8,6 +8,7 @@ Usage:  python tools/check_links.py output
 """
 
 import os
+import pathlib
 import re
 import sys
 from html.parser import HTMLParser
@@ -38,6 +39,8 @@ def local(url):
 
 
 def main(out):
+    if not any(pathlib.Path(out).rglob("*.html")):   # an empty or missing build must fail, not pass with nothing checked
+        raise SystemExit(f"internal links: no HTML pages in {out}: nothing to check (is the build empty?)")
     checked = 0
     bad = []
     for base, _dirs, files in os.walk(out):

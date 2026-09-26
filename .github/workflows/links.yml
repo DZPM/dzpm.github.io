@@ -1,0 +1,61 @@
+name: External links
+
+# Once a month, check the external links of the Portfolio posts and the main pages (tools/check_external_links.py).
+# One issue, labelled "links", lists the dead ones; the run updates it, and closes it when every link answers again.
+# The archive is not checked: its dead links are already shown as dead, on purpose.
+
+on:
+  schedule:
+    - cron: "0 6 1 * *"   # the 1st of each month, 06:00 UTC
+  workflow_dispatch:
+
+permissions: {}
+
+concurrency:
+  group: external-links
+  cancel-in-progress: false
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    permissions:
+      contents: read     # the checkout
+      issues: write      # the one issue with the dead links
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1  # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97  # v7.0.0
+        with:
+          python-version: "3.14"
+          cache: pip
+      - run: pip install --require-hashes -r requirements.txt
+      - run: pelican content -o output -s publishconf.py --fatal warnings
+      - id: links
+        run: |
+          set +e
+          python tools/check_external_links.py output --report report.md
+          code=$?
+          set -e
+          if [ "$code" -gt 1 ]; then exit "$code"; fi   # 2: no page to check, the build is wrong
+          echo "dead=$(grep -o '[0-9]* dead' report.md | head -1 | cut -d' ' -f1)" >> "$GITHUB_OUTPUT"
+      - name: Open, update or close the issue
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+          DEAD: ${{ steps.links.outputs.dead }}
+        run: |
+          set -eu
+          gh label create links --color d73a4a --description "External links that no longer work" --force > /dev/null
+          open=$(gh issue list --label links --state open --json number --jq '.[0].number // empty')
+          if [ "${DEAD:-0}" -gt 0 ]; then
+            title="External links: $DEAD dead"
+            if [ -n "$open" ]; then
+              gh issue edit "$open" --title "$title" --body-file report.md
+            else
+              gh issue create --title "$title" --label links --body-file report.md
+            fi
+          elif [ -n "$open" ]; then
+            gh issue close "$open" --comment "Every external link answers again. $(head -n 1 report.md)"
+          fi
