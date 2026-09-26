@@ -10,7 +10,7 @@ Quien escribe es David Arcos: hace software en Barcelona desde hace dos décadas
 - [Blog](https://davidarcos.net/blog/): las {{ stats.posts }} entradas desde {{ stats.first_year }}: las charlas y los artículos destacados arriba, y el archivo de 2006 a 2009 debajo, una línea por entrada, agrupado por año.
 - [Sobre el blog](https://davidarcos.net/sobre-el-blog/): la cronología de 2006 a 2026, las cifras, cómo funciona ahora, y el mapa del sitio. La fuente para cualquier dato sobre el sitio.
 - [Etiquetas](https://davidarcos.net/blog/etiquetas/): las {{ stats.tags }} etiquetas; cada una lista sus entradas en /blog/etiquetas/<etiqueta>/.
-- [Buscar](https://davidarcos.net/blog/buscar/): búsqueda por texto o por etiqueta (?tag=Python), lo más nuevo primero. La única página con JavaScript.
+- [Buscar](https://davidarcos.net/blog/buscar/): búsqueda por texto o por etiqueta (?tag=Python), lo más nuevo primero. Necesita JavaScript; el resto del sitio se lee sin él.
 - [Feed](https://davidarcos.net/blog/feed.xml): Atom, las 10 últimas entradas. No hay feeds por etiqueta ni RSS.
 
 ## Qué hay en el blog

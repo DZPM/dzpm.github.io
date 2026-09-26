@@ -2,6 +2,7 @@ Title: ... y última semana de clase
 Date: 2006-10-01 11:30:55
 Slug: y-ultima-semana-de-clase
 Tags: Erasmus, HIB
+Summary: Examen de noruego (charla de 10 minutos y test) y fin de Cultura Noruega, sin nota, solo apto o no; desde octubre, a tiempo completo con el PFC.
 Original_url: https://davidarcos.net/blog/2006/10/01/y-ultima-semana-de-clase/
 
 Esta ha sido mi última semana de "clase" 🙂

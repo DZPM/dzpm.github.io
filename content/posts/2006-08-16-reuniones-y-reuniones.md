@@ -2,6 +2,7 @@ Title: Reuniones, y reuniones
 Date: 2006-08-16 00:57:59
 Slug: reuniones-y-reuniones
 Tags: Erasmus, PFC
+Summary: Reunión con el director de Informática de la HIB, con cerezas en la mesa: el PFC se adapta a 18 ECTS sin asignatura de relleno y las vacaciones se alargan.
 Original_url: https://davidarcos.net/blog/2006/08/16/reuniones-y-reuniones/
 
 ![](/images/posts/reuniones-y-reuniones/picota.jpg)

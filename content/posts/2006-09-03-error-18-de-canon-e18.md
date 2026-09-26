@@ -2,6 +2,7 @@ Title: Error 18 de Canon (E18)
 Date: 2006-09-03 17:51:03
 Slug: error-18-de-canon-e18
 Tags: Fotos, Gadgets
+Summary: La Canon IXUS II muere del E18, defecto de fábrica que Canon no reconoce: qué es, los golpecitos que la resucitan a ratos, enlaces, y nunca más una Canon.
 Original_url: https://davidarcos.net/blog/2006/09/03/error-18-de-canon-e18/
 Meneame_story: https://www.meneame.net/story/error-18-de-canon-e18
 Meneame_meneos: 132

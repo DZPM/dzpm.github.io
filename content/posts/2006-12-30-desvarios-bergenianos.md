@@ -2,6 +2,7 @@ Title: Desvaríos Bergenianos
 Date: 2006-12-30 08:00:24
 Slug: desvarios-bergenianos
 Tags: Erasmus, L'Oasi, Personal, Tiras
+Summary: L'Oasi 30 y 31 llegan al volver a Barcelona: un ejemplar firmado por todos los oasieros, con una tira cómica de jotape como homenaje, que reproduzco.
 Original_url: https://davidarcos.net/blog/2006/12/30/desvarios-bergenianos/
 
 Desde que me fui a Noruega han salido 2 números de l'Oasi, el #30 y el #31. Cierta persona me los tenía que enviar, pero se le fue pasando el tiempo, y por un motivo u otro no los he recibido hasta mi retorno a Barcelona.

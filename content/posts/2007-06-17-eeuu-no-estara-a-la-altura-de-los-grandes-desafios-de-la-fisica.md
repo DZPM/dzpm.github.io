@@ -2,6 +2,7 @@ Title: EEUU no estará a la altura de los grandes desafíos de la Física
 Date: 2007-06-17 20:47:28
 Slug: eeuu-no-estara-a-la-altura-de-los-grandes-desafios-de-la-fisica
 Tags: Sociedad
+Summary: Informe de la National Academies: seis grandes desafíos de la Física que EEUU quizá no resuelva; las causas: patentes, creacionismo, guerras e inmigración.
 Original_url: https://davidarcos.net/blog/2007/06/17/eeuu-no-estara-a-la-altura-de-los-grandes-desafios-de-la-fisica/
 Meneame_story: https://www.meneame.net/story/eeuu-no-estara-altura-grandes-desafios-fisica
 Meneame_meneos: 309

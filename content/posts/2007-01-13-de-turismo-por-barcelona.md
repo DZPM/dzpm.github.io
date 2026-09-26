@@ -2,6 +2,7 @@ Title: De turismo por Barcelona
 Date: 2007-01-13 17:47:20
 Slug: de-turismo-por-barcelona
 Tags: Barcelona, Fotos
+Summary: Laven y Sam, conocidas en Noruega, de visita: Sagrada Família, Maremagnum, La Pedrera con Gargallo, Parc Güell, Sant Pau, Montjuïc y la cabalgata de Reyes.
 Original_url: https://davidarcos.net/blog/2007/01/13/de-turismo-por-barcelona/
 
 Sí, lo habéis oído bien: he estado haciendo turismo por Barcelona.

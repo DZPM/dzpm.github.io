@@ -2,6 +2,7 @@ Title: En las profesiones serias esto no pasa
 Date: 2007-05-09 00:48:28
 Slug: en-las-profesiones-serias-esto-no-pasa
 Tags: Menéame
+Summary: Chat sobre matar al padre de un nautilus zombie que parece un juego de rol y es de procesos del sistema operativo; los diseñadores tenían imaginación.
 Original_url: https://davidarcos.net/blog/2007/05/09/en-las-profesiones-serias-esto-no-pasa/
 Meneame_story: https://www.meneame.net/story/profesiones-serias-esto-no-pasa
 Meneame_meneos: 261

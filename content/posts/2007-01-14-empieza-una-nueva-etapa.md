@@ -2,6 +2,7 @@ Title: Empieza una nueva etapa
 Date: 2007-01-14 18:00:45
 Slug: empieza-una-nueva-etapa
 Tags: Meta
+Summary: Carrera y Erasmus acabados, empiezo a trabajar tras dos semanas de vacaciones; el blog sigue: quedan consejos para Erasmus, howtos y el porqué del nombre.
 Original_url: https://davidarcos.net/blog/2007/01/14/empieza-una-nueva-etapa/
 
 La etapa universitaria ha quedado atrás. He acabado el Erasmus, y con ello la carrera (ahora a ver cuanto tardan en reconocer créditos y darme el título, jojojo). Después de darme un par de semanas de vacaciones (*hmmm!*), empiezo a trabajar. A levantar el país, que *si no me pongo yo no lo va a hacer nadie* 😉

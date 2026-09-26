@@ -2,6 +2,7 @@ Title: Cuántos oasieros necesitas...
 Date: 2006-12-17 21:21:22
 Slug: cuantos-oasieros-necesitas
 Tags: L'Oasi
+Summary: Cuántos oasieros hacen falta para cambiar una bombilla: lista anidada de flames sobre apt-get, Vista, LaTeX y maquetación, mientras siguen a oscuras.
 Original_url: https://davidarcos.net/blog/2006/12/17/cuantos-oasieros-necesitas/
 
 **¿Cuántos oasieros necesitas para cambiar una bombilla?**

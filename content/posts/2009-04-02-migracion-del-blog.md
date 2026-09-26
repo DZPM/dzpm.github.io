@@ -2,6 +2,7 @@ Title: Migración del blog
 Date: 2009-04-02 23:41:20
 Slug: migracion-del-blog
 Tags: Django, Meta, Python, WordPress
+Summary: Tres migraciones a la vez: de Dreamhost a un dedicado de OVH, de la raíz a /blog con 301, y de un WordPress viejo al actual con el exportador.
 Original_url: https://davidarcos.net/blog/2009/04/02/migracion-del-blog/
 
 Como comentaba el otro día, he cambiado de hosting. Antes de nada, por favor suscribiros a [la nueva dirección del RSS](/blog/feed.xml) (la actual se mantendrá durante un tiempo, pero no garantizo que siga funcionando para siempre).

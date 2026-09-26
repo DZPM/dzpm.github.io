@@ -2,6 +2,7 @@ Title: Primera semana de trabajo / PFC
 Date: 2006-10-10 00:10:43
 Slug: primera-semana-de-trabajo-pfc
 Tags: Erasmus, PFC, Python, Spain is different
+Summary: Primera semana en el CBU del BCCS: despacho con el supervisor, horario flexible, openpbs y jython, ni un Windows, matpakke a las 12 y un airzooka.
 Original_url: https://davidarcos.net/blog/2006/10/10/primera-semana-de-trabajo-pfc/
 
 Estoy metido en el [CBU](http://www.cbu.uib.no/) (**Computational Biology Unit**) del <span class="dead-link" title="Enlace roto: http://www.bccs.uib.no/">BCCS</span> (**Bergen Center for Computational Science**). Menudas siglas, ¿verdad que suena importante? 😉

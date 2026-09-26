@@ -2,6 +2,7 @@ Title: PFC, waffles, seminars
 Date: 2006-12-15 18:35:16
 Slug: pfc-waffles-seminars
 Tags: Cocina, Erasmus, PFC
+Summary: Código congelado y presentación del PFC el martes 19; waffles noruegos en el trabajo y un seminario sobre escritura china, el que mejor entiendo.
 Original_url: https://davidarcos.net/blog/2006/12/15/pfc-waffles-seminars/
 
 Ya me queda bien poco para acabar el **PFC** 🙂

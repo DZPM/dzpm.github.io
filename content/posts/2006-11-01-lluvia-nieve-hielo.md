@@ -2,6 +2,7 @@ Title: Lluvia, nieve, hielo
 Date: 2006-11-01 20:50:58
 Slug: lluvia-nieve-hielo
 Tags: Bergen, Erasmus, Fotos, Viajes
+Summary: Primer aguanieve y charcos congelados en Bergen; en Barcelona he visto nevar dos o tres veces, así que la caída llegará, solo falta saber cuándo.
 Original_url: https://davidarcos.net/blog/2006/11/01/lluvia-nieve-hielo/
 
 > **Actualización**: fotos de esta mañana, ¡[nieve](https://www.flickr.com/photos/marian83/tags/nieve/)!

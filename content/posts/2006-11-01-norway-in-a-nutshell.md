@@ -2,6 +2,7 @@ Title: Norway in a Nutshell
 Date: 2006-11-01 00:34:17
 Slug: norway-in-a-nutshell
 Tags: Erasmus, Fotos, HIB, Viajes, Voss
+Summary: Dos días de viaje organizado por la facultad: tren a Myrdal, ferrocarril de Flåm, barco por el fiordo de Gudvangen, noche en Voss; 120 fotos en Flickr.
 Original_url: https://davidarcos.net/blog/2006/11/01/norway-in-a-nutshell/
 
 La semana pasada (Lunes y Martes) me fui de viaje con los de la facultad. El viaje era un "<span class="dead-link" title="Enlace roto: http://www.norwaynutshell.com/">Norway in a Nutshell</span>", "*Noruega en <s>un cascarón</s> una cáscara de nuez*" (gracias, m0d), y consiste en ir a varias ciudades en tren, bus, y barco.  

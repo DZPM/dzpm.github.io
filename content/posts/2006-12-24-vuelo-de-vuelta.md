@@ -2,6 +2,7 @@ Title: Vuelo de vuelta
 Date: 2006-12-24 00:19:18
 Slug: vuelo-de-vuelta
 Tags: Barcelona, Cuenta atrás, Erasmus, Personal, Viajes
+Summary: Dos zumitos confiscados en Bergen como armas ocultas, la tienda Tax-Free como arsenal, tres horas en Copenhague con Asimov y una hora esperando la maleta.
 Original_url: https://davidarcos.net/blog/2006/12/24/vuelo-de-vuelta/
 
 Después de **madrugar** un Sábado, como hace tiempo que no hacía, nos hemos dirigido al aeropuerto. El vuelo de Marian ha salido dos horas después que el mío, pero llega una hora antes (mis tres horas en Copenhagen...)

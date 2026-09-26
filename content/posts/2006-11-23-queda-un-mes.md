@@ -2,6 +2,7 @@ Title: Queda un mes
 Date: 2006-11-23 18:30:30
 Slug: queda-un-mes
 Tags: Bergen, Erasmus, HIB, PFC
+Summary: Un mes para volver: decido quedarme en Barcelona, buscar trabajo y dejar la vuelta a la FIB para septiembre; lista de trámites y encuesta a los lectores.
 Original_url: https://davidarcos.net/blog/2006/11/23/queda-un-mes/
 
 Sí, queda solamente un mes para que vuelva a Barcelona. El 23 de Diciembre (10:05) tomaré el avión en Bergen, haré escala en Copenhagen, y llegaré a Barcelona (17.25).

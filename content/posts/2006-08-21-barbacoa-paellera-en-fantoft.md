@@ -2,6 +2,7 @@ Title: Barbacoa paellera en Fantoft
 Date: 2006-08-21 00:49:01
 Slug: barbacoa-paellera-en-fantoft
 Tags: Bergen, Cocina, Erasmus, Fotos
+Summary: Paella gigante para 30 en la residencia de Fantoft, tras colarnos por error en la barbacoa de unos cristianos; tres intentos de fuego y tarde en el fiordo.
 Original_url: https://davidarcos.net/blog/2006/08/21/barbacoa-paellera-en-fantoft/
 
 El domingo fuimos a una barbacoa que celebraban en la residencia de Fantoft. En realidad era una **paella** gigante para unas 30 personas.  

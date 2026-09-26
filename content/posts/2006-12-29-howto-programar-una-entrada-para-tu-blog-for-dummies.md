@@ -2,6 +2,7 @@ Title: HOWTO Programar una entrada para tu blog (for dummies)
 Date: 2006-12-29 18:00:23
 Slug: howto-programar-una-entrada-para-tu-blog-for-dummies
 Tags: Howto, Meta, WordPress
+Summary: Cómo programar en WordPress un post para las 00:01 del 1 de enero: guardar borrador, fijar fecha futura y pasarlo a Publicado; y a por las uvas tranquilo.
 Original_url: https://davidarcos.net/blog/2006/12/29/howto-programar-una-entrada-para-tu-blog-for-dummies/
 Meneame_story: https://www.meneame.net/story/como-programar-entrada-para-tu-blog-wordpress-for-dummies
 Meneame_meneos: 139

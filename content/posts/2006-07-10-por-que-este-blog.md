@@ -2,6 +2,7 @@ Title: Por qué este blog
 Date: 2006-07-10 17:03:54
 Slug: por-que-este-blog
 Tags: Meta
+Summary: Con la beca Erasmus para hacer el PFC en Bergen, abro el blog para contar la experiencia sin mandar emails a todos; habrá también posts de software libre.
 Original_url: https://davidarcos.net/blog/2006/07/10/por-que-este-blog/
 
 He estudiado Ingeniería Técnica en Informática de Sistemas, en la [FIB](http://www.fib.upc.edu/). Me han concedido una beca Erasmus para ir a hacer el PFC (Proyecto de Final de Carrera). Me voy a Bergen, Noruega.

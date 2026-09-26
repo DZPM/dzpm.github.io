@@ -2,6 +2,7 @@ Title: Excursión a la Fantoft Stave Church
 Date: 2006-08-27 19:42:41
 Slug: excursion-a-la-fantoft-stave-church
 Tags: Bergen, Erasmus, Fotos, Viajes
+Summary: Caminata por el bosque hasta la iglesia de madera de Fantoft, cerrada por una boda; tejado como una barca boca abajo, dragones, y el cura llegando en moto.
 Original_url: https://davidarcos.net/blog/2006/08/27/excursion-a-la-fantoft-stave-church/
 
 El sábado, después de comer, nos fuimos a la "[Stave Church](https://en.wikipedia.org/wiki/Stave_church)" de Fantoft. En Noruega hay varias "stave church", son iglesias medievales hechas de madera, y con un estilo muy peculiar.

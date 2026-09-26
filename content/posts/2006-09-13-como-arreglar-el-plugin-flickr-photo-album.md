@@ -2,6 +2,7 @@ Title: Cómo arreglar el plugin "Flickr Photo Album"
 Date: 2006-09-13 14:48:25
 Slug: como-arreglar-el-plugin-flickr-photo-album
 Tags: Howto, WordPress
+Summary: El plugin Flickr Photo Album de WordPress se queda sin cuota de API: se arregla creando una clave propia en Flickr y pegándola en lib.flickr.php.
 Original_url: https://davidarcos.net/blog/2006/09/13/como-arreglar-el-plugin-flickr-photo-album/
 
 El plugin "Flickr Photo Album" (el que permite integrar las fotos de Flickr dentro de WordPress) ha tenido un problema, según leo en [tantannoodles](https://tantannoodles.com/toolkit/photo-album/):

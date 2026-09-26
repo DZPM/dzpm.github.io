@@ -2,6 +2,7 @@ Title: Migración a Windows Vista
 Date: 2006-12-28 01:58:20
 Slug: migracion-a-windows-vista
 Tags: Meta
+Summary: Inocentada del 28 de diciembre: instalo Windows Vista porque tiene iconos más aerodinámicos y la barra gris; el tema del blog cambió durante todo el día.
 Original_url: https://davidarcos.net/blog/2006/12/28/migracion-a-windows-vista/
 
 > El 28 de Diciembre es el día de los [Santos Inocentes](https://es.wikipedia.org/wiki/D%C3%ADa_de_los_Santos_Inocentes) en España. Esta noticia era, obviamente, era una inocentada.

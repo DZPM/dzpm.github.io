@@ -2,6 +2,7 @@ Title: Conferencias de Fiberparty 2009
 Date: 2009-03-04 21:30:40
 Slug: conferencias-de-fiberparty-2009
 Tags: Django, Flumotion, Python, Software Libre
+Summary: Responsable de las charlas de la Fiberparty 2009, el sábado 7 en el Aula Máster de la FIB: Drupal, Arduino, Python, Django, Flumotion y Radare, gratis.
 Original_url: https://davidarcos.net/blog/2009/03/04/conferencias-de-fiberparty-2009/
 
 Este fin de semana (6, 7 y 8 de Marzo) se celebra la <span class="dead-link" title="Enlace roto: http://www.fiberparty.org/">Fiberparty 2009</span>, de la que soy colaborador. Soy el responsable de las conferencias, os invito a pasaros por las charlas que os gusten.

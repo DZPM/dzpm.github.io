@@ -2,6 +2,7 @@ Title: FREE KRUSHER
 Date: 2007-11-09 00:21:53
 Slug: free-krusher
 Tags: Sociedad
+Summary: La Audiencia de Madrid ratifica la condena a Krusher por comentarios en la Frikipedia; compromiso: ni CDs, ni conciertos, ni hosting español mientras dure.
 Original_url: https://davidarcos.net/blog/2007/11/09/free-krusher/
 Meneame_story: https://www.meneame.net/story/free-krusher-reproduce-texto-frikipedia-tu-blog
 Meneame_meneos: 673

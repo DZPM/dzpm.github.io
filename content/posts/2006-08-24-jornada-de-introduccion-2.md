@@ -2,6 +2,7 @@ Title: Jornada de introducción 2
 Date: 2006-08-24 01:39:42
 Slug: jornada-de-introduccion-2
 Tags: Erasmus, HIB, Spain is different
+Summary: Segunda jornada, la internacional: galletas y un abridor con logo en la Oficina Internacional, paseo guiado por la ciudad y comida con gaviota de invitada.
 Original_url: https://davidarcos.net/blog/2006/08/24/jornada-de-introduccion-2/
 
 > Nota: Aunque algún día no actualice, sigo colgando [mis fotos en flickr](https://www.flickr.com/photos/dzpm/)

@@ -2,6 +2,7 @@ Title: Fiesta de Henni
 Date: 2006-11-21 22:03:45
 Slug: fiesta-de-henni
 Tags: Bergen, Erasmus, Fotos
+Summary: Despedida de Henni, que vuelve a Finlandia: cocina del bloque C y luego el Garage, con rock del bueno, sitio para sentarse y un póster de caricaturas.
 Original_url: https://davidarcos.net/blog/2006/11/21/fiesta-de-henni/
 
 Henni vuelve a Finlandia el viernes, así que el sábado hicimos la fiesta de despedida.

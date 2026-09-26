@@ -2,6 +2,7 @@ Title: Amsterdam
 Date: 2007-04-14 16:21:44
 Slug: amsterdam
 Tags: Viajes, Fotos
+Summary: Fotos del viaje a Holanda: Zwanenburg, el pueblo del hotel, canales de Ámsterdam y Heineken Experience, arquitectura de Rotterdam y molinos de Kinderdijk.
 Original_url: https://davidarcos.net/blog/2007/04/14/amsterdam/
 
 Ayer subí las [fotos del viaje a Holanda](https://flickr.com/photos/dzpm/collections/72157600070969586/):

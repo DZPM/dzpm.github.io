@@ -1,5 +1,6 @@
 Title: Soundstorm @ Emergenza (29/09)
 Date: 2006-09-15 17:40:59
+Summary: Reproduzco la invitación de Atxe al debut de Soundstorm en el festival Emergenza, el 29 de septiembre en la sala Mephisto de Barcelona, con el cartel.
 Slug: soundstorm-emergenza-2909
 Original_url: https://davidarcos.net/blog/2006/09/15/soundstorm-emergenza-2909/
 

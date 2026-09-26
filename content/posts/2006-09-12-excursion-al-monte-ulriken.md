@@ -2,6 +2,7 @@ Title: Excursión al monte Ulriken
 Date: 2006-09-12 01:16:12
 Slug: excursion-al-monte-ulriken
 Tags: Bergen, Erasmus, Fotos
+Summary: Subida al Ulriken, el más alto de los siete montes de Bergen; dos se pierden por el camino bueno y unos noruegos borrachos bajan la montaña rodando.
 Original_url: https://davidarcos.net/blog/2006/09/12/excursion-al-monte-ulriken/
 
 > La API de flickr está funcionando mal, no puedo linkar las fotos desde aquí. Os dejo el link al set de [fotos de Ulriken](https://flickr.com/photos/dzpm/sets/72157594280085073/)

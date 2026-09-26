@@ -2,6 +2,7 @@ Title: Un teclado noruego...
 Date: 2006-10-20 01:48:05
 Slug: un-teclado-noruego
 Tags: Erasmus, Gadgets, PFC
+Summary: El teclado noruego viene sin acentos, eñes ni apertura de interrogación: capturas con las combinaciones de teclas para escribir á, ñ, ¿ y ¡ con AltGr.
 Original_url: https://davidarcos.net/blog/2006/10/20/un-teclado-noruego/
 
 ..y los *trucos* para derrotarlo 😀

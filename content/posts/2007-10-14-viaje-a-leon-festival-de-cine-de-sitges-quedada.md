@@ -2,6 +2,7 @@ Title: Viaje a León, Festival de cine de Sitges, Quedada Menéame
 Date: 2007-10-14 20:59:05
 Slug: viaje-a-leon-festival-de-cine-de-sitges-quedada
 Tags: Cine, Fotos, L'Oasi, Viajes, Menéame
+Summary: Flickr al día tras cambiar de trabajo: cumpleaños de oasieros, turismo por León, Grindhouse entera en Sitges y otra quedada Menéame en Barcelona.
 Original_url: https://davidarcos.net/blog/2007/10/14/viaje-a-leon-festival-de-cine-de-sitges-quedada/
 
 Pongo [mi flickr](https://flickr.com/photos/dzpm/) al día, he andado muy liado desde que **cambié de trabajo.**

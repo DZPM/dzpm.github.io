@@ -1,5 +1,6 @@
 Title: La Science Fiction Writers of America abusa de la DMCA. Y pide perdón.
 Date: 2007-09-01 20:13:34
+Summary: La SFWA usa la DMCA para borrar textos de Scribd buscando Asimov y Silverberg, y se lleva obras ajenas, incluso una de Cory Doctorow bajo Creative Commons.
 Slug: la-science-fiction-writers-of-america-abusa-de-la-dmca-y-pide-perdon
 Original_url: https://davidarcos.net/blog/2007/09/01/la-science-fiction-writers-of-america-abusa-de-la-dmca-y-pide-perdon/
 

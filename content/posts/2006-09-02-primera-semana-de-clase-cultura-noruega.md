@@ -2,6 +2,7 @@ Title: Primera semana de clase: "Cultura noruega"
 Date: 2006-09-02 01:15:31
 Slug: primera-semana-de-clase-cultura-noruega
 Tags: Erasmus, HIB, Spain is different
+Summary: Historia noruega el lunes, partidos y debate político el miércoles, castillo y gofres el viernes: el curso de Norwegian Culture, comparado con España.
 Original_url: https://davidarcos.net/blog/2006/09/02/primera-semana-de-clase-cultura-noruega/
 
 Esta ha sido mi primera semana de clases. De momento solo tengo clases de "*Norwegian Culture*", las demás todavía no han empezado. Voy a hacer un resumen:

@@ -2,6 +2,7 @@ Title: Algo ha cascau, riau riau
 Date: 2007-03-19 15:25:49
 Slug: algo-ha-cascau-riau-riau
 Tags: Meta
+Summary: La actualización forzada a WordPress 2.1 rompe tres plugins, pierde un post programado y cambia la URL de post nuevo; lección: backup antes de actualizar.
 Original_url: https://davidarcos.net/blog/2007/03/19/algo-ha-cascau-riau-riau/
 
 La actualización forzada a WP 2.1 me ha dado algún problemilla.

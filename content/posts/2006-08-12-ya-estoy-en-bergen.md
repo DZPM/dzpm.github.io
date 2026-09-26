@@ -2,6 +2,7 @@ Title: Ya estoy en Bergen
 Date: 2006-08-12 18:55:57
 Slug: ya-estoy-en-bergen
 Tags: Bergen, Erasmus, Viajes
+Summary: Llegada a Bergen tras un vuelo retrasado y una maleta rota, arreglada con navaja multiusos; un estudiante de la HIB nos recoge y la residencia está genial.
 Original_url: https://davidarcos.net/blog/2006/08/12/ya-estoy-en-bergen/
 
 Anoche llegué a Bergen.  

@@ -2,6 +2,7 @@ Title: Fotos atrasadas
 Date: 2006-09-23 13:38:47
 Slug: fotos-atrasadas
 Tags: Bergen, Erasmus, Fotos
+Summary: Sobredosis de fotos pendientes: museo de la lepra con la uni, excursión a Øygarden, vistas desde Floyen con Marian y Evi, y fiesta en casa de Alex.
 Original_url: https://davidarcos.net/blog/2006/09/23/fotos-atrasadas/
 
 Llevo retraso con algunas fotos, vamos a ver si me pongo al día 🙂  

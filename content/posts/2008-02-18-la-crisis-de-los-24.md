@@ -2,6 +2,7 @@ Title: La crisis de los 24
 Date: 2008-02-18 00:59:41
 Slug: la-crisis-de-los-24
 Tags: Personal
+Summary: A los 24: trabajo mucho mejor, título reconocido con nueve meses de retraso, media docena de viajes y algo de solvencia; y aun así, un año más viejo.
 Original_url: https://davidarcos.net/blog/2008/02/18/la-crisis-de-los-24/
 
 24 años.

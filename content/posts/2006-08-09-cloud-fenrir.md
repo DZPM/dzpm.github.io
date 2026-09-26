@@ -2,6 +2,7 @@ Title: Cloud + Fenrir
 Date: 2006-08-09 18:08:08
 Slug: cloud-fenrir
 Tags: Videojuegos, L'Oasi, Personal
+Summary: Regalo de despedida de la gente de l'Oasi: una action figure de Cloud Strife con la moto Fenrir, de Advent Children, fotografiada con detalle.
 Original_url: https://davidarcos.net/blog/2006/08/09/cloud-fenrir/
 
 ![](/images/posts/cloud-fenrir/fenrir_cloud.png)

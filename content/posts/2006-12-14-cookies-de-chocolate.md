@@ -2,6 +2,7 @@ Title: Cookies de chocolate
 Date: 2006-12-14 00:31:43
 Slug: cookies-de-chocolate
 Tags: Cocina, Erasmus, Fotos
+Summary: Receta de galletas: mantequilla derretida, harina, azúcar, pepitas de chocolate y canela, 15 minutos a 200 grados; en la foto, las supervivientes.
 Original_url: https://davidarcos.net/blog/2006/12/14/cookies-de-chocolate/
 
 El otro día preparamos galletas de chocolate (cookies). He aquí la receta.

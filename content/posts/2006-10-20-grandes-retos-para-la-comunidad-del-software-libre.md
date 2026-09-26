@@ -2,6 +2,7 @@ Title: Grandes retos para la comunidad del Software Libre
 Date: 2006-10-20 19:54:15
 Slug: grandes-retos-para-la-comunidad-del-software-libre
 Tags: Software Libre
+Summary: Traducción del post de Mark Shuttleworth sobre el siguiente reto del software libre, el mercado de masas; lo conocí en las Jornadas Badopi 2004.
 Original_url: https://davidarcos.net/blog/2006/10/20/grandes-retos-para-la-comunidad-del-software-libre/
 Meneame_story: https://www.meneame.net/story/grandes-retos-para-comunidad-software-libre
 Meneame_meneos: 131

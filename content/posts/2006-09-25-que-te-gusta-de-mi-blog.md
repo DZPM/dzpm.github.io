@@ -2,6 +2,7 @@ Title: ¿Qué te gusta de mi blog?
 Date: 2006-09-25 01:15:20
 Slug: que-te-gusta-de-mi-blog
 Tags: Meta
+Summary: Pido a los lectores, con una encuesta, si prefieren artículos técnicos o fotos, para ajustar lo que publico; con unos mínimos, porque es mi blog.
 Original_url: https://davidarcos.net/blog/2006/09/25/que-te-gusta-de-mi-blog/
 
 Intento hacer entradas lo más variadas posibles, para no aburrir a nadie. A veces pongo mucho texto y pocas fotos, otras veces solo fotos...

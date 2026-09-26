@@ -2,6 +2,7 @@ Title: Receta: Pastel de chocolate
 Date: 2006-09-24 17:24:07
 Slug: receta-pastel-de-chocolate
 Tags: Bergen, Cocina, Erasmus
+Summary: Harina, azúcar, cuatro huevos, dos tabletas de chocolate y mantequilla: 20 minutos a 200 grados, desmoldar con cuidado y llevarlo a una buena fiesta.
 Original_url: https://davidarcos.net/blog/2006/09/24/receta-pastel-de-chocolate/
 
 #### Ingredientes:

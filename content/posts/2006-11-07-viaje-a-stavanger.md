@@ -2,6 +2,7 @@ Title: Viaje a Stavanger
 Date: 2006-11-07 01:43:09
 Slug: viaje-a-stavanger
 Tags: Erasmus, Fotos, Stavanger, Viajes
+Summary: Fin de semana en casa de Ingrid en Stavanger: seis horas de bus y ferrys, tres horas a pie hasta el Preikestolen, botellón para los locales y pancakes.
 Original_url: https://davidarcos.net/blog/2006/11/07/viaje-a-stavanger/
 
 Este fin de semana he estado en Stavanger. He subido las fotos a flickr ([Stavanger](https://flickr.com/photos/dzpm/sets/72157594364114505/)), voy a comentarlas un poco.  

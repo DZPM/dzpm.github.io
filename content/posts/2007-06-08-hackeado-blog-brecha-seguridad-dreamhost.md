@@ -2,6 +2,7 @@ Title: Me han hackeado el blog: ¡brecha de seguridad con DreamHost!
 Date: 2007-06-08 01:07:08
 Slug: hackeado-blog-brecha-seguridad-dreamhost
 Tags: Meta, Seguridad, WordPress
+Summary: Más de 3.500 cuentas de DreamHost comprometidas: index en blanco e iframes con spam, incluso en los backups; cambiar contraseña y revisar cada index.
 Original_url: https://davidarcos.net/blog/2007/06/08/hackeado-blog-brecha-seguridad-dreamhost/
 
 > *Si ayer te preocupabas por qué mi blog estaba en blanco, o anteayer te preguntabas el por qué del iframe oculto con spam, he aquí la respuesta: me han hackeado el servidor. Y ni siquiera ha sido culpa mía... 😐*

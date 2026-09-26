@@ -2,6 +2,7 @@ Title: Cuenta atrás: 4...
 Date: 2006-12-19 09:04:37
 Slug: cuenta-atras-4
 Tags: Cuenta atrás, Erasmus, PFC
+Summary: Cuatro días. A las 10 presento el PFC ante el equipo de Services del CBU, el profesor y el tutor: software, documentación, manual y demo. Aprobado.
 Original_url: https://davidarcos.net/blog/2006/12/19/cuenta-atras-4/
 
 Quedan <span class="dead-link" title="Enlace roto: http://revistes.upc.es/wiki/4">cuatro</span> días 🙂

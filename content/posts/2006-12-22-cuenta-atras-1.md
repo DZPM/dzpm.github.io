@@ -2,6 +2,7 @@ Title: Cuenta atrás: 1...
 Date: 2006-12-22 09:01:48
 Slug: cuenta-atras-1
 Tags: Bergen, Cocina, Cuenta atrás, Erasmus, Fotos
+Summary: Último día en Bergen: fotos nuevas en Flickr de los lusekakker, la segunda International Party, la despedida en casa de Ingrid y la ciudad.
 Original_url: https://davidarcos.net/blog/2006/12/22/cuenta-atras-1/
 
 Y <span class="dead-link" title="Enlace roto: http://revistes.upc.es/wiki/1">un</span> último día en Bergen... ¡hasta mañana! 🙂  

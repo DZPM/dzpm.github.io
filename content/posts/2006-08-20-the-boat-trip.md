@@ -2,6 +2,7 @@ Title: The Boat Trip
 Date: 2006-08-20 00:04:10
 Slug: the-boat-trip
 Tags: Bergen, Erasmus, Fotos
+Summary: Ocho horas de barco desde Bergen con parada en un pueblecillo de playa preciosa y cascada; sin tiempo para más, las fotos están en Flickr.
 Original_url: https://davidarcos.net/blog/2006/08/20/the-boat-trip/
 
 Hoy hemos hecho un viaje en barco. No tengo mucho tiempo de explicar, así que ahí van [las fotos del boat trip](https://www.flickr.com/photos/dzpm/tags/boattrip/).

@@ -2,6 +2,7 @@ Title: Teléfono movil nuevo
 Date: 2006-08-17 01:54:04
 Slug: telefono-movil-nuevo
 Tags: Erasmus, Gadgets
+Summary: Un Samsung AX72 con tarjeta de Telenor por 399 NK para llamar en Noruega, porque el terminal español viene capado; el viejo se queda apagado, sin perdidas.
 Original_url: https://davidarcos.net/blog/2006/08/17/telefono-movil-nuevo/
 
 El martes me compré un teléfono movil de una compañía noruega, para poder llamar a la gente de aquí sin que me cueste un ojo de la cara.

@@ -2,6 +2,7 @@ Title: HOWTO Añadir marcadores sociales en tu blog
 Date: 2006-12-30 18:00:38
 Slug: howto-anadir-marcadores-sociales-en-tu-blog
 Tags: Howto, WordPress
+Summary: Traduzco y adapto al español el plugin Share This 1.3.1: un solo icono para marcadores sociales, UTF-8, sitios españoles y menos scripts; cuatro pasos.
 Original_url: https://davidarcos.net/blog/2006/12/30/howto-anadir-marcadores-sociales-en-tu-blog/
 
 Versión *corta*: he traducido y adaptado "Share This 1.3.1". Podéis descargar la versión en español: share-this-ES.zip *(ya no disponible)*

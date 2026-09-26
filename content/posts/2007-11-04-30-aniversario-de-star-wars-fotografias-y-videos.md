@@ -2,6 +2,7 @@ Title: 30 aniversario de Star Wars (fotografías y videos)
 Date: 2007-11-04 14:34:06
 Slug: 30-aniversario-de-star-wars-fotografias-y-videos
 Tags: Barcelona, Cine, Fotos, Video
+Summary: Desfile por el 30 aniversario de Star Wars en Barcelona, de Sant Pau a la Sagrada Família por la avenida Gaudí: set de fotos y 14 vídeos en YouTube.
 Original_url: https://davidarcos.net/blog/2007/11/04/30-aniversario-de-star-wars-fotografias-y-videos/
 Meneame_story: https://www.meneame.net/story/celebrado-desfile-30-aniversario-star-wars-imperio-toma-barcelona
 Meneame_meneos: 217

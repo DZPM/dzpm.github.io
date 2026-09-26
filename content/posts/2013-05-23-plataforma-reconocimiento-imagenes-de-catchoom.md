@@ -28,7 +28,7 @@ Vale, ¿y para qué sirve el reconocimiento de imagen? ¿Qué se puede hacer con
 - integrarlo en aplicaciones móviles para reconocer logotipos o marcas comerciales
 - añadirlo a un videojuego para reconocer objetos (y darte bonus dentro del juego)
 - reconocer objetos para aplicar realidad aumentada encima, utilizarlo para reconocer cuadros, edificios, portadas de CDs, catálogos/revistas...
-- o, mi uso favorito: sustituir (y enterrar) a los [códigos QR](https://picturesofpeoplescanningqrcodes.tumblr.com/) 😉
+- o, mi uso favorito: sustituir (y enterrar) a los [códigos QR](https://web.archive.org/web/20130607010313/http://picturesofpeoplescanningqrcodes.tumblr.com/) 😉
 
 ## Arquitectura de la plataforma de Catchoom
 

@@ -2,6 +2,7 @@ Title: Jornada de introducción 3
 Date: 2006-08-25 01:04:44
 Slug: jornada-de-introduccion-3
 Tags: Erasmus, HIB
+Summary: Tres charlas de introducción a Cultura Noruega y la Welcome Party del viernes, donde cada uno lleva su bebida: botellón, pizza gratis y discoteca.
 Original_url: https://davidarcos.net/blog/2006/08/25/jornada-de-introduccion-3/
 
 Ayer (jueves) hicimos hecho la última jornada de introducción. Ha sido una introducción al curso de **Cultura Noruega**: nos han dado tres charlas, acerca de la historia, las tradiciones, la política, la sanidad pública, el estado del bienestar, etc.  

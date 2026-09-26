@@ -2,6 +2,7 @@ Title: "Flickr badge" que valida contra W3C
 Date: 2006-11-03 00:07:17
 Slug: flickr-badge-que-valida-contra-w3c
 Tags: Howto, WordPress
+Summary: Cómo hacer que el badge de Flickr valide en el W3C: quedarse solo con la línea del script, escapar los ampersands, meterlo en un div y darle CSS propio.
 Original_url: https://davidarcos.net/blog/2006/11/03/flickr-badge-que-valida-contra-w3c/
 
 Quería poner un <span class="dead-link" title="Enlace roto: http://www.flickr.com/badge_new.gne">flickr badge</span> en la columna lateral derecha, pero me encontraba con que el código está lleno de errores y no hay manera de que [valide](http://validator.w3.org).

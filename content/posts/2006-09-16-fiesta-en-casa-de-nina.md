@@ -2,6 +2,7 @@ Title: Fiesta en casa de Nina
 Date: 2006-09-16 10:52:25
 Slug: fiesta-en-casa-de-nina
 Tags: Bergen, Erasmus, Fotos
+Summary: Despedida de Nina, que deja la residencia por una casa: sus gatos, amigos alemanes, un medio de transporte peculiar de los gallegos y baile en el centro.
 Original_url: https://davidarcos.net/blog/2006/09/16/fiesta-en-casa-de-nina/
 
 El sábado pasado celebramos una fiesta en casa de **Nina**. Nina es una vecina nuestra de residencia, que ahora se ha ido a vivir a una casa, así que celebramos la despedida.

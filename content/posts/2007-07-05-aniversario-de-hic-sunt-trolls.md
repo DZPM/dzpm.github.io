@@ -2,6 +2,7 @@ Title: Aniversario de Hic sunt trolls
 Date: 2007-07-05 07:00:48
 Slug: aniversario-de-hic-sunt-trolls
 Tags: Meta
+Summary: Primer año del blog en cifras: un cambio de host, tres catástrofes, más de 100 posts, 400 comentarios, ocho portadas en Menéame y casi 1.500 fotos.
 Original_url: https://davidarcos.net/blog/2007/07/05/aniversario-de-hic-sunt-trolls/
 
 Hoy **Hic sunt trolls** cumple su primer aniversario, ya hace un año desde aquel "fr1st p0st!" 🙂

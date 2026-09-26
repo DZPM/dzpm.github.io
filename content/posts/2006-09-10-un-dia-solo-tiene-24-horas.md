@@ -2,6 +2,7 @@ Title: Un día sólo tiene 24 horas
 Date: 2006-09-10 23:59:07
 Slug: un-dia-solo-tiene-24-horas
 Tags: Bergen, Erasmus, Fotos, Meta
+Summary: Un mes en Bergen, 25 entradas y 88 comentarios, felicitación a Eduard y una lista de posts pendientes; de propina, foto con el abono del autobús.
 Original_url: https://davidarcos.net/blog/2006/09/10/un-dia-solo-tiene-24-horas/
 
 Y no doy a basto 🙁

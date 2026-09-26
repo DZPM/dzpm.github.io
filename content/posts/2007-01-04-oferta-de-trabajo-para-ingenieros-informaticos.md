@@ -2,6 +2,7 @@ Title: Oferta de trabajo para ingenieros informáticos
 Date: 2007-01-04 08:00:20
 Slug: oferta-de-trabajo-para-ingenieros-informaticos
 Tags: L'Oasi, Sociedad
+Summary: En la bolsa de trabajo de la FIB, una oferta para ingenieros: clases de Windows básico y Word a un médico, martes y viernes; y pasó el filtro.
 Original_url: https://davidarcos.net/blog/2007/01/04/oferta-de-trabajo-para-ingenieros-informaticos/
 Meneame_story: https://www.meneame.net/story/oferta-trabajo-para-ingenieros-informaticos
 Meneame_meneos: 302

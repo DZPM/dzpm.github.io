@@ -5,7 +5,7 @@ Summary: Un puesto por línea, de 2007 a 2026: trabajo, docencia y comunidad, fo
 
 Versión actualizada y detalles en [LinkedIn](https://www.linkedin.com/in/davidarcos).
 
-<div class="cv-section" markdown="0">
+<div class="cv-section">
 <h2>Para presentarme</h2>
 <blockquote>David Arcos lleva veinte años haciendo software en Barcelona: diez escribiendo código y diez dirigiendo equipos de ingeniería. Organiza Python Barcelona desde 2013 y escribe en davidarcos.net desde 2006. Si buscas un ponente, un mentor o un tech advisor, hablemos.</blockquote>
 <h2>Trabajo</h2>

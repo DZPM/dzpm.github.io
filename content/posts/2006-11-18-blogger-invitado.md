@@ -2,6 +2,7 @@ Title: Blogger invitado
 Date: 2006-11-18 01:05:59
 Slug: blogger-invitado
 Tags: Bergen, Personal, Erasmus, Fotos
+Summary: Eduard escribe como invitado: sus fotos de Bergen y su visión de una ciudad fría pero acogedora, en el país con la mejor calidad de vida del mundo.
 Original_url: https://davidarcos.net/blog/2006/11/18/blogger-invitado/
 
 Hola, soy Eduard y os voy a mostrar un poco lo que hemos fotografiado hoy.

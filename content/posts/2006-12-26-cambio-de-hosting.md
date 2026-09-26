@@ -2,6 +2,7 @@ Title: Cambio de hosting
 Date: 2006-12-26 13:56:00
 Slug: cambio-de-hosting
 Tags: Meta
+Summary: El blog deja el servidor de Revistes por un DreamHost compartido entre cinco amigos: más ancho de banda, SSH y sin el localizador por países.
 Original_url: https://davidarcos.net/blog/2006/12/26/cambio-de-hosting/
 
 He cambiado de *hosting*. El hosting (u "hospedaje") es el servidor donde albergas una página web, o sea, un ordenador donde se ejecutan ciertos procesos (apache, mysql, php) y tienes ciertos ficheros (páginas web, imágenes), y que sirve las páginas tus lectores.

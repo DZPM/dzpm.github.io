@@ -2,6 +2,7 @@ Title: Desayuno ruso
 Date: 2006-08-28 00:45:15
 Slug: desayuno-ruso
 Tags: Cocina, Erasmus, Fotos
+Summary: Arina prepara en Fantoft unos pancakes rusos con fruta en la masa, servidos con miel, chocolate y mermelada, para una cantidad considerable de Erasmus.
 Original_url: https://davidarcos.net/blog/2006/08/28/desayuno-ruso/
 
 El domingo fuimos a almorzar a Fantoft. Arina nos invitó a probar una receta típica rusa, que consiste en una especie de *pancakes* que luego se acompañan con miel, chocolate, caramelo, mermelada, etc...  

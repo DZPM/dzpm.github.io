@@ -2,6 +2,7 @@ Title: Solucionado problema con el plugin "Share This"
 Date: 2007-03-27 23:00:36
 Slug: solucionado-problema-con-el-plugin-share-this
 Tags: Meta, WordPress
+Summary: Borja Fernández avisa de que Share This generaba páginas indexables con contenido duplicado; la versión en español queda corregida, conviene actualizar.
 Original_url: https://davidarcos.net/blog/2007/03/27/solucionado-problema-con-el-plugin-share-this/
 
 [Borja Fernández](https://www.lamateporunyogur.net/) me notifica un error del plugin "[Share This](/blog/howto-anadir-marcadores-sociales-en-tu-blog/)", del cual adapté y traduje la versión 1.3.1 al español. La explicación: [Cuidado con los plugins basados en Share This](http://www.lamateporunyogur.net/archivos/2007/03/27/cuidado-con-los-plugins-basados-en-share-this/)

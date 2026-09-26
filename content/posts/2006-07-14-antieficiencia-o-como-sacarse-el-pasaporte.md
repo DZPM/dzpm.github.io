@@ -2,6 +2,7 @@ Title: Antieficiencia, o ¿cómo sacarse el pasaporte?
 Date: 2006-07-14 18:33:58
 Slug: antieficiencia-o-como-sacarse-el-pasaporte
 Tags: Spain is different
+Summary: Casi cuatro horas de cola en comisaría por un pasaporte que se imprime en dos minutos, y el cálculo de lo que cuesta al año que atienda una sola persona.
 Original_url: https://davidarcos.net/blog/2006/07/14/antieficiencia-o-como-sacarse-el-pasaporte/
 Meneame_story: https://www.meneame.net/story/antieficiencia-como-sacarse-pasaporte
 Meneame_meneos: 82

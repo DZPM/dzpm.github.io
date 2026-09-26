@@ -2,6 +2,7 @@ Title: Cuenta atrás: 2...
 Date: 2006-12-21 09:02:45
 Slug: cuenta-atras-2
 Tags: Cuenta atrás, Erasmus, Personal
+Summary: Dos días. Lo peor de un Erasmus: es imposible explicar lo vivido, la gente se va marchando y al final te toca a ti; tiene fecha de caducidad.
 Original_url: https://davidarcos.net/blog/2006/12/21/cuenta-atras-2/
 
 <span class="dead-link" title="Enlace roto: http://revistes.upc.es/wiki/2">Dos</span> días.

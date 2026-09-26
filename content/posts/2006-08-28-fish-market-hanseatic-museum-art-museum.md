@@ -2,6 +2,7 @@ Title: Fish Market, Hanseatic Museum, Art Museum
 Date: 2006-08-28 22:28:34
 Slug: fish-market-hanseatic-museum-art-museum
 Tags: Bergen, Erasmus, Fotos
+Summary: Paseo dominical por las paradas de pescado del Fish Market, herramientas, bacalao y libros viejos del Museo Hanseático, y paisajes noruegos en el de Arte.
 Original_url: https://davidarcos.net/blog/2006/08/28/fish-market-hanseatic-museum-art-museum/
 
 El domingo por la tarde, después del desayuno ruso, nos fuimos de paseo por el Fish Market, y visitamos un par de museos.

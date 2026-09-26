@@ -2,6 +2,7 @@ Title: Un montón de fotos atrasadas
 Date: 2006-10-17 23:50:50
 Slug: un-monton-de-fotos-atrasadas
 Tags: Bergen, Erasmus, Fotos
+Summary: Resumen de las fotos que Marian ha colgado: despedidas de Ayla y Evi con gofres, paella de Dani, FantoftClub y pubs de Bergen con mi hermano.
 Original_url: https://davidarcos.net/blog/2006/10/17/un-monton-de-fotos-atrasadas/
 
 Marian ha colgado un montón de fotos en su flickr, así que las podéis ver allí: [las fotos de Marian](https://www.flickr.com/photos/marian83/)

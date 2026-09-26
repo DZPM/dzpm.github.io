@@ -2,6 +2,7 @@ Title: Acerca de mí (New Turing Test)
 Date: 2006-07-05 11:43:34
 Slug: acerca-de-mi
 Tags: L'Oasi, Meta, Personal
+Summary: Me presento contestando yo mismo el cuestionario NTT de l'Oasi: trece preguntas fijas, del súmmum de la miseria a qué llevarse a un oasis abandonado.
 Original_url: https://davidarcos.net/acerca-de-mi/
 
 Me llamo **David Arcos**, soy Ingeniero Técnico en Informática de Sistemas por la [Facultat d'Informàtica de Barcelona](https://www.fib.upc.edu/). He realizado el PFC en la <span class="dead-link" title="Enlace roto: http://hib.no/">Høgskolen i Bergen</span> (Bergen, Noruega).

@@ -2,6 +2,7 @@ Title: Nintendo DS
 Date: 2006-10-13 00:52:23
 Slug: nintendo-ds
 Tags: Gadgets
+Summary: Jotape lee el blog desde la Nintendo DS: lo que pasa cuando se programa respetando los estándares y la web se ve desde casi cualquier navegador.
 Original_url: https://davidarcos.net/blog/2006/10/13/nintendo-ds/
 
 <span class="dead-link" title="Enlace roto">Jotape</span> lee mi blog... ...¡desde la **Nintendo DS**! 🙂

@@ -2,6 +2,7 @@ Title: Tengo visita
 Date: 2006-11-17 19:29:26
 Slug: tengo-visita
 Tags: Bergen, Personal, Erasmus, Fotos
+Summary: Eduard llega el miércoles y se queda la semana: cheap mojitos, turismo por las facultades y, con buen tiempo, un día libre para recorrer la ciudad entera.
 Original_url: https://davidarcos.net/blog/2006/11/17/tengo-visita/
 
 El miércoles vino Eduard, y se queda durante esta semana 🙂

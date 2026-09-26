@@ -2,6 +2,7 @@ Title: Cuenta atrás: 3...
 Date: 2006-12-20 09:03:42
 Slug: cuenta-atras-3
 Tags: Cuenta atrás, Erasmus
+Summary: Tres días para volver a Barcelona; aprovecho para desear felices fiestas con la imagen de un pingüino navideño.
 Original_url: https://davidarcos.net/blog/2006/12/20/cuenta-atras-3/
 
 <span class="dead-link" title="Enlace roto: http://revistes.upc.es/wiki/3">Tres</span> días...

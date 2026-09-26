@@ -1,5 +1,6 @@
 Title: Soundstorm @ Rock'n'Reis '06
 Date: 2006-12-17 17:55:45
+Summary: Soundstorm da su segundo concierto en el Rock'n'Reis de Manresa, benéfico, a 5 euros; yo vuelvo ese sábado a Barcelona y no llego. Cartel y bandas.
 Slug: soundstorm-rocknreis-06
 Original_url: https://davidarcos.net/blog/2006/12/17/soundstorm-rocknreis-06/
 

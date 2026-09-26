@@ -2,6 +2,7 @@ Title: Guybrush Threepwood meets SGAE: ¡Voy a ser un gran pirata!
 Date: 2007-05-30 23:29:57
 Slug: guybrush-threepwood-meets-sgae-pirata
 Tags: Videojuegos
+Summary: Animación anónima de Guybrush Threepwood dialogando con la SGAE, cedida al dominio público por miedo a demandas; me sumo a la protesta y hago mirror.
 Original_url: https://davidarcos.net/blog/2007/05/30/guybrush-threepwood-meets-sgae-pirata/
 Meneame_story: https://www.meneame.net/story/voy-ser-gran-pirata-guybrush-threepwood-une-sgae
 Meneame_meneos: 599

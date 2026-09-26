@@ -2,6 +2,7 @@ Title: HOWTO SSHFS - Sistema de Ficheros SSH (for Dummies)
 Date: 2007-01-21 22:40:14
 Slug: howto-sshfs-sistema-de-ficheros-ssh-for-dummies
 Tags: Howto, Software Libre
+Summary: Montar un directorio remoto por SSH con sshfs y fusermount: preparar /media/REMOTO, dos bashscripts para montar y desmontar, y aliases en .bashrc.
 Original_url: https://davidarcos.net/blog/2007/01/21/howto-sshfs-sistema-de-ficheros-ssh-for-dummies/
 
 En este artículo os voy a explicar una utilidad que considero bastante útil: **SSH-FS** (<span class="dead-link" title="Enlace roto: http://fuse.sourceforge.net/sshfs.html">**SSH FileSystem**</span>, Sistema de Ficheros SSH), que consiste en montar una partición remota vía SSH. Viene a ser como acceder a un servidor FTP, pero montado directamente en nuestro árbol de directorios. Y cifrado, por supuesto.

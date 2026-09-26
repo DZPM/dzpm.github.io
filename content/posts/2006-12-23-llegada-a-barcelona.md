@@ -2,6 +2,7 @@ Title: Llegada a Barcelona
 Date: 2006-12-23 23:32:08
 Slug: llegada-a-barcelona
 Tags: Barcelona, Cuenta atrás, Erasmus, Personal, Viajes
+Summary: Acabo de llegar a Barcelona y el viaje ha ido bien; enlace a las últimas fotos de Bergen y anuncio de cómo estuve a punto de acabar en Guantánamo.
 Original_url: https://davidarcos.net/blog/2006/12/23/llegada-a-barcelona/
 
 Acabo de llegar a Barcelona, el viaje ha ido bien.

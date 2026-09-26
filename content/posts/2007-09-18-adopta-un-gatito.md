@@ -2,6 +2,7 @@ Title: Adopta un gatito
 Date: 2007-09-18 23:24:38
 Slug: adopta-un-gatito
 Tags: Personal
+Summary: Ricken se ha encontrado dos gatitos, macho y hembra, y con dos gatas en casa no puede quedárselos: fotos y petición de adopción; al final, ya colocados.
 Original_url: https://davidarcos.net/blog/2007/09/18/adopta-un-gatito/
 
 **Actualización:** ya hemos colocado los gatitos. Muchas gracias 🙂

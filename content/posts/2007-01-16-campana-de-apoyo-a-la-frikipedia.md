@@ -2,6 +2,7 @@ Title: Campaña de apoyo a la Frikipedia
 Date: 2007-01-16 21:57:00
 Slug: campana-de-apoyo-a-la-frikipedia
 Tags: Sociedad
+Summary: Me sumo al meme de apoyo a Krusher, condenado a costas e indemnización en el caso SGAE contra Frikipedia por no retirar una imagen; ánimo, Krusher.
 Original_url: https://davidarcos.net/blog/2007/01/16/campana-de-apoyo-a-la-frikipedia/
 
 Nunca sigo los memes, pero esta vez es una excepción. Al amigo Krusher lo acaban de condenar por <span class="dead-link" title="Enlace roto: http://detrasdelultimonovanadie.blogspot.com/2007/01/xxxx-scores.html">el lío legal de la Frikipedia y la SGAE</span>:

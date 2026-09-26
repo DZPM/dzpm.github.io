@@ -2,6 +2,7 @@ Title: Vistas desde mi ventana
 Date: 2006-09-08 01:19:42
 Slug: vistas-desde-mi-ventana
 Tags: Bergen, Erasmus, Fotos
+Summary: Fotos desde la ventana de la quinta planta de la residencia: la ciudad una mañana cualquiera, al anochecer y a las cinco de la madrugada, sin preguntas.
 Original_url: https://davidarcos.net/blog/2006/09/08/vistas-desde-mi-ventana/
 
 ![](/images/posts/vistas-desde-mi-ventana/237197052.jpg)

@@ -2,6 +2,7 @@ Title: Viaje a Bilbao
 Date: 2007-02-05 00:15:21
 Slug: viaje-a-bilbao
 Tags: Fotos, Menéame, Viajes
+Summary: Quedada de Menéame en Bilbao con jotape: nieve en Dima, comida en casa de Cristina, el metro, cena, juerga y Guggenheim; de recuerdo, fiebre dos días.
 Original_url: https://davidarcos.net/blog/2007/02/05/viaje-a-bilbao/
 
 El fin de semana pasado subí a Bilbao con jotape, para asistir a la quedada de Meneame (aka *la secta mafiosa*).

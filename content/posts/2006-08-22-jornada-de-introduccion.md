@@ -2,6 +2,7 @@ Title: Jornada de introducción
 Date: 2006-08-22 02:37:32
 Slug: jornada-de-introduccion
 Tags: Erasmus, HIB, Spain is different
+Summary: Primera jornada en la HIB: carnet que abre puertas, mi nombre en la segunda transparencia, un parlamento de estudiantes con poder real y almuerzo invitado.
 Original_url: https://davidarcos.net/blog/2006/08/22/jornada-de-introduccion/
 
 El lunes fui a la primera jornada de introducción de la HIB. Hemos asistido unos 8 estudiantes de Erasmus.

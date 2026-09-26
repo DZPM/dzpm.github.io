@@ -2,6 +2,7 @@ Title: He migrado a Yoigo
 Date: 2007-07-11 00:01:00
 Slug: he-migrado-a-yoigo
 Tags: Gadgets
+Summary: Harto de Amena/Orange, pido la portabilidad a Yoigo y estreno un SonyEricsson K800i con cámara de 3,2 Mpx; comparativa de tamaño con el T200 y el Samsung.
 Original_url: https://davidarcos.net/blog/2007/07/11/he-migrado-a-yoigo/
 
 Llevaba un tiempo hasta las narices de Amena/Orange. Si no migraba a otra compañía es porque Movistar y Vodafone no son mucho mejores. Pero finalmente me he decidido, la semana pasada encargué la portabilidad en [la web de Yoigo](https://www.yoigo.com/), hoy he recibido el terminal y el jueves me hacen la portabilidad.

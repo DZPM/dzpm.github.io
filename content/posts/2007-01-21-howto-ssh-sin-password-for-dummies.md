@@ -2,6 +2,7 @@ Title: HOWTO SSH sin password (for Dummies)
 Date: 2007-01-21 22:35:36
 Slug: howto-ssh-sin-password-for-dummies
 Tags: Howto, Software Libre
+Summary: Previo al HOWTO de SSHFS: instalar openssh, generar clave con ssh-keygen y copiar id_rsa.pub al authorized_keys del servidor para entrar sin contraseña.
 Original_url: https://davidarcos.net/blog/2007/01/21/howto-ssh-sin-password-for-dummies/
 
 *Nota: Este artículo es una "introducción" para el [HOWTO SSHFS - Sistema de Ficheros SSH (for Dummies)](/blog/howto-sshfs-sistema-de-ficheros-ssh-for-dummies/). Antes de instalar SSHFS, configuraremos nuestra cuenta SSH de manera que no nos pida la contraseña: será mucho más cómodo.*

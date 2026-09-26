@@ -71,7 +71,8 @@ Las cuenta el build, cada vez, a partir del contenido.
 ## Cómo funciona ahora
 
 - [Código libre](https://github.com/DZPM/dzpm.github.io) (GPL-3.0); textos e imágenes, CC BY-SA 4.0.
-- Sin JavaScript, salvo el selector de tema y el buscador.
+- JavaScript sólo para el tema, la cabecera y el buscador; sin él, todo se lee igual.
 - Los textos los escribo yo; la migración de 2026, con ayuda de Claude Code.
 - Sin comentarios nuevos ni analítica: los enlaces de abajo son el contacto.
+- Los vídeos, presentaciones y audios incrustados se cargan desde su plataforma (como YouTube o SlideShare), que sabe que los estás viendo.
 - Un comentario tuyo que quieras borrar: pídelo ([issue](https://github.com/DZPM/dzpm.github.io/issues), LinkedIn o X) y lo quito.

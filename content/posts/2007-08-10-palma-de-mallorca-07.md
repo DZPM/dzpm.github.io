@@ -2,6 +2,7 @@ Title: Palma de Mallorca 2007
 Date: 2007-08-10 20:56:29
 Slug: palma-de-mallorca-07
 Tags: Fotos, Viajes, Menéame
+Summary: Quedada de Menéame en Mallorca con jotape: comida en Cal Dimoni con Ricardo y Carme, el MeneamePlex de Sineu, Paseo Marítimo y nota mental contra Balearia.
 Original_url: https://davidarcos.net/blog/2007/08/10/palma-de-mallorca-07/
 
 He subido a flickr un [set con las fotos de Mallorca](https://flickr.com/photos/dzpm/sets/72157601351958837/), de la quedada de meneame de la semana pasada.

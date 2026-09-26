@@ -2,6 +2,7 @@ Title: Viaje a Voss
 Date: 2006-11-19 17:56:47
 Slug: viaje-a-voss
 Tags: Personal, Erasmus, Fotos, Viajes, Voss
+Summary: Excursión en tren a Voss con Eduard: ciudad, fiordo y cascadas; a la vuelta, avería y cuatro horas de retraso, justo a tiempo para la fiesta de Henni.
 Original_url: https://davidarcos.net/blog/2006/11/19/viaje-a-voss/
 
 El sábado hicimos un viajecito a Voss. Madrugamos, dasayunamos, y cogimos el tren que va a Voss.

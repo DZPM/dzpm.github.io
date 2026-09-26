@@ -2,6 +2,7 @@ Title: Ya falta menos
 Date: 2006-08-09 18:10:37
 Slug: ya-falta-menos
 Tags: Erasmus, Viajes
+Summary: Dos días para el vuelo a Bergen, entre el apartamento, Barcelona y el pueblo; no habrá actualizaciones hasta llegar, y el NTT ya está subido.
 Original_url: https://davidarcos.net/blog/2006/08/09/ya-falta-menos/
 
 En dos días (11 de agosto) subiré a Bergen. Hasta que no llegue allí ya no actualizaré más (estaré offline), así que esperad al fin de semana para tener noticias frescas.

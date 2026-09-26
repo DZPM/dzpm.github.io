@@ -2,6 +2,7 @@ Title: El colmo de los colmos
 Date: 2006-09-29 12:07:01
 Slug: el-colmo-de-los-colmos
 Tags: Cocina, Erasmus
+Summary: Alguien se come pastel y medio de los dos bizcochos hechos la noche antes de un cumpleaños, con la cocina llena de carteles; retrato del superviviente.
 Original_url: https://davidarcos.net/blog/2006/09/29/el-colmo-de-los-colmos/
 
 Es que te roben un pastel de cumpleaños la noche de antes de la fiesta ¬¬.

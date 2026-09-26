@@ -2,6 +2,7 @@ Title: Lectura recomendada: Brainstorm @ Burkina Faso
 Date: 2007-06-17 13:45:26
 Slug: lectura-recomendada-brainstorm-burkina-faso
 Tags: Personal
+Summary: Roman (brainstorm) pasa 15 días en Burkina Faso montando WiFi y dando clases de redes, con un post diario; recomiendo leer su categoría travel, en catalán.
 Original_url: https://davidarcos.net/blog/2007/06/17/lectura-recomendada-brainstorm-burkina-faso/
 
 Mi amigo Roman (brainstorm) se fue 15 días a Burkina Faso, a hacer virguerías con las redes WiFi y a dar charlas y clases sobre redes y administración de sistemas.

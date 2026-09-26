@@ -2,6 +2,7 @@ Title: FOSDEM 2009: fotos y video
 Date: 2009-04-09 01:47:16
 Slug: fosdem-2009-fotos-y-video
 Tags: Viajes, Django, Flumotion, FOSDEM, Fotos, Python, Software Libre, Video
+Summary: FOSDEM 2009 con los compañeros de Flumotion: fotos, entrevista de Linux-Magazin en vídeo y un poco de recruiting; Python, Twisted, Django y futbolín.
 Original_url: https://davidarcos.net/blog/2009/04/09/fosdem-2009-fotos-y-video/
 
 El pasado mes de Febrero asistí al [FOSDEM 2009](http://www.fosdem.org/2009/), junto a los compañeros de Flumotion.

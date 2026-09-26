@@ -2,6 +2,7 @@ Title: Cuenta atrás: 5...
 Date: 2006-12-18 09:05:14
 Slug: cuenta-atras-5
 Tags: Cuenta atrás, Erasmus, Viajes
+Summary: Cinco días para volver: itinerario de los vuelos Bergen-Copenhague-Barcelona del 23 de diciembre, y la presentación del PFC mañana, adelantada a las 10.
 Original_url: https://davidarcos.net/blog/2006/12/18/cuenta-atras-5/
 
 Vuelvo en <span class="dead-link" title="Enlace roto: http://revistes.upc.es/wiki/5">cinco</span> días ^_^. Mi vuelo llegará a Barcelona el Sábado, 23 de Diciembre, a las 17:25.

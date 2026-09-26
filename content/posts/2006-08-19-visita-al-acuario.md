@@ -2,6 +2,7 @@ Title: Visita al acuario
 Date: 2006-08-19 00:39:39
 Slug: visita-al-acuario
 Tags: Bergen, Erasmus, Fotos
+Summary: Pingüinos, focas y una pecera donde meter las manos en el acuario de Bergen; la tarjeta SD falla y photorec, de testdisk, recupera todas las fotos.
 Original_url: https://davidarcos.net/blog/2006/08/19/visita-al-acuario/
 
 Ayer fuimos al acuario de Bergen...

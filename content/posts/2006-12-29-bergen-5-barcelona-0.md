@@ -2,6 +2,7 @@ Title: Bergen 5, Barcelona 0
 Date: 2006-12-29 08:00:37
 Slug: bergen-5-barcelona-0
 Tags: Barcelona, Erasmus, Sociedad, Spain is different
+Summary: Cinco hábitos de Bergen que chocan al volver: coches que frenan en los pasos de cebra, calles limpias, agua caliente al instante, silencio y nada de tele.
 Original_url: https://davidarcos.net/blog/2006/12/29/bergen-5-barcelona-0/
 
 Resulta que uno llega a Noruega, observa un montón de hábitos raros, los adquiere como propios, y cuando vuelve a Barcelona encuentra muchas cosas fuera de lugar. Es difícil de explicar, pero voy a hacerlo lo mejor que pueda.

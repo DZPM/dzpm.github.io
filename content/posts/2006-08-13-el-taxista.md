@@ -2,6 +2,7 @@ Title: El taxista
 Date: 2006-08-13 01:45:05
 Slug: el-taxista
 Tags: Bergen, Erasmus, Viajes
+Summary: Taxi del aeropuerto a la residencia: el conductor gesticula sin manos al volante, atiende otro móvil y no pasa de 70 km/h; casi 400 NK, paga la facultad.
 Original_url: https://davidarcos.net/blog/2006/08/13/el-taxista/
 
 Cuando llegamos al aeropuerto, vino un chico de la HIB a recogernos. Se llama David, como yo. El caso es que cogimos un taxi hasta la residencia donde estamos (Helse-Bergen). El taxista era un hombre muy peculiar 🙂

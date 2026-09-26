@@ -2,6 +2,7 @@ Title: Final Fantasy XII
 Date: 2007-02-22 22:00:34
 Slug: final-fantasy-xii
 Tags: Videojuegos
+Summary: Ya tengo el nuevo Final Fantasy, un día antes de que salga a la venta, y aviso: no me vais a ver el pelo en una buena temporada.
 Original_url: https://davidarcos.net/blog/2007/02/22/final-fantasy-xii/
 
 Se hace saber...

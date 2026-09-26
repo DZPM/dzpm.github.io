@@ -2,6 +2,7 @@ Title: Mi código se está compilando
 Date: 2007-08-15 15:53:39
 Slug: mi-codigo-se-esta-compilando
 Tags: Tiras
+Summary: Traducción de la tira de xkcd sobre la excusa definitiva del programador: dos luchan con espadas en sillas de oficina y el jefe lo deja pasar.
 Original_url: https://davidarcos.net/blog/2007/08/15/mi-codigo-se-esta-compilando/
 
 > "Mi código se está compilando"

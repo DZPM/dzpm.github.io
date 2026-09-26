@@ -2,6 +2,7 @@ Title: "Bioinformatics clusterfuck", o "ya tengo tema para el PFC"
 Date: 2006-09-22 01:38:21
 Slug: bioinformatics-clusterfuck-o-ya-tengo-tema-para-el-pfc
 Tags: Erasmus, HIB, PFC, Python
+Summary: Tras descartar un PHP+MySQL para Liquiline, el PFC será para el BCCS: repartir tareas a un cluster bioinformático como webservice, en Java y Python.
 Original_url: https://davidarcos.net/blog/2006/09/22/bioinformatics-clusterfuck-o-ya-tengo-tema-para-el-pfc/
 
 Después de intercambiar unos mails estos días, finalmente hoy me he reunido con el responsable de mi proyecto. Jueves, 21 de Septiembre.  
