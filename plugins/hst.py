@@ -23,7 +23,7 @@ import json
 import os
 import re
 from datetime import datetime
-from urllib.parse import parse_qs, unquote, urlparse
+from urllib.parse import parse_qs, quote, unquote, urlparse
 
 from markdown.extensions import Extension
 from markdown.preprocessors import Preprocessor
@@ -34,11 +34,25 @@ SECTIONS = ("portfolio", "archive", "notes")   # a Section: written in the front
 KINDS = {"charla": "🎤", "podcast": "🎙️", "entrevista": "💬", "mesa redonda": "👥", "artículo": "📝"}   # the Kind of a Portfolio post: one word and its emoji, on the card and at the top of the post
 
 URL_LINE = re.compile(r"^\s*(https?://\S+)\s*$")
+# The origin of every iframe embed_html can write, one per provider. It is the one list: embed_html builds its iframes
+# from it, the page CSP takes its frame-src from it (EMBED_FRAME_SRC in pelicanconf.py), and tools/check_csp.py fails
+# the build if a page frames an origin its CSP does not allow. To add a provider, add its origin here and its branch
+# in embed_html.
+EMBED_ORIGINS = {
+    "youtube": "https://www.youtube-nocookie.com",
+    "docs": "https://docs.google.com",
+    "spotify": "https://open.spotify.com",
+    "slideshare": "https://www.slideshare.net",
+    "vimeo": "https://player.vimeo.com",
+    "spreaker": "https://www.spreaker.com",
+}
 
 
 def embed_html(url):
-    """Return the embed markup for a known provider URL, or None."""
+    """Return the embed markup for a known provider URL, or None. The post text gives the URL: every value is escaped
+    for the attribute or quoted for the path it goes into, so a quote in a URL cannot open a new attribute."""
     u = urlparse(url)
+    url = html.escape(url, quote=True)
     host = u.netloc.lower().removeprefix("www.")
     qs = parse_qs(u.query)
 
@@ -46,7 +60,7 @@ def embed_html(url):
         if u.path == "/playlist" and qs.get("list"):
             return (
                 f'<figure class="embed embed-video" data-url="{url}"><iframe loading="lazy" '
-                f'src="https://www.youtube-nocookie.com/embed/videoseries?list={qs["list"][0]}" title="Lista de vídeos" '
+                f'src="{EMBED_ORIGINS["youtube"]}/embed/videoseries?list={quote(qs["list"][0], safe="")}" title="Lista de vídeos" '
                 'allow="encrypted-media; picture-in-picture" allowfullscreen '
                 'referrerpolicy="strict-origin-when-cross-origin"></iframe></figure>'
             )
@@ -56,7 +70,7 @@ def embed_html(url):
         if vid:
             return (
                 f'<figure class="embed embed-video" data-url="{url}"><iframe loading="lazy" '
-                f'src="https://www.youtube-nocookie.com/embed/{vid}" title="Vídeo" '
+                f'src="{EMBED_ORIGINS["youtube"]}/embed/{quote(vid, safe="")}" title="Vídeo" '
                 'allow="encrypted-media; picture-in-picture" allowfullscreen '
                 'referrerpolicy="strict-origin-when-cross-origin"></iframe></figure>'
             )
@@ -66,30 +80,30 @@ def embed_html(url):
         if m:
             return (
                 f'<figure class="embed embed-slides" data-url="{url}"><iframe loading="lazy" '
-                f'src="https://docs.google.com{m.group(1)}/embed?start=false&amp;loop=false&amp;delayms=3000" '
+                f'src="{EMBED_ORIGINS["docs"]}{quote(m.group(1))}/embed?start=false&amp;loop=false&amp;delayms=3000" '
                 'title="Presentación" allowfullscreen></iframe></figure>'
             )
     if host == "open.spotify.com" and u.path.startswith(("/episode/", "/show/")):
         return (
             f'<figure class="embed embed-audio embed-spotify" data-url="{url}"><iframe loading="lazy" '
-            f'src="https://open.spotify.com/embed{u.path}" title="Podcast" allow="encrypted-media"></iframe></figure>'
+            f'src="{EMBED_ORIGINS["spotify"]}/embed{quote(u.path)}" title="Podcast" allow="encrypted-media"></iframe></figure>'
         )
     if host == "slideshare.net" and "/embed_code/" in u.path:
         return (
             f'<figure class="embed embed-slides" data-url="{url}"><iframe loading="lazy" '
-            f'src="https://www.slideshare.net{u.path}" title="Presentación" allowfullscreen></iframe></figure>'
+            f'src="{EMBED_ORIGINS["slideshare"]}{quote(u.path)}" title="Presentación" allowfullscreen></iframe></figure>'
         )
     if host in ("vimeo.com", "player.vimeo.com"):
         vid = u.path.rstrip("/").split("/")[-1]
         if vid.isdigit():
             return (
                 f'<figure class="embed embed-video" data-url="{url}"><iframe loading="lazy" '
-                f'src="https://player.vimeo.com/video/{vid}" title="Vídeo" allowfullscreen></iframe></figure>'
+                f'src="{EMBED_ORIGINS["vimeo"]}/video/{quote(vid, safe="")}" title="Vídeo" allowfullscreen></iframe></figure>'
             )
     if host == "spreaker.com" and u.path.startswith("/embed/"):
         return (
             f'<figure class="embed embed-audio" data-url="{url}"><iframe loading="lazy" '
-            f'src="https://www.spreaker.com{u.path}?{u.query.replace("&", "&amp;")}" title="Audio"></iframe></figure>'
+            f'src="{EMBED_ORIGINS["spreaker"]}{u.path}?{u.query.replace("&", "&amp;")}" title="Audio"></iframe></figure>'
         )
     return None
 
@@ -265,6 +279,23 @@ def note_icon(settings):
     return _NOTE_ICON["svg"]
 
 
+
+# links other people wrote (inside archived comments and mentions) tell crawlers they are user content: rel gets
+# nofollow and ugc, next to what it had. Only external http(s) links; mailto and bare anchors stay as they are
+EXTERNAL_A = re.compile(r'<a\b([^>]*?\bhref="https?://(?!(?:www\.)?davidarcos\.net\b)[^"]*"[^>]*)>', re.I)
+
+
+def ugc(text):
+    def mark(m):
+        attrs = m.group(1)
+        rel = re.search(r'\brel="([^"]*)"', attrs)
+        if not rel:
+            return f'<a{attrs} rel="nofollow ugc">'
+        tokens = rel.group(1).split()
+        tokens += [t for t in ("nofollow", "ugc") if t not in tokens]
+        return f'<a{attrs[:rel.start()]}rel="{" ".join(tokens)}"{attrs[rel.end():]}>'
+    return EXTERNAL_A.sub(mark, text or "")
+
 def decorate(content):
     body = content._content or ""   # a template page (search, 404, the map) has no content
     if "/images/" in body or "/files/" in body:
@@ -353,7 +384,7 @@ def decorate(content):
         with open(path, encoding="utf-8") as f:
             content.comments = json.load(f)
         for c in content.comments:
-            c["html"] = mark_years(c["html"])   # a year in a comment speaks like a year in the post
+            c["html"] = ugc(mark_years(c["html"]))   # a year in a comment speaks like a year in the post
     # mentions: the pingbacks and trackbacks other sites sent, shown together as WordPress did
     path = os.path.join(content.settings["PATH"], "mentions", f"{content.slug}.json")
     content.mentions = []
@@ -361,7 +392,7 @@ def decorate(content):
         with open(path, encoding="utf-8") as f:
             content.mentions = json.load(f)
         for m in content.mentions:
-            m["excerpt"] = mark_years(m.get("excerpt", ""))
+            m["excerpt"] = ugc(mark_years(m.get("excerpt", "")))
     content.media["menciones"] = len(content.mentions)
 
 
@@ -516,7 +547,7 @@ def write_stub(out, rel, title, url):
         raise SystemExit(f"redirect stub collides with existing output: {path}")
     os.makedirs(directory, exist_ok=True)
     with open(path, "w", encoding="utf-8") as f:
-        f.write(STUB.format(title=title, url=url))
+        f.write(STUB.format(title=html.escape(title, quote=False), url=html.escape(url, quote=True)))   # a stub has no CSP: nothing in it goes out raw
 
 
 def stub_plan(articles, settings):

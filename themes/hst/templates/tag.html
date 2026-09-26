@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% block title %}Etiqueta {{ tag.name }} | {{ AUTHOR }}{% endblock %}
+{% block title %}Etiqueta {{ tag.name | e }} | {{ AUTHOR }}{% endblock %}
 {% block og_title %}Etiqueta {{ tag.name | e }}{% endblock %}
 {% block description %}{{ articles | length }} entrada{% if articles | length != 1 %}s{% endif %} de {{ SITENAME }} con la etiqueta {{ tag.name | e }}.{% endblock %}
 {% block canonical %}<link rel="canonical" href="{{ SITEURL }}/{{ tag.url }}">{% endblock %}

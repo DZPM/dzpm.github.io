@@ -1,0 +1,6 @@
+# The site's direct dependencies, pinned. requirements.txt is generated from this file with every
+# dependency and a hash for each one: pip-compile --generate-hashes --strip-extras requirements.in
+pelican==4.12.0
+markdown==3.10.3
+pagefind[bin]==1.5.2
+pillow==12.3.0

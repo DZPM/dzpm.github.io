@@ -9,7 +9,7 @@ import subprocess
 import sys
 
 sys.path.insert(0, "plugins")
-from hst import EmbedExtension, num_es, mark_years  # noqa: E402
+from hst import EMBED_ORIGINS, EmbedExtension, num_es, mark_years  # noqa: E402
 
 AUTHOR = "David Arcos"
 SITENAME = "David Arcos"
@@ -159,6 +159,7 @@ def fecha_es_str(iso):
     return fecha_es(date.fromisoformat(str(iso)[:10]))
 
 
+EMBED_FRAME_SRC = " ".join(EMBED_ORIGINS.values())   # the frame-src of every page: each origin the plugin can embed, and no other
 ASSET_VERSION = subprocess.run(["git", "rev-parse", "--short", "HEAD"], capture_output=True, text=True).stdout.strip() or "dev"   # cache buster for style.css
 # the fonts and the theme images are cached for a year at the edge: their address carries a hash of their content,
 # so it changes when the file changes and only then (the commit would change it on every deploy, and a reader would download them again)

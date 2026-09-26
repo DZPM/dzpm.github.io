@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% block csp_search %} 'wasm-unsafe-eval'; connect-src 'self'{% endblock %}
 {% block title %}Buscar | {{ AUTHOR }}{% endblock %}
 {% block description %}Busca en todas las entradas de {{ SITENAME }}.{% endblock %}
 {% block canonical %}<link rel="canonical" href="{{ SITEURL }}/blog/buscar/">{% endblock %}

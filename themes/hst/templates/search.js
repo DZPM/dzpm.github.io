@@ -33,6 +33,17 @@ function marks(meta, full) {
   }
   return wrap.childElementCount ? wrap : null;
 }
+// Pagefind's excerpt is escaped text with <mark> around the matches. Parse it in an inert document and keep only
+// text and <mark>: whatever else the index could ever hold becomes plain text
+function excerptNodes(html) {
+  const doc = new DOMParser().parseFromString("<p>" + html + "</p>", "text/html");
+  return Array.from(doc.body.firstChild.childNodes, node => {
+    if (node.nodeName !== "MARK") return document.createTextNode(node.textContent);
+    const mark = document.createElement("mark");
+    mark.textContent = node.textContent;
+    return mark;
+  });
+}
 const MESES = ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"];
 function fechaEs(iso) {
   const m = /^(\d{4})-(\d{2})-(\d{2})/.exec(iso || "");
@@ -73,7 +84,13 @@ async function runSearch(params) {
     // the same line as a post and a row: what it is, then the date, in the era's colour
     const kind = document.createElement("span");
     kind.className = "search-kind";
-    kind.innerHTML = '<span aria-hidden="true">' + (r.meta.emoji || "") + "</span> " + (r.meta.clase || "") + ' <span class="card-del">del</span>';
+    const emoji = document.createElement("span");
+    emoji.setAttribute("aria-hidden", "true");
+    emoji.textContent = r.meta.emoji || "";
+    const del = document.createElement("span");
+    del.className = "card-del";
+    del.textContent = "del";
+    kind.append(emoji, " " + (r.meta.clase || "") + " ", del);   // text nodes only: the index is data, not markup
     const when = document.createElement("time");
     when.dateTime = (r.meta.date || "").slice(0, 10);
     when.textContent = fechaEs(r.meta.date);
@@ -83,7 +100,7 @@ async function runSearch(params) {
     const text = r.excerpt.replace(/<[^>]+>/g, "").trim();
     const head = /^[A-ZÁÉÍÓÚÑ¿¡"(]/.test(text) ? "" : "(...) ";
     const tail = /[.!?")]$/.test(text) ? "" : " (...)";
-    p.innerHTML = head + r.excerpt + tail;
+    p.append(head, ...excerptNodes(r.excerpt), tail);
     if (tag && !q) {
       // a tag search has no query term: mark the tag's name where the excerpt says it
       const re = new RegExp("(" + tag.replace(/[.*+?^${}()|[\]\\]/g, "\\$&") + ")", "gi");

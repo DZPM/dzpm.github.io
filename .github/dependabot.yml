@@ -1,12 +1,16 @@
 # Dependabot: the Python toolchain and the pinned actions, every day, one pull request for each ecosystem
 # (grouped, so a week of releases is one review and not five). The actions are pinned by commit, and
-# Dependabot updates the hash and the version comment together.
+# Dependabot updates the hash and the version comment together. A version waits 7 days after its release before
+# Dependabot proposes it (cooldown): a hijacked release is usually found and pulled in that time. Security
+# updates do not wait.
 version: 2
 updates:
   - package-ecosystem: pip
     directory: /
     schedule:
       interval: daily
+    cooldown:
+      default-days: 7
     groups:
       python:
         patterns: ["*"]
@@ -14,6 +18,8 @@ updates:
     directory: /
     schedule:
       interval: daily
+    cooldown:
+      default-days: 7
     groups:
       actions:
         patterns: ["*"]

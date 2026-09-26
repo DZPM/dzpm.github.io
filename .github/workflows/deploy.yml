@@ -3,37 +3,41 @@ name: Build and deploy
 on:
   push:
     branches: [main]
+  pull_request:          # a Dependabot bump is built and checked before it reaches main; a pull request never deploys
+    branches: [main]
   workflow_dispatch:
 
-permissions:
-  contents: read
-  pages: write
-  id-token: write
+permissions: {}   # each job asks for what it needs: the build runs third-party packages and must not hold the deploy rights
 
 env:
   TZ: Europe/Madrid   # the timestamp each page carries is the author's clock, not the runner's UTC
 
-concurrency:
-  group: pages
-  cancel-in-progress: true
-
 jobs:
   build:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    concurrency:          # one group per branch or pull request: a newer push replaces an older build of the same ref only
+      group: build-${{ github.ref }}
+      cancel-in-progress: true
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1  # v7.0.1
+        with:
+          persist-credentials: false   # no token in .git/config for the steps that follow
       - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97  # v7.0.0
         with:
           python-version: "3.14"
           cache: pip
-      - run: pip install -r requirements.txt
+      - run: pip install --require-hashes -r requirements.txt   # every package, direct or not, pinned by the hash of its files
       - run: pelican content -o output -s publishconf.py --fatal warnings
       - run: python -m pagefind --site output --quiet
       - run: python tools/pii_gate.py --tree
       - run: python tools/pii_gate.py --output output
       - run: python tools/check_stubs.py output
       - run: python tools/check_links.py output
+      - run: python tools/check_csp.py output
       - uses: actions/upload-pages-artifact@fc324d3547104276b827a68afc52ff2a11cc49c9  # v5.0.0
+        if: github.event_name != 'pull_request'
         with:
           path: output
           # v5 excludes every dot path from the artifact unless you ask for them, and /.well-known/
@@ -42,7 +46,14 @@ jobs:
 
   deploy:
     needs: build
+    if: github.event_name != 'pull_request'
     runs-on: ubuntu-latest
+    concurrency:          # only deploys share this group, so a pull request cannot cancel or hold one; a started deploy runs to the end
+      group: pages
+      cancel-in-progress: false
+    permissions:
+      pages: write
+      id-token: write
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}

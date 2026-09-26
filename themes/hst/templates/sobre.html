@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% block title %}{{ page.title }} | {{ AUTHOR }}{% endblock %}
+{% block title %}{{ page.title | striptags | e }} | {{ AUTHOR }}{% endblock %}
 {% block og_title %}{{ page.title | striptags | e }}{% endblock %}
 {% block description %}{{ page.summary | striptags | e }}{% endblock %}
 {% block canonical %}<link rel="canonical" href="{{ SITEURL }}/{{ page.url }}">{% endblock %}

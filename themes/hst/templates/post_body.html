@@ -19,7 +19,7 @@
     <div class="tags" data-pagefind-ignore>
       <a class="tags-label" href="{{ SITEURL }}/blog/etiquetas/" title="Todas las etiquetas">Etiquetas:</a>
       <ul class="tags-list">
-      {% for tag in article.tags %}<li><a href="{{ SITEURL }}/{{ tag.url }}" data-pagefind-filter="tag" title="Entradas con la etiqueta {{ tag.name }}" itemprop="keywords">{% include "icons/tag.svg" %} {{ tag.name }}</a></li>{% endfor %}
+      {% for tag in article.tags %}<li><a href="{{ SITEURL }}/{{ tag.url }}" data-pagefind-filter="tag" title="Entradas con la etiqueta {{ tag.name | e }}" itemprop="keywords">{% include "icons/tag.svg" %} {{ tag.name }}</a></li>{% endfor %}
       </ul>
     </div>
     {% endif %}
@@ -61,7 +61,7 @@
         <img class="comment-avatar" src="{{ SITEURL }}/images/avatars/archive/{{ c.avatar }}" alt="" width="96" height="96" loading="lazy">
         <div class="comment-body">
           <p class="comment-meta">
-            {% if c.url %}<a class="comment-author" href="{{ c.url | e }}" rel="nofollow noopener">{{ c.author | e }}</a>
+            {% if c.url %}<a class="comment-author" href="{{ c.url | e }}" rel="nofollow ugc noopener">{{ c.author | e }}</a>
             {% elif c.url_dead %}<span class="comment-author dead-link" title="Enlace roto: {{ c.url_dead | e }}">{{ c.author | e }}</span>
             {% else %}<span class="comment-author">{{ c.author | e }}</span>{% endif %}
             <a class="comment-permalink" href="#comment-{{ c.id }}" title="Enlace a este comentario"><time datetime="{{ c.date }}">{{ c.date | fecha_es_str }}</time></a>
@@ -80,7 +80,7 @@
     <ul class="mention-list">
     {% for m in article.mentions %}
       <li class="mention" id="mencion-{{ m.id }}">
-        {% if m.dead %}<span class="mention-title dead-link" title="Enlace roto: {{ m.url | e }}">{{ m.title | e }}</span>{% else %}<a class="mention-title" href="{{ m.url | e }}" rel="nofollow noopener">{{ m.title | e }}</a>{% endif %}
+        {% if m.dead %}<span class="mention-title dead-link" title="Enlace roto: {{ m.url | e }}">{{ m.title | e }}</span>{% else %}<a class="mention-title" href="{{ m.url | e }}" rel="nofollow ugc noopener">{{ m.title | e }}</a>{% endif %}
         <time datetime="{{ m.date }}">{{ m.date | fecha_es_str }}</time>
         {% if m.excerpt %}<span class="mention-excerpt">{{ m.excerpt }}</span>{% endif %}
       </li>

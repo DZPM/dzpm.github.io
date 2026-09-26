@@ -22,11 +22,12 @@ search:           ## build the search index over output/
 indexnow:         ## tell Bing, Yandex and the rest which pages exist (after a deploy)
 	$(PY) tools/indexnow.py
 
-check:            ## PII gate over the tree and the built site, and the redirect stubs
+check:            ## PII gate over the tree and the built site, the redirect stubs, the links, and the frames against the CSP
 	$(PY) tools/pii_gate.py --tree
 	$(PY) tools/pii_gate.py --output output
 	$(PY) tools/check_stubs.py output
 	$(PY) tools/check_links.py output
+	$(PY) tools/check_csp.py output
 
 serve: build search   ## build, index and serve at http://127.0.0.1:8000
 	$(PY) tools/serve.py 8000

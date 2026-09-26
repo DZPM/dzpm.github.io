@@ -2,7 +2,8 @@
 <html lang="{{ DEFAULT_LANG }}">
 <head>
 <meta charset="utf-8">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; img-src 'self' data:; style-src 'self'; font-src 'self'; script-src 'self' 'wasm-unsafe-eval'; connect-src 'self'; frame-src https://www.youtube-nocookie.com https://docs.google.com https://open.spotify.com https://www.slideshare.net https://player.vimeo.com https://www.spreaker.com; form-action 'self'; base-uri 'none'">
+{# frame-src comes from EMBED_ORIGINS in plugins/hst.py, the list embed_html builds its iframes from: a provider the plugin can embed is always allowed, and tools/check_csp.py fails the build if a page frames anything else. Only the pages that run Pagefind fill csp_search: it needs WebAssembly and to fetch its index #}
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; img-src 'self'; style-src 'self'; font-src 'self'; script-src 'self'{% block csp_search %}{% endblock %}; frame-src {{ EMBED_FRAME_SRC }}; form-action 'self'; base-uri 'none'">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="color-scheme" content="light dark">
 <meta name="theme-color" content="#e8e6e0" media="(prefers-color-scheme: light)">

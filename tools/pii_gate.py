@@ -15,9 +15,11 @@ Exit status 1 on any finding. See docs/adr/0003.
 
 import argparse
 import os
+import json
 import re
 import subprocess
 import sys
+from html.parser import HTMLParser
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -43,8 +45,9 @@ ALLOWED_TEXT = {
     "0.0.0.0", "127.0.0.1",
     "22D488F46C908EDE33D383D7C77A3FF4B7FBAD91",   # the author's public GPG fingerprint, in security.txt
 }
-TEXT_EXT = {".md", ".html", ".xml", ".txt", ".py", ".yml", ".yaml", ".css", ".js", ".json", ".toml", ".cfg", ".csv", ".tsv", ".svg", ""}
-# Paths whose content is made of hashes or is third party, checked by hand instead of by pattern.
+TEXT_EXT = {".md", ".html", ".xml", ".xsl", ".txt", ".py", ".yml", ".yaml", ".css", ".js", ".json", ".toml", ".cfg", ".csv", ".tsv", ".svg", ""}
+# Paths whose content is made of hashes or is third party, checked by hand instead of by pattern. A prefix that ends in /
+# names a folder of the built site, so it applies only with --output.
 ALLOWED_PATHS = (
     "tools/pii_gate.py",         # this file: the patterns and the allowlist live here
     ".well-known/keybase.txt",   # a signed proof, hashes by design
@@ -82,11 +85,14 @@ def check_text(path, findings, http_assets=False):
         scan = re.sub(r"&lt;svg\b.*?&lt;/svg&gt;", lambda m: " " * len(m.group(0)), text, flags=re.S | re.I)
     else:
         scan = text
-    # other people's words are rendered as HTML (a comment's body, a mention's excerpt), so markup that could run
-    # must never enter: true of every archived file today, and it has to stay true if any are ever added
+    if path.endswith("requirements.txt"):
+        # pip-compile pins every package by the hash of its files: blank those hashes, so no pattern reads a digit run
+        # inside one as a phone number. Anything else in the file is still scanned
+        scan = re.sub(r"--hash=sha256:[0-9a-f]{64}\b", lambda m: " " * len(m.group(0)), scan)
+    # other people's words are rendered as HTML (a comment's body, a mention's excerpt), so only known markup may
+    # enter: true of every archived file today, and it has to stay true if any are ever added
     if "/content/comments/" in path or "/content/mentions/" in path or path.startswith(("content/comments/", "content/mentions/")):
-        for m in re.finditer(r"<\s*(script|iframe|form|object|embed|svg)\b|\\?[\"' ]on[a-z]+\s*=|javascript:|srcdoc=", scan, re.I):
-            findings.append((path, text.count("\n", 0, m.start()) + 1, "active markup in archived text", m.group(0)[:40]))
+        check_archived(path, text, findings)
     for name, rx in PATTERNS.items():
         if path.endswith("tools/pii_gate.py") and name in ("gravatar", "wordpress export field"):
             continue
@@ -104,6 +110,80 @@ def check_text(path, findings, http_assets=False):
         # Mixed content is about what the page loads: src attributes and stylesheet links. A plain <a href> is not.
         for m in re.finditer(r'(?:\ssrc="(http://[^"]+)"|<link[^>]+href="(http://[^"]+)")', text):
             findings.append((path, text.count("\n", 0, m.start()) + 1, "http:// asset", m.group(1) or m.group(2)))
+
+
+# The markup archived comments and mentions may carry: what the 529 entries of 2026 use, plus i and code. Anything
+# else (another tag, another attribute, a handler, a style, a comment, a scheme that is not a link) is a finding.
+ARCHIVED_TAGS = {"p", "br", "a", "strong", "em", "b", "i", "blockquote", "code"}
+ARCHIVED_ATTRS = {"a": {"href", "rel", "title"}}
+ARCHIVED_SCHEMES = ("http://", "https://", "mailto:", "/")
+ARCHIVED_COMMENTS = {"troll"}   # <!--troll-->: a marker the migration left on purpose in seven comments; no other HTML comment
+
+
+def safe_link(value):
+    # browsers drop control characters and spaces inside a scheme ("java\tscript:"), so compare without them
+    v = re.sub(r"[\x00-\x20]", "", value or "").lower()
+    return v.startswith(ARCHIVED_SCHEMES) and not v.startswith("//")
+
+
+class ArchivedMarkup(HTMLParser):
+    def __init__(self):
+        super().__init__(convert_charrefs=True)   # attribute values arrive decoded: "jav&#x61;script:" is javascript:
+        self.bad = []
+
+    def handle_starttag(self, tag, attrs):
+        if tag not in ARCHIVED_TAGS:
+            self.bad.append(f"<{tag}>")
+            return
+        for name, value in attrs:
+            if name not in ARCHIVED_ATTRS.get(tag, set()):
+                self.bad.append(f"<{tag} {name}=>")
+            elif name == "href" and not safe_link(value):
+                self.bad.append(f"href {(value or '')[:30]}")
+
+    handle_startendtag = handle_starttag
+
+    def handle_comment(self, data):
+        if data.strip() not in ARCHIVED_COMMENTS:
+            self.bad.append(f"<!--{data[:20]}-->")
+
+    def handle_decl(self, decl):
+        self.bad.append("<!declaration>")
+
+    def handle_pi(self, data):
+        self.bad.append("<?pi?>")
+
+    def unknown_decl(self, data):
+        self.bad.append("<![...]>")
+
+
+def check_archived(path, text, findings):
+    """A comment or mention file: the body HTML against the allowlist, the link fields by scheme, and the names and
+    titles with no markup at all (the templates escape them; this keeps the data honest too)."""
+    try:
+        entries = json.loads(text)
+    except ValueError as e:
+        findings.append((path, 1, "archived file is not valid JSON", str(e)[:60]))
+        return
+    for entry in entries if isinstance(entries, list) else [entries]:
+        if not isinstance(entry, dict):
+            findings.append((path, 1, "archived entry is not an object", str(entry)[:40]))
+            continue
+        at = text.find(f'"id": {entry.get("id")}')
+        line = text.count("\n", 0, at) + 1 if at >= 0 else 1
+        for key in ("html", "excerpt"):
+            if isinstance(entry.get(key), str):
+                parser = ArchivedMarkup()
+                parser.feed(entry[key])
+                parser.close()
+                for bad in parser.bad:
+                    findings.append((path, line, f"markup not allowed in archived {key}", bad[:40]))
+        for key in ("url", "url_dead"):
+            if entry.get(key) and not safe_link(entry[key]):
+                findings.append((path, line, f"archived {key} is not a link", str(entry[key])[:40]))
+        for key in ("author", "title"):
+            if isinstance(entry.get(key), str) and re.search(r"<[a-zA-Z!/?]", entry[key]):
+                findings.append((path, line, f"markup in archived {key}", entry[key][:40]))
 
 
 def check_image(path, findings):
@@ -149,10 +229,10 @@ def main():
         if any(rel == d or rel.startswith(d + os.sep) for d in SKIP_DIRS) and not args.output:
             continue
         inner = os.path.relpath(path, os.path.join(ROOT, args.output)) if args.output else rel.split(os.sep, 1)[-1] if rel.startswith("content" + os.sep) else rel
-        if any(inner == a or inner.startswith(a) for a in ALLOWED_PATHS) or any(rel.endswith(a) for a in ALLOWED_PATHS if not a.endswith("/")):
+        if any(inner == a or (args.output and a.endswith("/") and inner.startswith(a)) for a in ALLOWED_PATHS) or any(rel.endswith(a) for a in ALLOWED_PATHS if not a.endswith("/")):
             continue
-        if re.fullmatch(r"[0-9a-f]{32}\.txt", os.path.basename(path)):
-            continue   # the IndexNow key file at the root: a 32 hex character name and body, public by design (tools/indexnow.py)
+        if re.fullmatch(r"[0-9a-f]{32}\.txt", inner if args.output else rel.replace(os.sep, "/").removeprefix("content/extra/")):
+            continue   # the IndexNow key file, at the site root and in content/extra/ only: a 32 hex character name and body, public by design (tools/indexnow.py)
         ext = os.path.splitext(path)[1].lower()
         if ext in IMAGE_EXT:
             check_image(path, findings)

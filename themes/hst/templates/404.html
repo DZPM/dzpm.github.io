@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% block csp_search %} 'wasm-unsafe-eval'; connect-src 'self'{% endblock %}
 {% block title %}Hic sunt trolls | {{ AUTHOR }}{% endblock %}
 {% block description %}Esa página no existe. Buscamos algo parecido.{% endblock %}
 {% block robots %}<meta name="robots" content="noindex">{% endblock %}

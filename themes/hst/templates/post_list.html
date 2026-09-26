@@ -59,7 +59,7 @@
         <li class="year-item">
           <time class="day" datetime="{{ article.date.isoformat() }}">{{ article.date.day }}</time>
           <span class="year-item-text">
-            <a href="{{ SITEURL }}/{{ article.url }}" title="{{ article.title | striptags }}">{{ article.title }}</a>
+            <a href="{{ SITEURL }}/{{ article.url }}" title="{{ article.title | striptags | e }}">{{ article.title }}</a>
             {% if article.meneame_meneos or article.comments or article.media.values() | sum %}<span class="year-item-marks">
               {{ meneame_mark(article) }}
               {{ comment_mark(article) }}
@@ -95,7 +95,7 @@
         <li class="year-item">
           <time class="day" datetime="{{ article.date.isoformat() }}">{{ article.date.day }}</time>
           <span class="year-item-text">
-            <a href="{{ SITEURL }}/{{ article.url }}" title="{{ article.title | striptags }}">{{ article.title }}</a>
+            <a href="{{ SITEURL }}/{{ article.url }}" title="{{ article.title | striptags | e }}">{{ article.title }}</a>
             {% if article.meneame_meneos or article.comments or article.media.values() | sum %}<span class="year-item-marks">
               {{ meneame_mark(article) }}
               {{ comment_mark(article) }}
