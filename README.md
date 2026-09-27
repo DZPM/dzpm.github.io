@@ -16,6 +16,8 @@ The personal site of David Arcos: a portfolio of talks and technical writing sin
 | [0007](docs/adr/0007-the-archive-is-preserved-and-pruned-only-by-removal.md) | The Archive is preserved, and pruned only by removal | Nothing in a 2006 to 2009 Post is rewritten; what cannot stay is removed, and the record of it stays private |
 | [0008](docs/adr/0008-comments-are-closed.md) | Comments are closed | No form, no widget; the 463 old Comments are a record, and a Commenter can ask for theirs to go |
 | [0009](docs/adr/0009-the-section-is-a-date-the-kind-a-word-and-notes-the-third-lane.md) | The Section is a date, the Kind a word, and Notes are the third lane | Portfolio and Archive by date, Notes by front matter for new short posts; the Kind is one of five words |
+| [0010](docs/adr/0010-html-at-the-edge-purged-on-deploy.md) | The HTML is cached at the edge for a week and purged on every deploy | The deploy purges Cloudflare and fails unless the edge serves the new commit; a purge-only token in the deploy environment |
+| [0011](docs/adr/0011-every-page-shares-a-generated-card.md) | Every post and page shares a designed image | A Portfolio post shares its cover (a small one on a blurred copy of itself), the rest a 1200x630 card the build draws; CARD_VERSION forces a refetch |
 
 ## Stack
 
