@@ -17,6 +17,8 @@ SITESUBTITLE = "Hic sunt trolls"
 SITEURL = ""
 SITEDESCRIPTION = "Hic sunt trolls: charlas, vídeos y artículos de David Arcos, desde 2006, sobre Python, sistemas distribuidos, equipos de ingeniería y comunidad."   # 100 to 155 characters: what LinkedIn asks for and what a search result shows; when the tagline changes, change this too
 OG_IMAGE_ALT = "Foto de David Arcos junto al nombre del blog, Hic sunt trolls, y la dirección davidarcos.net"   # what og.png shows, for the pages that share it
+CARD_VERSION = 2   # part of every card's file name: raise it to make every platform fetch every card again (LinkedIn keeps an image by its address, and keeps what it made of it the first time)
+PORTFOLIO_SHARE_MIN_WIDTH = 1200   # a Portfolio cover at least this wide is shared as it is; a narrower one is shared as a 1200x630 copy, the cover over a blurred copy of itself (docs/adr/0011)
 X_HANDLE = "@DZPM"   # a card on X names its author and the site
 SECTION_NAMES = {"portfolio": "Charlas y artículos", "notes": "Notas", "archive": "Archivo"}   # a Section as a reader reads it: the Blog list names Notas and Archivo, the home calls the portfolio charlas y artículos
 

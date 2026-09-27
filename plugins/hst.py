@@ -700,8 +700,9 @@ def write_card_covers(pelican):
 
 OG_SIZE = (1200, 630)   # what LinkedIn, X, WhatsApp and Slack ask for: a 1.91:1 image, 1200 px wide
 OG_DESIGN = "1"         # the layout's version: it is part of every card's hash, so a new design gives every card a new address
+OG_FRAME = "2"          # the same, for the copy of a small cover (2: the cover fills the frame, the blur only fills the bands)
 OG_COLORS = {"bg": (0x16, 0x16, 0x15), "fg": (0xe9, 0xe6, 0xdf), "muted": (0xa3, 0xa3, 0x9c), "blue": (0x8a, 0xb4, 0xe6)}   # og.png's ground and the dark palette
-_OG_QUEUE = {}          # file name under images/og/ -> (title, line, note, cover file): what write_og_cards draws at the end of the build
+_OG_QUEUE = {}          # file name under images/og/ -> ("card", title, line, note, cover file) or ("frame", cover file): what write_og_cards draws at the end of the build
 
 
 def og_card(content):
@@ -724,17 +725,42 @@ def og_card(content):
     if cover:
         candidates = (base + cover, os.path.join(base, "extra") + cover) if cover.startswith("/") else (os.path.join(base, "images", "covers", cover),)
         cover_file = next((c for c in candidates if os.path.isfile(c)), "")
+    content.og_image_width, content.og_image_height = OG_SIZE
+    content.og_uses_cover = False
+    # a Portfolio post shares its cover, made for the post, not a card. A cover at least PORTFOLIO_SHARE_MIN_WIDTH
+    # wide goes as it is; a narrower one (the old covers, 800 px or less) goes as a 1200x630 copy: the cover in the
+    # middle, over a blurred and darker copy of itself, so a platform shows it large without a blurred enlargement
+    if date is not None and getattr(content, "section", "") == "portfolio" and cover_file:
+        size = image_size(cover_file)
+        content.og_image_alt = f"Portada de «{title}»" + (f", {line}" if line else "") + ". Hic sunt trolls, el blog de David Arcos."
+        content.og_uses_cover = True   # the post's own image (its microdata) is the cover, whichever file is shared
+        if size[0] and size[0] >= content.settings.get("PORTFOLIO_SHARE_MIN_WIDTH", 1200):
+            site = content.settings["SITEURL"]
+            content.og_image = f"{site}{cover}" if cover.startswith("/") else f"{site}/images/covers/{cover}"
+            content.og_image_type = "image/png" if cover_file.lower().endswith(".png") else "image/jpeg"
+            content.og_image_width, content.og_image_height = size
+            return   # no card to draw
+        digest = hashlib.sha256()
+        for part in (OG_FRAME, str(content.settings.get("CARD_VERSION", 1))):
+            digest.update(part.encode("utf-8") + b"\0")
+        with open(cover_file, "rb") as f:
+            digest.update(f.read())
+        name = f"{content.slug}-{digest.hexdigest()[:10]}.jpg"
+        _OG_QUEUE[name] = ("frame", cover_file)
+        content.og_image = f"{content.settings['SITEURL']}/images/og/{name}"
+        content.og_image_type = "image/jpeg"
+        return
     # a page has no kind and no date: its summary goes under the title instead
     note = "" if date is not None else html.unescape(re.sub(r"<[^>]+>", "", getattr(content, "summary", "") or "")).strip()
     digest = hashlib.sha256()
-    for part in (OG_DESIGN, title, line, note):
+    for part in (OG_DESIGN, str(content.settings.get("CARD_VERSION", 1)), title, line, note):
         digest.update(part.encode("utf-8") + b"\0")
     if cover_file:
         with open(cover_file, "rb") as f:
             digest.update(f.read())
     ext = "jpg" if cover_file else "png"   # a photo compresses as JPEG, flat colour and text as PNG
     name = f"{content.slug}-{digest.hexdigest()[:10]}.{ext}"
-    _OG_QUEUE[name] = (title, line, note, cover_file)
+    _OG_QUEUE[name] = ("card", title, line, note, cover_file)
     content.og_image = f"{content.settings['SITEURL']}/images/og/{name}"
     content.og_image_type = "image/jpeg" if cover_file else "image/png"
     content.og_image_alt = f"«{title}»" + (f", {line}" if line else "") + ". Hic sunt trolls, el blog de David Arcos."
@@ -849,9 +875,46 @@ def draw_og_card(title, line, note, cover_file, fonts, avatar):
     return card
 
 
+def _og_trim(im):
+    """The image without the flat bars an old cover may carry (a 4:3 video letterboxed in black, say): the box of the
+    pixels that differ from the corner colour, when that box is clearly smaller than the image."""
+    from PIL import Image, ImageChops
+    corner = im.getpixel((0, 0))
+    diff = ImageChops.difference(im, Image.new("RGB", im.size, corner)).convert("L")
+    box = diff.point(lambda v: 255 if v > 24 else 0).getbbox()
+    if box and (box[2] - box[0]) * (box[3] - box[1]) < 0.96 * im.width * im.height:
+        return im.crop(box)
+    return im
+
+
+def draw_og_frame(cover_file):
+    """The 1200x630 copy of a cover narrower than 1200 px: the cover enlarged until it touches two opposite edges, as
+    large as the frame allows, and a blurred, darker copy of itself only in the bands its proportion leaves free. A
+    platform shows the copy at about half its width, so every pixel given to the cover counts; the old covers are
+    small, and an enlargement of them is soft but whole."""
+    from PIL import Image, ImageEnhance, ImageFilter
+    W, H = OG_SIZE
+    with Image.open(cover_file) as im:
+        im = _og_trim(im.convert("RGB"))
+    scale = max(W / im.width, H / im.height)
+    back = im.resize((round(im.width * scale) + 2, round(im.height * scale) + 2), Image.LANCZOS)
+    left, top = (back.width - W) // 2, (back.height - H) // 2
+    back = back.crop((left, top, left + W, top + H)).filter(ImageFilter.GaussianBlur(36))
+    back = ImageEnhance.Brightness(back).enhance(0.5)
+    back = ImageEnhance.Color(back).enhance(0.8)
+    fit = min(W / im.width, H / im.height)
+    front = im.resize((round(im.width * fit), round(im.height * fit)), Image.LANCZOS)
+    back.paste(front, ((W - front.width) // 2, (H - front.height) // 2))
+    return back
+
+
 def _og_job(job):
-    """Draw and save one card: the unit of work of write_og_cards, run in a worker process."""
-    path, title, line, note, cover_file, fonts, avatar = job
+    """Draw and save one card or one framed cover: the unit of work of write_og_cards, run in a worker process."""
+    path, spec, fonts, avatar = job
+    if spec[0] == "frame":
+        draw_og_frame(spec[1]).save(path, "JPEG", quality=90, subsampling=0)   # full colour detail: the blurred ground bands at 4:2:0
+        return
+    _kind, title, line, note, cover_file = spec
     card = draw_og_card(title, line, note, cover_file, fonts, avatar)
     if path.endswith(".jpg"):
         card.save(path, "JPEG", quality=85)   # optimize and progressive cost 4x the time for 10 % of the size
@@ -872,7 +935,7 @@ def write_og_cards(pelican):
     avatar = os.path.join(theme, "static", "img", "david.arcos.jpg")
     out_dir = os.path.join(pelican.output_path, "images", "og")
     os.makedirs(out_dir, exist_ok=True)
-    jobs = [(os.path.join(out_dir, name), *spec, fonts, avatar) for name, spec in sorted(_OG_QUEUE.items())
+    jobs = [(os.path.join(out_dir, name), spec, fonts, avatar) for name, spec in sorted(_OG_QUEUE.items())
             if not os.path.exists(os.path.join(out_dir, name))]
     if jobs:
         # fork, not the default forkserver of Python 3.14: a forked worker has this module already, a new one would
