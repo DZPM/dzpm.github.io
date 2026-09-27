@@ -39,5 +39,8 @@ links:            ## check the external links of the Portfolio and the main page
 serve: build search   ## build, index and serve at http://127.0.0.1:8000
 	$(PY) tools/serve.py 8000
 
+degrade: build search   ## serve at http://127.0.0.1:8001 with every static file off, to see how the pages degrade
+	$(PY) tools/serve.py 8001 --html-only
+
 clean:
 	rm -rf output

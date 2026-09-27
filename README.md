@@ -81,6 +81,7 @@ make setup      # venv, pinned dependencies, the pre-commit hook
 make build      # pelican -> output/
 make search     # pagefind index over output/
 make serve      # http://127.0.0.1:8000
+make degrade    # http://127.0.0.1:8001 with the static files off: pages only (see tools/serve.py for --allow-images, --no-images, --no-js)
 make check      # PII gate on the tree and the output, redirect stubs, internal links
 ```
 
