@@ -71,6 +71,7 @@ Las cuenta el build, cada vez, a partir del contenido.
 ## Cómo funciona ahora
 
 - [Código libre](https://github.com/DZPM/dzpm.github.io) (GPL-3.0); textos e imágenes, CC BY-SA 4.0.
+- Responde en unos **100** ms de media, y en **25** ms en el mejor caso; con WordPress eran unos **850** ms de media. Medido con UptimeRobot, donde tengo las alertas de status.
 - JavaScript sólo para el tema, la cabecera y el buscador; sin él, todo se lee igual.
 - Los textos los escribo yo; la migración de 2026, con ayuda de Claude Code.
 - Sin comentarios nuevos ni analítica: los enlaces de abajo son el contacto.
