@@ -19,6 +19,13 @@
     }
   }
   apply(current());
+  // the search pages: their "needs JavaScript" line stays hidden while search.js starts, and comes back if it never
+  // does (a script that fails to load leaves no noscript); the line is plain HTML, so with no script at all it shows
+  root.classList.add("search-wait");
+  document.addEventListener("DOMContentLoaded", function () {
+    if (!document.querySelector(".search-nojs")) { root.classList.remove("search-wait"); return; }
+    setTimeout(function () { if (!window.searchReady) root.classList.remove("search-wait"); }, 4000);
+  });
   document.addEventListener("DOMContentLoaded", function () {
     var button = document.querySelector(".theme-switch");
     if (!button) return;

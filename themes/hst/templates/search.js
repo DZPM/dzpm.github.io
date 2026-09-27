@@ -1,6 +1,8 @@
 // Pagefind search, shared by /blog/buscar/ and the 404 page: one file, loaded by absolute path
 // because the 404 page is served at any depth. The body's data-search says which page runs it.
 const SITE = "{{ SITEURL }}";
+window.searchReady = true;   // theme.js shows the "needs JavaScript" line if this never runs
+document.querySelectorAll(".search-nojs").forEach(e => e.remove());
 const form = document.getElementById("search-form");
 const input = document.getElementById("q");
 const status = document.getElementById("search-status");
