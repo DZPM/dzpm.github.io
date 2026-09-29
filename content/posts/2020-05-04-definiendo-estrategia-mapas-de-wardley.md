@@ -1,7 +1,7 @@
 Title: Definiendo Estrategia: Mapas de Wardley
 Date: 2020-05-04 10:40:08
 Slug: definiendo-estrategia-mapas-de-wardley
-Tags: Barcelona, Blueliv, Estrategia, GeeksHubs, Wardley Maps, Problemas Complejos, Slides, Software Libre, Video
+Tags: Barcelona, Blueliv, Estrategia, GeeksHubs, Wardley Maps, Complex Problem Solving, Slides, Software Libre, Video
 Summary: Qué son los Mapas de Wardley y cómo los he usado para definir estrategia y priorizar funcionalidades, bugs y clientes, con ejemplos de Blueliv.
 Kind: charla
 Cover: definiendo-estrategia-mapas-de-wardley.jpg
