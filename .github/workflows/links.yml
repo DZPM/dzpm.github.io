@@ -2,6 +2,8 @@ name: External links
 
 # Once a month, check the external links of the Portfolio posts and the main pages (tools/check_external_links.py).
 # One issue, labelled "links", lists the dead ones; the run updates it, and closes it when every link answers again.
+# The report also lists the pending media notes (a video not published yet): they go in the issue when there is one and
+# in the run summary, but they never open the issue or keep it open.
 # The archive is not checked: its dead links are already shown as dead, on purpose.
 
 on:
@@ -40,6 +42,7 @@ jobs:
           set -e
           if [ "$code" -gt 1 ]; then exit "$code"; fi   # 2: no page to check, the build is wrong
           echo "dead=$(grep -o '[0-9]* dead' report.md | head -1 | cut -d' ' -f1)" >> "$GITHUB_OUTPUT"
+          cat report.md >> "$GITHUB_STEP_SUMMARY"   # the run page shows the report, pending media included, even with no issue
       - name: Open, update or close the issue
         env:
           GH_TOKEN: ${{ github.token }}

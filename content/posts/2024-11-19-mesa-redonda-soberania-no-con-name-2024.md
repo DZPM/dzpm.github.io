@@ -10,6 +10,8 @@ El 19 de noviembre de 2024 participé en una mesa redonda de la [No cON Name 2k2
 
 > No future. ¿Seríamos soberanos en caso de conflicto global? Después del asunto de CrowdStrike ha quedado clara la dependencia tecnológica que afecta a todos, sin diferencias de tamaño o reputación. ¿Tiene futuro Europa en un mundo interconectado, volátil e incierto?
 
-Moderó Antonio Fernandes, y en la mesa estaban Santi Romeu Sala, de la Agència de Ciberseguretat de Catalunya, Miguel Ortega Haro, de CDmon, y yo. No hay grabación; quedan [el anuncio de la organización](https://x.com/noconname/status/1858888814757822666) y [la publicación en LinkedIn](https://www.linkedin.com/feed/update/urn:li:activity:7265264644288598016/).
+Moderó Antonio Fernandes, y en la mesa estaban Santi Romeu Sala, de la Agència de Ciberseguretat de Catalunya, Miguel Ortega Haro, de CDmon, y yo. Se grabó, y mientras llega el vídeo quedan [el anuncio de la organización](https://x.com/noconname/status/1858888814757822666) y [la publicación en LinkedIn](https://www.linkedin.com/feed/update/urn:li:activity:7265264644288598016/).
+
+Pendiente: el vídeo de la mesa redonda, en [el Vimeo de No cON Name](https://vimeo.com/noconname/videos).
 
 *Foto: [No cON Name](https://x.com/noconname/status/1858888814757822666).*

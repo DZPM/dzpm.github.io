@@ -36,7 +36,7 @@ La plataforma está implementada en [Python](https://python.org/), los component
 
 A destacar, usamos [Redis](https://redis.io/) para varios servicios. Expliqué las [ventajas de usar Redis](https://web.archive.org/web/20130530154803/http://2012.nosql-matters.org/bcn/speakers/) en el [NoSQL matters@Barcelona2012](https://web.archive.org/web/20130531054624/http://2012.nosql-matters.org/bcn/), el pasado Octubre, así que puedes ver <span class="dead-link" title="Enlace roto: https://vimeo.com/52213638">el vídeo</span>:
 
-*(Aquí había <span class="dead-link" title="Enlace roto: https://vimeo.com/52213638">el vídeo de la charla</span>, en Vimeo. Ya no existe.)*
+Retirado: el vídeo de la charla, en [el Vimeo de NoSQL matters](https://vimeo.com/52213638).
 
 Y [la presentación](https://www.slideshare.net/DZPM/nosql-matters-in-catchoom-recognition-service-14631138): (inexplicablemente llegó a portada en Slideshare, de ahí las visitas)
 

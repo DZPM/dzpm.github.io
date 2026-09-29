@@ -13,4 +13,4 @@ Entrevista en ScannerFM: "[Wifi en los aviones conectados a la intranet de Immfl
 
 <span class="dead-link" title="Enlace roto: https://www.spreaker.com/user/scanner_fm/david-arcos-hacker-y-miembro-immfly">Audio</span>:
 
-*(Aquí había <span class="dead-link" title="Enlace roto: https://www.spreaker.com/user/scanner_fm/david-arcos-hacker-y-miembro-immfly">el audio de la entrevista</span>, en Spreaker. Ya no existe.)*
+Retirado: el audio de la entrevista, en [el Spreaker de Scanner FM](https://www.spreaker.com/user/scanner_fm/david-arcos-hacker-y-miembro-immfly).

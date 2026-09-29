@@ -7,14 +7,20 @@ or a server error after the retries is "could not check", not dead.
 
 Usage:  python tools/check_external_links.py output [--report report.md] [--section "Charlas y artículos"]
 
+It also lists the pending media notes (plugins/hst.py, MEDIA_NOTE_LINE) on every page: a video or an audio that its
+owner has not published yet, so the report reminds to look for it. They do not count as dead, and they do not change
+the exit code.
+
 It prints the counts and writes a Markdown report. Exit code 0 when no link is dead, 1 when one or more are,
 2 when there is no page to check. Standard library only.
 """
 import argparse
 import concurrent.futures
+import html
 import html.parser
 import os
 import pathlib
+import re
 import socket
 import ssl
 import sys
@@ -31,6 +37,7 @@ TIMEOUT = 20
 RETRIES = 2
 WORKERS = 4
 DEAD_STATUS = (404, 410)
+PENDING = re.compile(r'<aside class="banner media-note media-pending"[^>]*>.*?<span><span>Aquí irá (.+?)\.</span><br><span>Lo añadiré cuando se publique en <a href="([^"]+)"[^>]*>(.+?)</a>')
 
 
 class Page(html.parser.HTMLParser):
@@ -50,6 +57,17 @@ class Page(html.parser.HTMLParser):
             host = urllib.parse.urlsplit(a["href"]).hostname or ""
             if host != SITE and not host.endswith("." + SITE):
                 self.links.append(a["href"])
+
+
+def pending_media(out):
+    """Return [(page, what, owner, url)] for every pending media note in the build."""
+    found = []
+    for path in sorted(pathlib.Path(out).rglob("index.html")):
+        text = path.read_text(encoding="utf-8", errors="replace")
+        for what, url, owner in PENDING.findall(text):
+            rel = path.parent.relative_to(out).as_posix()
+            found.append(("/" if rel == "." else f"/{rel}/", *(html.unescape(re.sub(r"<[^>]+>", "", v)).strip() for v in (what, owner, url))))   # the owner may carry the site icon of its link
+    return found
 
 
 def pages_to_check(out, section):
@@ -133,6 +151,10 @@ def main():
     print(f"external links: {len(results)} checked on {len(pages)} pages: {ok} ok, {len(dead)} dead, {len(unknown)} could not check")
     for l, d in dead:
         print(f"  dead ({d}): {l}  on {', '.join(sorted(where[l]))}")
+    pending = pending_media(args.out)
+    print(f"pending media: {len(pending)}")
+    for page, what, owner, url in pending:
+        print(f"  {page}: {what}, in {owner} ({url})")
     if args.report:
         lines = [f"{len(results)} external links on {len(pages)} pages (the Portfolio and the main pages): "
                  f"{ok} ok, {len(dead)} dead, {len(unknown)} could not check.", ""]
@@ -143,6 +165,10 @@ def main():
             lines += ["## Could not check", "", "A site that blocks robots, a timeout or a server error. Check these by hand only if they stay here for months.", "",
                       "| Page | Link | Status |", "|---|---|---|"]
             lines += [f"| {', '.join(sorted(where[l]))} | {l} | {d} |" for l, d in unknown] + [""]
+        if pending:
+            lines += ["## Pending media", "", "Videos or audios that their owner has not published yet. When one is out, replace its note with the URL.", "",
+                      "| Page | What | Where to look |", "|---|---|---|"]
+            lines += [f"| {page} | {what} | [{owner}]({url}) |" for page, what, owner, url in pending] + [""]
         pathlib.Path(args.report).write_text("\n".join(lines), encoding="utf-8")
     return 1 if dead else 0
 

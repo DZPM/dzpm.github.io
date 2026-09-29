@@ -38,6 +38,17 @@ SECTIONS = ("portfolio", "archive", "notes")   # a Section: written in the front
 KINDS = {"charla": "🎤", "podcast": "🎙️", "entrevista": "💬", "mesa redonda": "👥", "artículo": "📝"}   # the Kind of a Portfolio post: one word and its emoji, on the card and at the top of the post
 
 URL_LINE = re.compile(r"^\s*(https?://\S+)\s*$")
+# A media note: a line in the place of an embed, for a video or an audio that is not there. "Pendiente:" when its owner
+# has not published it yet, "Retirado:" when its owner took it down. The line names what it is and whose it is:
+#   Pendiente: el vídeo de la charla, en [el YouTube de CPS Spain](https://www.youtube.com/@cpsspain).
+#   Retirado: el audio de la entrevista, en [el Spreaker de Scanner FM](https://www.spreaker.com/...).
+# The link goes to the owner's channel (pending) or is the dead address, shown as a dead link (removed).
+MEDIA_NOTE_LINE = re.compile(r"^\s*(Pendiente|Retirado):\s*(.+?),\s*en\s*\[([^\]]+)\]\((https?://[^)\s]+)\)\.?\s*$")
+MEDIA_NOTE_ICON = (
+    '<svg class="banner-icon" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" '
+    'stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/>'
+    '<path d="M10 9l5 3-5 3z" fill="currentColor" stroke="none"/></svg>'
+)
 # The origin of every iframe embed_html can write, one per provider. It is the one list: embed_html builds its iframes
 # from it, the page CSP takes its frame-src from it (EMBED_FRAME_SRC in pelicanconf.py), and tools/check_csp.py fails
 # the build if a page frames an origin its CSP does not allow. To add a provider, add its origin here and its branch
@@ -50,6 +61,21 @@ EMBED_ORIGINS = {
     "vimeo": "https://player.vimeo.com",
     "spreaker": "https://www.spreaker.com",
 }
+
+
+def media_note_html(state, what, owner, url):
+    """Return the banner for a media note (see MEDIA_NOTE_LINE). Every value comes from the post text and is escaped."""
+    what, owner, url = (html.escape(v, quote=True) for v in (what, owner, url))
+    if state == "Pendiente":
+        first, second = f"Aquí irá {what}.", f'Lo añadiré cuando se publique en <a href="{url}" rel="noopener">{owner}</a>.'
+    else:
+        owner = owner[:1].upper() + owner[1:]   # it starts the sentence
+        first, second = f"Aquí había {what}.", f'<span class="dead-link" title="Enlace roto: {url}">{owner}</span> ya no existe.'
+    text = f"<span>{first}</span><br><span>{second}</span>"   # two lines; the stylesheet puts a gap between them, the br keeps them apart without it
+    return (
+        f'<aside class="banner media-note media-{"pending" if state == "Pendiente" else "removed"}" data-pagefind-ignore>'
+        f"{MEDIA_NOTE_ICON}<span>{text}</span></aside>"
+    )
 
 
 def embed_html(url):
@@ -117,9 +143,12 @@ class EmbedPreprocessor(Preprocessor):
         out = []
         for line in lines:
             m = URL_LINE.match(line)
+            n = MEDIA_NOTE_LINE.match(line)
             if m:
                 html = embed_html(m.group(1))
                 out.append(html if html else f"<{m.group(1)}>")
+            elif n:
+                out.append(media_note_html(*n.groups()))
             else:
                 out.append(line)
         return out
