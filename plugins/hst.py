@@ -283,16 +283,19 @@ NOTE_RE = re.compile(r"<p><em>((?:Imagen|Imágenes)\b[^<]*autor desconocido[^<]*
 _NOTE_ICON = {}
 # a link to one of the author's networks gets that network's icon in front of its text, in any post or page
 LINK_ICONS = {"linkedin.com": "linkedin", "github.com": "github", "stackoverflow.com": "stackoverflow", "x.com": "x", "twitter.com": "x",
-              "instagram.com": "instagram", "flickr.com": "flickr", "youtube.com": "youtube", "youtu.be": "youtube", "slideshare.net": "slideshare", "keybase.io": "keybase", "pybcn.org": "pybcn"}
+              "instagram.com": "instagram", "flickr.com": "flickr", "youtube.com": "youtube", "youtu.be": "youtube", "vimeo.com": "vimeo", "slideshare.net": "slideshare", "keybase.io": "keybase", "pybcn.org": "pybcn",
+              "wikipedia.org": "wikipedia", "archive.org": "internetarchive", "docs.google.com": "googleslides",   # every docs.google.com link here is a deck
+              "meneame.net": "meneame", "meetup.com": "meetup", "medium.com": "medium",
+              "djangoproject.com": "django", "python.org": "python", "spotify.com": "spotify"}
 LINK_RE = re.compile(r'<a [^>]*href="https?://(?:www\.)?([^/"]+)[^"]*"[^>]*>(?!<(?:img|svg|iframe))')
 _LINK_ICON = {}
 
 
 def link_icons(html, settings):
-    """Put the network's icon inside every link to LinkedIn, GitHub, X, YouTube and the rest, before its text."""
+    """Put the site's icon inside every link to LinkedIn, GitHub, X, YouTube, Wikipedia and the rest, before its text."""
     def icon(name):
-        if name == "pybcn":   # the one logo that is an image, not a mark drawn in the theme
-            return '<span class="link-icon icon-pybcn"></span> '
+        if name in ("pybcn", "meneame"):   # the two logos that are an image, not a mark drawn in the theme
+            return f'<span class="link-icon icon-{name}"></span> '
         if name not in _LINK_ICON:
             with open(os.path.join(settings["THEME"], "templates", "icons", name + ".svg"), encoding="utf-8") as f:
                 inner = re.sub(r"<title>.*?</title>|</?svg[^>]*>", "", f.read()).strip()

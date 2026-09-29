@@ -106,6 +106,7 @@ em, i, cite, blockquote { font-style: normal; }
 em, i { font-weight: 500; }   /* emphasis without an italic face: a half step up in weight */
 .link-icon { width: 0.85em; height: 0.85em; fill: currentColor; vertical-align: -0.08em; }   /* the network's mark in front of a link to it, the colour of the link */
 .icon-pybcn { display: inline-block; background: currentColor; -webkit-mask: url("../img/pybcn.png") center / contain no-repeat; mask: url("../img/pybcn.png") center / contain no-repeat; }   /* Python Barcelona's logo as a mask, like the menéame one: the colour of the text, red on hover, monochrome like the rest */
+.icon-meneame { display: inline-block; background: currentColor; -webkit-mask: url("../img/meneame.png") center / contain no-repeat; mask: url("../img/meneame.png") center / contain no-repeat; }   /* menéame's logo as a mask, the same way */
 img { max-width: 100%; height: auto; display: block; }
 .sprite { position: absolute; width: 0; height: 0; overflow: hidden; }   /* the icon symbols: present for <use>, never drawn (the hidden attribute is not enough for an inline svg in every browser) */
 h1, h2, h3 { line-height: 1.15; font-family: var(--display); font-weight: 700; letter-spacing: -0.02em; font-variation-settings: "opsz" 32; }
