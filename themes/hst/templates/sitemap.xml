@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="{{ SITEURL }}/theme/sitemap.xsl?v={{ ASSET_VERSION }}"?>
+<!-- For search engines. For people, the site map is at {{ SITEURL }}/sobre-el-blog/#mapa -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 {% set newest = (articles | first).date.date().isoformat() %}
   <url><loc>{{ SITEURL }}/</loc><lastmod>{{ newest }}</lastmod></url>

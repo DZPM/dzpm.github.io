@@ -97,7 +97,7 @@
 }
 
 * { box-sizing: border-box; }
-html { font-synthesis: none; font-size: 106.25%; line-height: 1.6; font-family: var(--font); background: var(--bg); color: var(--fg); -webkit-text-size-adjust: 100%; }
+html { scrollbar-gutter: stable; font-synthesis: none; font-size: 106.25%; line-height: 1.6; font-family: var(--font); background: var(--bg); color: var(--fg); -webkit-text-size-adjust: 100%; }
 body { background-color: var(--bg); background-image: radial-gradient(color-mix(in oklab, var(--fg) 7%, transparent) 0.8px, transparent 1.1px); background-size: 18px 18px; background-position: 0.5px 0.5px; }   /* a flat ground with a faint grain: paper, not a fill. The half pixel puts each dot on the centre of a pixel, and the 0.8px radius, fading to 1.1px, lights it and touches its four neighbours: a 0.6px dot at 9px fell on the corner of four pixels, all 0.707px away, and a 1x screen drew nothing. No gradient (nobody saw it) and no fixed attachment (a repaint on every scroll, and iOS ignores it) */
 body { margin: 0; display: flex; flex-direction: column; min-height: 100vh; min-height: 100dvh; }
 a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 0.15em; text-decoration-color: color-mix(in oklab, var(--accent) 45%, transparent); }   /* the underline lighter than the text: a paragraph with five links is not an alert */

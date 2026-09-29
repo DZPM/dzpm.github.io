@@ -13,13 +13,13 @@
       <body>
         <main class="site-main">
           <h1 class="page-title">Feed de <xsl:value-of select="/atom:feed/atom:title"/></h1>
-          <p>Esta dirección es un <strong>feed</strong>: pégala en tu lector de noticias y te avisará cuando haya una entrada nueva.</p>
+          <p>Esta dirección es un <strong>feed</strong>: pégala en tu lector de noticias y te avisará cuando haya una entrada nueva.<br/>Si buscas algo para leer, el mapa para personas está en <a href="/sobre-el-blog/#mapa">Sobre el blog</a>.</p>
           <ul>
             <xsl:for-each select="/atom:feed/atom:entry">
               <li><span class="yr"><xsl:value-of select="substring(atom:published, 1, 10)"/></span>: <a href="{atom:link[@rel='alternate']/@href}"><xsl:value-of select="atom:title"/></a></li>
             </xsl:for-each>
           </ul>
-          <p>Volver al <a href="/blog/">blog</a>.</p>
+          <p>Volver al <a href="/">inicio</a>.</p>
         </main>
       </body>
     </html>

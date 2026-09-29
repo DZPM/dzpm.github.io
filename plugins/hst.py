@@ -26,6 +26,7 @@ import html
 import json
 import os
 import re
+import subprocess
 from datetime import datetime
 from urllib.parse import parse_qs, quote, unquote, urlparse
 
@@ -635,12 +636,13 @@ def style_feed(pelican):
     """The feed gets a stylesheet instruction, so a browser shows a page instead of raw XML (theme/feed.xsl); readers ignore it.
     The XSL and the stylesheet it loads carry the asset version, like every other file under /theme/, so a long cache is safe."""
     v = pelican.settings.get("ASSET_VERSION", "dev")
-    xsl = os.path.join(pelican.output_path, "theme", "feed.xsl")
-    if os.path.isfile(xsl):
-        with open(xsl, encoding="utf-8") as f:
-            text = f.read()
-        with open(xsl, "w", encoding="utf-8") as f:
-            f.write(text.replace('href="/theme/css/style.css"', f'href="/theme/css/style.css?v={v}"'))
+    for name in ("feed.xsl", "sitemap.xsl"):   # the sitemap template writes its own stylesheet instruction
+        xsl = os.path.join(pelican.output_path, "theme", name)
+        if os.path.isfile(xsl):
+            with open(xsl, encoding="utf-8") as f:
+                text = f.read()
+            with open(xsl, "w", encoding="utf-8") as f:
+                f.write(text.replace('href="/theme/css/style.css"', f'href="/theme/css/style.css?v={v}"'))
     path = os.path.join(pelican.output_path, pelican.settings.get("FEED_ATOM", "") or "")
     if not os.path.isfile(path):
         return
@@ -976,7 +978,22 @@ def write_og_cards(pelican):
             list(pool.map(_og_job, jobs, chunksize=8))
     print(f"share cards: {len(_OG_QUEUE)} ({len(jobs)} drawn)")
 
+def page_modified(content):
+    """A page with no date gets the date of the last commit that changed its source, for the sitemap's lastmod. The build
+    needs the full history for this (fetch-depth: 0 in the deploy workflow); outside git, the page keeps no date."""
+    if type(content).__name__ != "Page" or getattr(content, "modified", None) or getattr(content, "date", None):
+        return
+    try:
+        out = subprocess.run(["git", "log", "-1", "--format=%cI", "--", content.source_path], capture_output=True, text=True,
+                             cwd=os.path.dirname(content.source_path), timeout=10).stdout.strip()
+    except (OSError, subprocess.SubprocessError):
+        return
+    if out:
+        content.modified = datetime.fromisoformat(out)
+
+
 def register():
+    signals.content_object_init.connect(page_modified)
     signals.content_object_init.connect(decorate)
     signals.article_generator_finalized.connect(remember_articles)
     signals.finalized.connect(write_stubs)
