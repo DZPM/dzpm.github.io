@@ -30,8 +30,11 @@ jobs:
       - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97  # v7.0.0
         with:
           python-version: "3.14"
-          cache: pip
-      - run: pip install --require-hashes -r requirements.txt   # every package, direct or not, pinned by the hash of its files
+      - uses: astral-sh/setup-uv@c18668ad3cf93ea998bef934396af7bb5c839dc7  # v10.2.0
+        with:
+          enable-cache: true           # keyed by uv.lock
+          activate-environment: true   # .venv/bin on PATH for the steps that follow
+      - run: uv sync --locked   # every package, direct or not, as uv.lock pins it, with the hash of its files; fails if the lock is stale
       - run: pelican content -o output -s publishconf.py --fatal warnings
       - run: python -m pagefind --site output --quiet
       - id: posts   # did this push add or change a post? Then the deploy tells IndexNow that the home page changed

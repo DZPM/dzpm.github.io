@@ -1,0 +1,17 @@
+# The site's Python toolchain. It is not a package: uv only keeps the environment (uv sync) and the lock.
+# uv.lock pins every dependency, direct or not, with the hash of each file; CI installs it with --locked.
+[project]
+name = "davidarcos-net"
+version = "0"
+requires-python = ">=3.14"
+dependencies = [
+    "pelican==4.12.0",
+    "markdown==3.10.3",
+    "pagefind[bin]==1.5.2",
+    "pillow==12.3.0",
+]
+
+[tool.uv]
+package = false
+required-version = ">=0.12"   # CI installs the newest uv that matches
+

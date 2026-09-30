@@ -25,6 +25,7 @@ The personal site of David Arcos: a portfolio of talks and technical writing sin
 | Concern | Choice |
 |---|---|
 | Generator | Pelican 4.12, Python 3.14, Markdown content, Jinja2 templates |
+| Toolchain | [uv](https://docs.astral.sh/uv/): `pyproject.toml` and `uv.lock`, every package pinned by hash; the same lock locally and in CI |
 | Hosting | GitHub Pages, user site repository, custom domain `davidarcos.net` |
 | Build and deploy | GitHub Actions ([`.github/workflows/deploy.yml`](.github/workflows/deploy.yml)): build with fatal errors, index, gates, deploy |
 | Search | [Pagefind](https://pagefind.app/), a static index built after Pelican; its script loads on the search page and the 404 page only |
@@ -80,7 +81,7 @@ In a post or a page, a bold number alone (`**100** ms`) renders as a figure, in 
 ## Working locally
 
 ```
-make setup      # venv, pinned dependencies, the pre-commit hook
+make setup      # .venv with the pinned toolchain (uv sync --locked), the pre-commit hook
 make build      # pelican -> output/
 make search     # pagefind index over output/
 make serve      # http://127.0.0.1:8000
@@ -92,7 +93,7 @@ make check      # PII gate on the tree and the output, redirect stubs, internal 
 
 A push to `main` is a release: the workflow builds, runs the checks, deploys to GitHub Pages, purges the Cloudflare cache, and fails unless the edge serves the new commit (docs/adr/0010). When the push adds or changes a post, it then tells IndexNow (Bing and others; not Google) that the home page changed: the home lists every post. A pull request builds and checks, and deploys nothing. `main` refuses force pushes and deletion.
 
-The dependencies are pinned with a hash for every file. Edit `requirements.in`, then regenerate `requirements.txt` with the `pip-compile` command in its header. Pygments stays below 2.20 because Pelican requires it. Dependabot proposes updates once they are a week old.
+The toolchain is managed with [uv](https://docs.astral.sh/uv/), the one thing to install on a new machine besides git. `pyproject.toml` names the four direct dependencies, pinned; `uv.lock` pins every package, direct or not, with the hash of each file. To change a version, edit `pyproject.toml` and run `uv lock`; `make setup` (or `uv sync --locked`) installs exactly the lock, and CI fails if the lock is stale. Pygments stays below 2.20 because Pelican requires it. Dependabot proposes updates once they are a week old.
 
 ## Initial migration
 

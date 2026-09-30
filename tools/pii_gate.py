@@ -85,10 +85,10 @@ def check_text(path, findings, http_assets=False):
         scan = re.sub(r"&lt;svg\b.*?&lt;/svg&gt;", lambda m: " " * len(m.group(0)), text, flags=re.S | re.I)
     else:
         scan = text
-    if path.endswith("requirements.txt"):
-        # pip-compile pins every package by the hash of its files: blank those hashes, so no pattern reads a digit run
-        # inside one as a phone number. Anything else in the file is still scanned
-        scan = re.sub(r"--hash=sha256:[0-9a-f]{64}\b", lambda m: " " * len(m.group(0)), scan)
+    if path.endswith("uv.lock"):
+        # uv pins every package by the hash of its files: blank those hashes, so no pattern reads a digit run inside one
+        # as a phone number. Anything else in the file (names, versions, URLs) is still scanned
+        scan = re.sub(r"sha256:[0-9a-f]{64}\b", lambda m: " " * len(m.group(0)), scan)
     # other people's words are rendered as HTML (a comment's body, a mention's excerpt), so only known markup may
     # enter: true of every archived file today, and it has to stay true if any are ever added
     if "/content/comments/" in path or "/content/mentions/" in path or path.startswith(("content/comments/", "content/mentions/")):

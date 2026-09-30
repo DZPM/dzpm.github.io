@@ -3,10 +3,8 @@ PELICAN = .venv/bin/pelican
 
 .PHONY: setup build search check serve clean publish edge links
 
-setup:            ## create the venv, install the pinned toolchain, enable the pre-commit hook
-	python3 -m venv .venv
-	$(PY) -m pip install --quiet --upgrade pip
-	$(PY) -m pip install --quiet -r requirements.txt
+setup:            ## create .venv with the toolchain uv.lock pins (needs uv), enable the pre-commit hook
+	uv sync --locked
 	git config core.hooksPath .githooks
 
 build:            ## build the site into output/ with local settings, then the search index
