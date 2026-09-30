@@ -87,6 +87,7 @@ make search     # pagefind index over output/
 make serve      # http://127.0.0.1:8000
 make degrade    # http://127.0.0.1:8001 with the static files off: pages only (see tools/serve.py for --allow-images, --no-images, --no-js)
 make check      # PII gate on the tree and the output, redirect stubs, internal links
+make lint       # the workflow files, with actionlint and ShellCheck, if you have them; CI runs them anyway
 ```
 
 `make build` is lenient (`--fatal errors`); the workflow builds with `publishconf.py` and `--fatal warnings`, so a warning that passes locally fails the deploy. Before a push, build the production settings into a separate directory (`pelican content -o <dir> -s publishconf.py --fatal warnings`, then `python -m pagefind --site <dir>`) and run the checks on it. Every check fails on an empty build.

@@ -1,7 +1,7 @@
 PY = .venv/bin/python
 PELICAN = .venv/bin/pelican
 
-.PHONY: setup build search check serve clean publish edge links
+.PHONY: setup build search check serve clean publish edge links lint indexnow
 
 setup:            ## create .venv with the toolchain uv.lock pins (needs uv), enable the pre-commit hook
 	uv sync --locked
@@ -27,6 +27,9 @@ check:            ## PII gate over the tree and the built site, the redirect stu
 	$(PY) tools/check_links.py output
 	$(PY) tools/check_csp.py output
 	$(PY) tools/check_meta.py output
+
+lint:             ## check the workflow files with actionlint and ShellCheck, if installed (CI runs them on every push)
+	actionlint
 
 edge:             ## check that GitHub Pages and Cloudflare serve the pushed commit (no purge; docs/adr/0010)
 	$(PY) tools/purge_edge.py --commit $$(git rev-parse origin/main) --check

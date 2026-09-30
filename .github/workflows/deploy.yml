@@ -62,6 +62,23 @@ jobs:
           # holds security.txt and keybase.txt. v3 had no such exclusion.
           include-hidden-files: true
 
+  workflows:   # the workflow files themselves: expressions, job outputs, and the shell in each run step (ShellCheck ships with the runner image)
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1  # v7.0.1
+        with:
+          persist-credentials: false
+      - env:   # a pinned release, checked against its published checksum; Dependabot does not update these two lines
+          VERSION: "1.7.12"
+          SHA256: "8aca8db96f1b94770f1b0d72b6dddcb1ebb8123cb3712530b08cc387b349a3d8"
+        run: |
+          curl -fsSL -o "$RUNNER_TEMP/actionlint.tar.gz" "https://github.com/rhysd/actionlint/releases/download/v$VERSION/actionlint_${VERSION}_linux_amd64.tar.gz"
+          echo "$SHA256  $RUNNER_TEMP/actionlint.tar.gz" | sha256sum -c -
+          tar xzf "$RUNNER_TEMP/actionlint.tar.gz" -C "$RUNNER_TEMP" actionlint
+          "$RUNNER_TEMP/actionlint" -color
+
   deploy:
     needs: build
     if: github.event_name != 'pull_request'
