@@ -3,6 +3,7 @@
 The personal site of David Arcos: a portfolio of talks and technical writing since 2012, and the archive of the personal blog that preceded it (2006 to 2009). Static, built with [Pelican](https://getpelican.com/), served by GitHub Pages.
 
 - [`CONTEXT.md`](CONTEXT.md) is the domain glossary: the vocabulary of the site (Post, Section, Cover, Redirect stub, Legacy...), one meaning per word.
+- [`AGENTS.md`](AGENTS.md) is for coding agents: how to verify a change, what a push does, and the rules the code does not show.
 - [`docs/adr/`](docs/adr/) holds the Architecture Decision Records: the decisions that are hard to reverse, each with its context and its consequences.
 
 | ADR | Decision | In one line |
@@ -27,7 +28,7 @@ The personal site of David Arcos: a portfolio of talks and technical writing sin
 | Hosting | GitHub Pages, user site repository, custom domain `davidarcos.net` |
 | Build and deploy | GitHub Actions ([`.github/workflows/deploy.yml`](.github/workflows/deploy.yml)): build with fatal errors, index, gates, deploy |
 | Search | [Pagefind](https://pagefind.app/), a static index built after Pelican; its script loads on the search page and the 404 page only |
-| Edge | Cloudflare as DNS and proxy. Two redirect rules (the feed family, and `status` to the UptimeRobot page; `www` is redirected by GitHub Pages), nothing else outside the repository, all of it written down in [`docs/edge.md`](docs/edge.md) |
+| Edge | Cloudflare as DNS and proxy: redirect rules (the feed family, and `status` to the UptimeRobot page; `www` is redirected by GitHub Pages), the security headers, and the cache rules (the HTML is cached for a week and purged on every deploy, ADR 0010). All of it is written down in [`docs/edge.md`](docs/edge.md) |
 | Theme | `themes/hst`, three layouts, one CSS file, light and dark through `light-dark()` (the reader's browser by default, or the switch in the header, the one script on every page), no icon font, no framework. Two fonts served from the theme (Inter for the text and the titles, Fira Code for numbers and code, both OFL, latin subsets, no italic face: an emphasis is a medium weight), with the system font behind them |
 
 Content pages depend on no first-party JavaScript (ADR 0004): the theme switch enhances them, the search page needs its script. Embeds are plain `<iframe>` elements generated at build time from a bare URL on its own line.
@@ -66,13 +67,15 @@ tools/                    the checks: the PII gate, the redirect stub check, the
    https://www.youtube.com/watch?v=VIDEOID
    ```
 
-   The `Slug` is the address, `/blog/talk-title/`, and must be unique: the build fails on a collision. The `Kind` is one of charla, podcast, entrevista, mesa redonda, artículo. A short post that is neither a talk nor an article takes `Section: notes` instead of `Kind`, `Summary` and `Cover`: it is listed as a row on the Blog, under Notas, and never as a card. A video or a deck is embedded by putting its URL alone on a line (YouTube, Google Slides, SlideShare, Vimeo, Spreaker, Spotify). For SlideShare and Spreaker, use the address of their embed player (`/embed_code/...`, `/embed/...`). Any other URL alone on a line stays a plain link. The build draws the post's share card, the 1200x630 image a shared link shows (docs/adr/0011): there is nothing to do for it. `tools/check_meta.py` fails the build when a page lacks its card or its share tags, or when the description of a talk, an article or a page is under 100 or over 160 characters; for a note and for the Archive it only warns (a note may take a `Summary` to set its description). To embed a new provider, add its origin to `EMBED_ORIGINS` in `plugins/hst.py` and its branch in `embed_html`: the CSP of every page takes its `frame-src` from that list, and `tools/check_csp.py` fails the build if a page frames an origin its CSP does not allow.
+   The `Slug` is the address, `/blog/talk-title/`, and must be unique: the build fails on a collision. The `Kind` is one of charla, podcast, entrevista, mesa redonda, artículo. A short post that is neither a talk nor an article takes `Section: notes` instead of `Kind`, `Summary` and `Cover`: it is listed as a row on the Blog, under Notas, and never as a card. A video or a deck is embedded by putting its URL alone on a line (YouTube, Google Slides, SlideShare, Vimeo, Spreaker, Spotify). For SlideShare and Spreaker, use the address of their embed player (`/embed_code/...`, `/embed/...`). Any other URL alone on a line stays a plain link. A video or an audio that is not there takes a line in its place: `Pendiente: el vídeo de la charla, en [el YouTube de CPS Spain](https://www.youtube.com/@cpsspain).` when its owner has not published it yet, or `Retirado: el vídeo de la charla, en [el Vimeo de NoSQL matters](https://vimeo.com/52213638).` when its owner took it down. Both show a box the size of a player; the monthly link report lists the pending ones. The build draws the post's share card, the 1200x630 image a shared link shows (docs/adr/0011): there is nothing to do for it. `tools/check_meta.py` fails the build when a page lacks its card or its share tags, or when the description of a talk, an article or a page is under 100 or over 160 characters; for a note and for the Archive it only warns (a note may take a `Summary` to set its description). To embed a new provider, add its origin to `EMBED_ORIGINS` in `plugins/hst.py` and its branch in `embed_html`: the CSP of every page takes its `frame-src` from that list, and `tools/check_csp.py` fails the build if a page frames an origin its CSP does not allow.
 
 2. Put the cover in `content/images/covers/talk-title.jpg`, under 300 KB and at least 1700 px wide (the column is 850 px, and screens are 2x), after `tools/strip_image_metadata.py`. The build makes the 480 px WebP card copy itself. The cover is also what a shared link to the post shows (docs/adr/0011): about 1600x1000 (16:10) is best, with what matters in the central band that a 1.91:1 crop keeps; a cover under 1200 px is shared as a 1200x630 copy the build draws, the cover over a blurred copy of itself. The figures on Sobre el blog, in `llms.txt` and in `humans.txt` are counted by the build from the content (`{{ stats.posts }}` in a page becomes the number), so they never need editing.
 
 3. `make build search`, look at it with `make serve`, commit, push to `main`. The workflow builds and deploys.
 
-A post in progress carries `Status: draft` and a `Modified: YYYY-MM-DD` line records a later edit of a published one. A draft builds locally at `/borradores/<slug>/` and is never published; the modified date reaches the sitemap, the share metadata and the feed.
+A post in progress carries `Status: draft` and a `Modified: YYYY-MM-DD` line records a later edit of a published one: a change to what it says, not to its style or markup. A draft builds locally at `/borradores/<slug>/` and is never published; the modified date reaches the sitemap, the share metadata and the feed.
+
+In a post or a page, a bold number alone (`**100** ms`) renders as a figure, in the mono face and not bold; `**100 ms**` stays bold text. When the design of the share cards changes, raise `CARD_VERSION` in `pelicanconf.py`: platforms keep an image by its address, so a new address is the only way to make them fetch it again (docs/adr/0011).
 
 ## Working locally
 
@@ -84,6 +87,12 @@ make serve      # http://127.0.0.1:8000
 make degrade    # http://127.0.0.1:8001 with the static files off: pages only (see tools/serve.py for --allow-images, --no-images, --no-js)
 make check      # PII gate on the tree and the output, redirect stubs, internal links
 ```
+
+`make build` is lenient (`--fatal errors`); the workflow builds with `publishconf.py` and `--fatal warnings`, so a warning that passes locally fails the deploy. Before a push, build the production settings into a separate directory (`pelican content -o <dir> -s publishconf.py --fatal warnings`, then `python -m pagefind --site <dir>`) and run the checks on it. Every check fails on an empty build.
+
+A push to `main` is a release: the workflow builds, runs the checks, deploys to GitHub Pages, purges the Cloudflare cache, and fails unless the edge serves the new commit (docs/adr/0010). A pull request builds and checks, and deploys nothing. `main` refuses force pushes and deletion.
+
+The dependencies are pinned with a hash for every file. Edit `requirements.in`, then regenerate `requirements.txt` with the `pip-compile` command in its header. Pygments stays below 2.20 because Pelican requires it. Dependabot proposes updates once they are a week old.
 
 ## Initial migration
 
