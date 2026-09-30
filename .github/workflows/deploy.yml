@@ -17,6 +17,8 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: read
+    outputs:
+      posts_changed: ${{ steps.posts.outputs.changed }}
     concurrency:          # one group per branch or pull request: a newer push replaces an older build of the same ref only
       group: build-${{ github.ref }}
       cancel-in-progress: true
@@ -32,6 +34,17 @@ jobs:
       - run: pip install --require-hashes -r requirements.txt   # every package, direct or not, pinned by the hash of its files
       - run: pelican content -o output -s publishconf.py --fatal warnings
       - run: python -m pagefind --site output --quiet
+      - id: posts   # did this push add or change a post? Then the deploy tells IndexNow that the home page changed
+        if: github.event_name == 'push'
+        env:
+          BEFORE: ${{ github.event.before }}
+          AFTER: ${{ github.sha }}
+        run: |
+          changed=false
+          if git cat-file -e "$BEFORE^{commit}" 2>/dev/null && [ -n "$(git diff --name-only --diff-filter=AM "$BEFORE" "$AFTER" -- content/posts/)" ]; then
+            changed=true
+          fi
+          echo "changed=$changed" >> "$GITHUB_OUTPUT"
       - run: python tools/pii_gate.py --tree
       - run: python tools/pii_gate.py --output output
       - run: python tools/check_stubs.py output
@@ -54,7 +67,7 @@ jobs:
       group: pages
       cancel-in-progress: false
     permissions:
-      contents: read      # the sparse checkout of the purge tool
+      contents: read      # the sparse checkout of the purge and IndexNow tools, and the IndexNow key
       pages: write
       id-token: write
     environment:
@@ -68,7 +81,10 @@ jobs:
       # which only takes deploys from main.
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1  # v7.0.1
         with:
-          sparse-checkout: tools/purge_edge.py
+          sparse-checkout: |
+            tools/purge_edge.py
+            tools/indexnow.py
+            content/extra/*.txt
           sparse-checkout-cone-mode: false
           persist-credentials: false
       - run: python3 tools/purge_edge.py --commit "$COMMIT"
@@ -76,3 +92,8 @@ jobs:
           COMMIT: ${{ github.sha }}
           CLOUDFLARE_PURGE_TOKEN: ${{ secrets.CLOUDFLARE_PURGE_TOKEN }}
           CLOUDFLARE_ZONE_ID: ${{ vars.CLOUDFLARE_ZONE_ID }}
+      # A push that adds or changes a post tells IndexNow (Bing and others; not Google) that the home page changed:
+      # the home lists every post. A failure here does not fail the deploy, which is already live and verified.
+      - if: needs.build.outputs.posts_changed == 'true'
+        continue-on-error: true
+        run: python3 tools/indexnow.py --home

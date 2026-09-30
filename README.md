@@ -90,7 +90,7 @@ make check      # PII gate on the tree and the output, redirect stubs, internal 
 
 `make build` is lenient (`--fatal errors`); the workflow builds with `publishconf.py` and `--fatal warnings`, so a warning that passes locally fails the deploy. Before a push, build the production settings into a separate directory (`pelican content -o <dir> -s publishconf.py --fatal warnings`, then `python -m pagefind --site <dir>`) and run the checks on it. Every check fails on an empty build.
 
-A push to `main` is a release: the workflow builds, runs the checks, deploys to GitHub Pages, purges the Cloudflare cache, and fails unless the edge serves the new commit (docs/adr/0010). A pull request builds and checks, and deploys nothing. `main` refuses force pushes and deletion.
+A push to `main` is a release: the workflow builds, runs the checks, deploys to GitHub Pages, purges the Cloudflare cache, and fails unless the edge serves the new commit (docs/adr/0010). When the push adds or changes a post, it then tells IndexNow (Bing and others; not Google) that the home page changed: the home lists every post. A pull request builds and checks, and deploys nothing. `main` refuses force pushes and deletion.
 
 The dependencies are pinned with a hash for every file. Edit `requirements.in`, then regenerate `requirements.txt` with the `pip-compile` command in its header. Pygments stays below 2.20 because Pelican requires it. Dependabot proposes updates once they are a week old.
 
