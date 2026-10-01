@@ -37,14 +37,14 @@ jobs:
       - run: uv sync --locked   # every package, direct or not, as uv.lock pins it, with the hash of its files; fails if the lock is stale
       - run: pelican content -o output -s publishconf.py --fatal warnings
       - run: python -m pagefind --site output --quiet
-      - id: posts   # did this push add or change a post? Then the deploy tells IndexNow that the home page changed
+      - id: posts   # did this push add, change, or rename a post (a new date renames its file)? Then the deploy tells IndexNow that the home page changed
         if: github.event_name == 'push'
         env:
           BEFORE: ${{ github.event.before }}
           AFTER: ${{ github.sha }}
         run: |
           changed=false
-          if git cat-file -e "$BEFORE^{commit}" 2>/dev/null && [ -n "$(git diff --name-only --diff-filter=AM "$BEFORE" "$AFTER" -- content/posts/)" ]; then
+          if git cat-file -e "$BEFORE^{commit}" 2>/dev/null && [ -n "$(git diff --name-only --diff-filter=AMR "$BEFORE" "$AFTER" -- content/posts/)" ]; then
             changed=true
           fi
           echo "changed=$changed" >> "$GITHUB_OUTPUT"
