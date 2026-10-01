@@ -1,5 +1,5 @@
 Title: Veinte años de "Hic sunt trolls"
-Date: 2026-09-26 09:00
+Date: 2026-10-02 09:00
 Slug: veinte-anos-de-hic-sunt-trolls
 Tags: Meta, Pelican, Troll, WordPress
 Summary: Veinte años del blog, y un blog nuevo: estático, con Pelican, migrado entero, con el repositorio a la vista.
