@@ -119,33 +119,36 @@ blockquote p { margin: 0.5rem 0; }
 /* one frame for every page: header, main and footer never change width between pages */
 .site-main, .site-footer-inner { width: min(100% - 2rem, var(--measure)); margin-inline: auto; }
 .site-header { border-bottom: 2px solid var(--rule); }
-.site-header-inner { width: min(100% - 2rem, var(--measure)); margin-inline: auto; padding: 1.5rem 0 0; }
+/* two rows, and the face across both: the name and the motto on the first, the sections, the search and the switch on the second */
+.site-header-inner { width: min(100% - 2rem, var(--measure)); margin-inline: auto; padding: 1rem 0 0.85rem; display: grid; grid-template-columns: auto 1fr; gap: 0.4rem 1rem; align-items: center; }
+.site-avatar { grid-row: 1 / 3; }   /* the face spans the two rows */
 /* the header follows the reader, on every width. theme.js measures it (--header-h), keeps its place with the spacer, and sets html.is-scrolled once the
    page has moved past the sentinel: then it is fixed at the top and folds into one row, the face small, the name and the motto side by
    side, the search and the switch; the sections wait upstairs. Out of the flow, so nothing below it moves when it folds */
 .scroll-sentinel { position: absolute; top: 5rem; height: 1px; width: 1px; }
-.js-header .site-header-space { height: var(--header-h, 9.5rem); }
+.js-header .site-header-space { height: var(--header-h, 7.5rem); }
 .js-header .site-header { position: fixed; top: 0; left: 0; right: 0; z-index: 10; background: color-mix(in oklab, var(--bg) 92%, transparent); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); }
 .site-header-inner { transition: padding 0.25s ease; }
-.site-avatar img, .site-title { transition: width 0.25s ease, height 0.25s ease, font-size 0.25s ease; }
+.site-avatar img, .site-title, .site-tagline { transition: width 0.25s ease, height 0.25s ease, font-size 0.25s ease; }
 .is-scrolled .site-header-inner { display: flex; align-items: center; gap: 1.25rem; padding: 0.4rem 0; }
-.is-scrolled .site-brand { margin: 0; flex: 0 0 auto; gap: 0.6rem; }
-.is-scrolled .site-brand > div { display: flex; align-items: baseline; gap: 0.6rem; }
+.is-scrolled .site-brand { flex: 0 0 auto; }
 .is-scrolled .site-avatar img { width: 2rem; height: 2rem; }
 .is-scrolled .site-title { font-size: 1.15rem; }
 .is-scrolled .site-tagline { margin: 0; font-size: 0.85rem; }
-.is-scrolled .site-nav { flex: 1 1 auto; justify-content: flex-end; padding: 0; margin: 0; gap: 0.9rem; }
+.is-scrolled .site-nav { flex: 1 1 auto; flex-wrap: nowrap; gap: 0.9rem; }
 .is-scrolled .site-nav > a { display: none; }   /* folded: the name is the way home, the sections wait upstairs; the search and the switch stay */
+.is-scrolled .nav-tools { flex: 1 1 auto; gap: 0.9rem; }
+.is-scrolled .nav-search { flex: 0 1 auto; }
 .is-scrolled .nav-search input { width: 8rem; padding: 0.3rem 0.7rem; font-size: 0.9rem; }
 .is-scrolled .nav-search input:focus { width: 12rem; }
 @media (max-width: 40rem) {   /* folded on a phone: the face, the name and what is left of the nav; the motto waits upstairs */
   .is-scrolled .site-header-inner { gap: 0.75rem; }
   .is-scrolled .site-tagline { display: none; }
-  .is-scrolled .site-nav { flex-wrap: nowrap; min-width: 0; }
+  .is-scrolled .site-nav, .is-scrolled .nav-tools { min-width: 0; }
   .is-scrolled .nav-search { flex: 1 1 auto; min-width: 0; }
-  .is-scrolled .nav-search input, .is-scrolled .nav-search input:focus { width: 100%; font-size: 1rem; }   /* 16px or more: a phone does not zoom into the field */
+  .is-scrolled .nav-search input, .is-scrolled .nav-search input:focus { width: 100%; max-width: none; font-size: 1rem; }   /* 16px or more: a phone does not zoom into the field */
 }
-@media (prefers-reduced-motion: reduce) { .site-header-inner, .site-avatar img, .site-title { transition: none; } }
+@media (prefers-reduced-motion: reduce) { .site-header-inner, .site-avatar img, .site-title, .site-tagline { transition: none; } }
 /* the seven mountains of Bergen close every page, under the footer: the edge of the map */
 .mountains { display: block; width: 100%; margin: 0; height: clamp(3rem, 5vw, 5rem); color: var(--brown); }   /* the edge of the map, as an old engraving: the slopes hatched in the rock's brown, one line on the ridge */
 .mountains path { fill: none; stroke: currentColor; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; vector-effect: non-scaling-stroke; }
@@ -153,26 +156,29 @@ blockquote p { margin: 0.5rem 0; }
 .mountains .ridge-fill { fill: url(#hatch); fill-opacity: 0.45; stroke: none; }   /* the hatching: brown lines, a map's shading, not a colour */
 .mountains .ridge-mid { display: none; }   /* no middle range: two ridges read cleaner than three */
 .mountains .ridge-back { display: none; }   /* one ridge only: the near slopes in moss and their brown outline */
-.site-title { font-family: var(--display); font-size: 1.8rem; font-weight: 800; letter-spacing: -0.03em; font-variation-settings: "opsz" 32; color: var(--fg); text-decoration: none; }
+.site-title { font-family: var(--display); font-size: 1.8rem; line-height: 1.2; font-weight: 800; letter-spacing: -0.03em; font-variation-settings: "opsz" 32; color: var(--fg); text-decoration: none; }   /* the line as tall as the name, so the first row is no taller than it needs */
 .site-title:hover, .site-title:focus-visible { color: var(--accent); }
-.site-brand { display: flex; align-items: center; gap: 0.9rem; margin-bottom: 0.25rem; }   /* the face and the name, side by side: the site is a person */
+.site-brand { display: flex; align-items: baseline; flex-wrap: wrap; gap: 0 0.6rem; justify-self: start; position: relative; }   /* the name and the motto on one line, as the fold has always shown them; the motto drops under the name when the line is short */
+.site-title::after { content: ""; position: absolute; inset: 0; }   /* the name's link covers the name and the tagline: a hover or a click anywhere on them is one on the name, and its tooltip is the tagline in English */
 /* the menu row sticks to the top while the page scrolls (the face and the name scroll away), over the paper with a light blur */
 .comments, .comment, .archive-divider, .year-group, .mention, [id] { scroll-margin-top: 4rem; }   /* an anchor lands under the sticky header, not behind it */
-.site-avatar img { display: block; width: 3.75rem; height: 3.75rem; border-radius: 50%; object-fit: cover; }
+.site-avatar img { display: block; width: 4.75rem; height: 4.75rem; border-radius: 50%; object-fit: cover; }   /* as tall as the two rows it spans */
 .site-avatar { display: block; flex: 0 0 auto; border-radius: 50%; overflow: hidden; box-shadow: 0 0 0 1px color-mix(in oklab, var(--fg) 15%, transparent); }   /* the round frame: it carries the hairline ring and clips the photo when it comes closer */
 .site-avatar img { transition: width 0.25s ease, height 0.25s ease, transform 0.2s linear; }   /* the fold's resize and the zoom, together */
+.site-header-inner:has(.site-avatar:hover) .site-title { color: var(--accent); }   /* the face and the name are one link: the pointer on the face lights the name */
 @media (prefers-reduced-motion: no-preference) {   /* the photo comes closer inside its frame, as the Home's cards do; no motion when the reader asks for none */
-  .site-avatar:hover img, .site-brand:focus-within .site-avatar img { transform: scale(1.2); }   /* on hover, and when the name has the keyboard focus */
-  .site-brand:has(.site-title:hover) .site-avatar img { transform: scale(1.2); }   /* and with the pointer on the name: a rule of its own, so a browser with no :has() drops only this one */
+  .site-avatar:hover img { transform: scale(1.2); }   /* on hover */
+  .site-header-inner:has(.site-title:hover, .site-title:focus-visible) .site-avatar img { transform: scale(1.2); }   /* and with the pointer or the keyboard focus on the name: a rule of its own, so a browser with no :has() drops only this one */
 }
-.site-tagline { margin: 0.1rem 0 0; color: var(--muted); font-family: var(--mono); font-size: 0.95rem; }   /* the motto in the mono voice, like the nav */
+.site-tagline { margin: 0; color: var(--muted); font-family: var(--mono); font-size: 1.33rem; }   /* the motto in the mono voice, like the nav; to the name as in the folded bar (0.85 to 1.15), so folding scales the line and does not change it */
 .motto { font-family: var(--mono); font-size: 0.95em; }   /* a motto quoted in the text (hic sunt dracones): the same voice as the tagline */
-.site-nav { display: flex; gap: 1.25rem; align-items: center; padding: 0.5rem 0 0.75rem; }
-.nav-search { margin-left: auto; }
+.site-nav { display: flex; flex-wrap: wrap; gap: 0.5rem 1.25rem; align-items: center; }
+.nav-tools { flex: 1 1 11rem; min-width: 0; display: flex; align-items: center; justify-content: flex-end; gap: 1.25rem; }   /* the search and the switch take what the sections leave, at the end of the row; with less than 11rem left they take the row below, together */
+.nav-search { flex: 1 1 auto; min-width: 0; display: flex; justify-content: flex-end; }
 .nav-buscar { display: none; }   /* the search as a link: for a page read with no stylesheet; styled, every width has the field */
 body.search .nav-search { visibility: hidden; }   /* the search page has its own field; the space stays so the header does not move */
-.nav-search input { font: inherit; font-size: 1rem; padding: 0.45rem 0.9rem; width: 13rem; max-width: 100%; border: 1px solid var(--line-strong); border-radius: 999px; background: var(--card); color: var(--fg); }
-@media (min-width: 40rem) { .nav-search input:focus { width: 20rem; } }   /* the field grows while it is used; on a phone it fills its row */
+.nav-search input { font: inherit; font-size: 1rem; padding: 0.45rem 0.9rem; width: 100%; max-width: 13rem; border: 1px solid var(--line-strong); border-radius: 999px; background: var(--card); color: var(--fg); }
+@media (min-width: 40rem) { .nav-search input:focus { max-width: 20rem; } }   /* the field grows while it is used, as far as the row allows; on a phone it fills its row */
 .site-nav a { color: var(--fg); text-decoration: none; font-family: var(--mono); font-size: 1.05rem; font-weight: 600; }
 .site-nav a:hover { color: var(--accent); }
 .site-nav a[aria-current="page"], .site-nav a.is-here { color: var(--accent-2); }   /* where you are (the page, or the section a post belongs to): a statement, so blue */
@@ -257,9 +263,13 @@ hr { border: 0; border-top: 2px solid var(--rule); margin: 1rem 0; }   /* a rule
   .card-cover { max-width: none; }
   .card-title { font-size: 1.05rem; }
   .card-summary { display: none; }   /* the summary waits on the post; the row is title, kind and date */
-  .site-nav { flex-wrap: wrap; gap: 0.75rem 1rem; }
-  .nav-search { flex: 1 1 10rem; margin-left: 0; }   /* the field takes the row under the sections, the switch at its end */
-  .nav-search input { width: 100%; }
+  /* the header on a phone: the face beside the name (the motto under it: the line is too short for both), then the sections, then the field with the switch at its end */
+  .site-header-inner { gap: 0.5rem 0.75rem; padding: 0.9rem 0 0.75rem; }
+  .site-avatar { grid-row: 1; }   /* the sections take the full width, so the face has one row to span */
+  .site-avatar img { width: 3.75rem; height: 3.75rem; }
+  .site-nav { grid-column: 1 / -1; gap: 0.5rem 1rem; }
+  .nav-tools { flex: 1 1 10rem; gap: 1rem; }
+  .nav-search input { max-width: none; }   /* the field fills its row */
 }
 
 /* blog: the portfolio first, the home's timeline with a small cover and no summary; then the archive as an index */
@@ -530,12 +540,10 @@ a.mark:hover { color: var(--accent); border-color: var(--accent); }
   :root { color-scheme: light; }
   html, body { background: #fff; color: #000; font-size: 11pt; line-height: 1.45; }
   .site-header, .js-header .site-header, .is-scrolled .site-header { position: static; background: none; backdrop-filter: none; border-bottom: 1px solid #000; }   /* in the flow: a fixed header prints on every sheet, over the text */
-  .is-scrolled .site-header-inner { display: block; padding: 0 0 0.5rem; }
+  .site-header-inner, .is-scrolled .site-header-inner { display: flex; align-items: center; gap: 0.6rem; padding: 0 0 0.5rem; }   /* the face and the name, side by side, whatever the state */
   .is-scrolled .site-title, .is-scrolled .site-tagline { all: revert; }
   .site-header-space, .scroll-sentinel, .site-nav, .theme-switch, .skip, .badge, .comment-permalink, .peek, .post-nav, .post-back, .social, .mountains, .tags-label::after, iframe { display: none !important; }
-  .site-header-inner { padding: 0 0 0.5rem; }
-  .site-brand { gap: 0.6rem; }
-  .site-brand > div { display: flex; align-items: baseline; gap: 0.6rem; }
+  .site-brand { display: flex; align-items: baseline; gap: 0.6rem; }
   .site-avatar img { width: 1cm; height: 1cm; box-shadow: none; border: 1px solid #999; }
   .site-avatar { box-shadow: none; }
   .site-title { font-size: 14pt; }
@@ -568,6 +576,6 @@ a.mark:hover { color: var(--accent); border-color: var(--accent); }
 
 /* one motion vocabulary: colour and background fade, nothing moves; off for people who asked for less motion */
 a, .card, .year-item-text, .search-results li, .badge a, .mark, .tags a { transition: color 0.15s ease, background-color 0.15s ease, border-color 0.15s ease; }
-.nav-search input { transition: width 0.2s ease; }
+.nav-search input { transition: width 0.2s ease, max-width 0.2s ease; }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition: none !important; } }
 

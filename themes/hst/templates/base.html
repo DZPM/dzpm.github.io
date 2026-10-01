@@ -69,12 +69,11 @@
 <div class="site-header-space" aria-hidden="true"></div>
 <header class="site-header">
 <div class="site-header-inner">
+  {# the face spans the two rows (the name and the sections); the name and the tagline share the first. The face is a link too, with the name's tooltip, and the two hover as one (style.css) #}
+  <a class="site-avatar" href="{{ SITEURL }}/" tabindex="-1" aria-hidden="true" title="Here be trolls!"><img src="{{ SITEURL }}/theme/img/david.arcos.jpg?v={{ ASSET_HASH['img/david.arcos.jpg'] }}" alt="" width="256" height="256"></a>
   <div class="site-brand">
-    <a class="site-avatar" href="{{ SITEURL }}/" tabindex="-1" aria-hidden="true"><img src="{{ SITEURL }}/theme/img/david.arcos.jpg?v={{ ASSET_HASH['img/david.arcos.jpg'] }}" alt="" width="256" height="256"></a>
-    <div>
-      <a class="site-title" href="{{ SITEURL }}/">{{ SITENAME }}</a>
-      <p class="site-tagline" lang="la" title="Here be trolls">{{ SITESUBTITLE }}</p>
-    </div>
+    <a class="site-title" href="{{ SITEURL }}/" title="Here be trolls!">{{ SITENAME }}</a>
+    <p class="site-tagline" lang="la">{{ SITESUBTITLE }}</p>
   </div>
   <nav class="site-nav" aria-label="Principal">
     <a href="{{ SITEURL }}/"{% if output_file == "index.html" %} aria-current="page"{% endif %}>Inicio</a>
@@ -82,12 +81,15 @@
     <a href="{{ SITEURL }}/sobre-el-blog/"{% if output_file == "sobre-el-blog/index.html" %} aria-current="page"{% endif %}>Sobre el blog</a>
     <a href="{{ SITEURL }}/cv/"{% if output_file == "cv/index.html" %} aria-current="page"{% endif %}>CV</a>
     <a class="nav-buscar" href="{{ SITEURL }}/blog/buscar/"{% if output_file == "blog/buscar/index.html" %} aria-current="page"{% endif %}>Buscar</a>
-    <form class="nav-search" action="{{ SITEURL }}/blog/buscar/" method="get" role="search">
-      <label for="nav-q" class="visually-hidden">Buscar</label>
-      <input type="search" id="nav-q" name="q" placeholder="Buscar..." enterkeyhint="search">
-    </form>
-    {# the theme switch: one button that flips light and dark; the icon is the mode a click gives (theme.js). Hidden until theme.js shows it: with no script it would do nothing #}
-    <button class="theme-switch" type="button" aria-label="Cambiar a modo oscuro" title="Cambiar a modo oscuro" hidden><svg class="theme-moon" width="20" height="20" aria-hidden="true"><use href="#i-moon"/></svg><svg class="theme-sun" width="20" height="20" aria-hidden="true"><use href="#i-sun"/></svg></button>
+    {# the tools, the search and the theme switch, in one box: when the row is short they move down together #}
+    <div class="nav-tools">
+      <form class="nav-search" action="{{ SITEURL }}/blog/buscar/" method="get" role="search">
+        <label for="nav-q" class="visually-hidden">Buscar</label>
+        <input type="search" id="nav-q" name="q" placeholder="Buscar..." enterkeyhint="search">
+      </form>
+      {# the theme switch: one button that flips light and dark; the icon is the mode a click gives (theme.js). Hidden until theme.js shows it: with no script it would do nothing #}
+      <button class="theme-switch" type="button" aria-label="Cambiar a modo oscuro" title="Cambiar a modo oscuro" hidden><svg class="theme-moon" width="20" height="20" aria-hidden="true"><use href="#i-moon"/></svg><svg class="theme-sun" width="20" height="20" aria-hidden="true"><use href="#i-sun"/></svg></button>
+    </div>
   </nav>
 </div>
 </header>
