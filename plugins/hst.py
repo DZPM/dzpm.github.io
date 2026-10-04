@@ -33,6 +33,7 @@ from urllib.parse import parse_qs, quote, unquote, urlparse
 from markdown.extensions import Extension
 from markdown.preprocessors import Preprocessor
 from pelican import signals
+from pelican.urlwrappers import Category
 
 PORTFOLIO_FROM = 2012
 SECTIONS = ("portfolio", "archive", "notes")   # a Section: written in the front matter, or decided by the date
@@ -567,6 +568,9 @@ def fill_stats(html):
 
 
 def remember_articles(generator):
+    for d in generator.drafts:   # Pelican reads draft.category without getattr, and this site has no categories
+        if not hasattr(d, "category"):
+            d.category = Category(generator.settings["DEFAULT_CATEGORY"], generator.settings)
     lint(generator)
     _ARTICLES[:] = list(generator.articles)
     generator.context["stats"] = s = stats(_ARTICLES, generator.settings)
