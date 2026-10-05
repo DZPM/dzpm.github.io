@@ -19,6 +19,9 @@ Three small things, kept together because they are all site specific:
 6. Share cards: a 1200x630 image for every post and page (not the home, which has
    og.png), drawn at build time and never committed: what a shared link shows.
    Exposed as `og_image`, `og_image_type` and `og_image_alt`. See docs/adr/0011.
+7. Drafts: a post with `Status: draft` builds locally at /borradores/<slug>/ with its cover
+   and cards. In production (DRAFT_SAVE_AS empty) nothing of it reaches the output: no card
+   is drawn for it, and the image files only it uses are removed after Pelican copies them.
 """
 
 import hashlib
@@ -402,11 +405,13 @@ def decorate(content):
     content.first_image = f"{site}{m.group(1)}" if m else ""
     # the caption's copy: a 480 px WebP of the first photo (write_card_covers makes it), so a list never loads a full photo
     content.first_image_card = f"{site}/images/posts/card/{m.group(1)[len('/images/posts/'):].rsplit('.', 1)[0]}.webp" if m and m.group(1).startswith("/images/posts/") else content.first_image
-    _PEEK_PHOTOS.add(m.group(1)[len("/images/posts/"):]) if m and m.group(1).startswith("/images/posts/") else None
+    shown = not unpublished(content)   # a draft kept out of the output gets no small copies: they would be files of its own
+    _PEEK_PHOTOS.add(m.group(1)[len("/images/posts/"):]) if shown and m and m.group(1).startswith("/images/posts/") else None
     cover = getattr(content, "cover", "")
     if cover.startswith("/images/posts/"):   # an Archive cover that is a restored photo: the same small copy
         content.cover_card_url = f"{site}/images/posts/card/{cover[len('/images/posts/'):].rsplit('.', 1)[0]}.webp"
-        _PEEK_PHOTOS.add(cover[len("/images/posts/"):])
+        if shown:
+            _PEEK_PHOTOS.add(cover[len("/images/posts/"):])
     # the pixel size of each picture the lists and the post show, for its width and height attributes: with no stylesheet
     # a page draws it at that size, not at the full width of the file, and with one the browser keeps its box before it loads
     base = content.settings["PATH"]
@@ -434,7 +439,8 @@ def decorate(content):
         for m in content.mentions:
             m["excerpt"] = ugc(mark_years(m.get("excerpt", "")))
     content.media["menciones"] = len(content.mentions)
-    og_card(content)
+    if shown:
+        og_card(content)   # a draft kept out of the output has no page to share, so no card is drawn for it
 
 
 # --- redirect stubs ----------------------------------------------------------
@@ -467,7 +473,36 @@ def stub_paths(original_url):
 
 
 _ARTICLES = []
+_DRAFTS = []           # the posts with Status: draft; in production nothing of them reaches the output (hide_drafts)
+_PAGES = []            # every page written, hidden ones too: a page may use a post's image, and then that image stays
 _PEEK_PHOTOS = set()   # the restored photos a list shows small: relative to images/posts/
+
+
+def unpublished(content):
+    """True for a draft in a build that writes no drafts (publishconf.py): nothing of it may reach the output."""
+    return getattr(content, "status", "") == "draft" and not content.settings.get("DRAFT_SAVE_AS")
+
+
+def image_files(content):
+    """The files under images/ a post or a page uses, relative to the output: its Cover and the images in its text."""
+    files = set(re.findall(r'"(?:\{static\})?/(images/[^"]+)"', content._content or ""))
+    cover = getattr(content, "cover", "")
+    if cover:
+        files.add(cover.lstrip("/") if cover.startswith("/") else f"images/covers/{cover}")
+    return files
+
+
+def draft_only_files():
+    """The image files only the drafts use, relative to the output: each draft's Cover, the images in its text, and every
+    file under images/posts/<slug>/. A file a published post or a page also uses is not one of them."""
+    used = set().union(*(image_files(c) for c in _ARTICLES + _PAGES))
+    files = set()
+    for d in filter(unpublished, _DRAFTS):   # locally every draft is written, with its images: nothing to keep out
+        files |= image_files(d)
+        base = d.settings["PATH"]
+        for root, _, names in os.walk(os.path.join(base, "images", "posts", d.slug)):
+            files.update(os.path.relpath(os.path.join(root, n), base) for n in names)
+    return files - used
 
 
 def lint(generator):
@@ -573,6 +608,7 @@ def remember_articles(generator):
             d.category = Category(generator.settings["DEFAULT_CATEGORY"], generator.settings)
     lint(generator)
     _ARTICLES[:] = list(generator.articles)
+    _DRAFTS[:] = list(generator.drafts)
     generator.context["stats"] = s = stats(_ARTICLES, generator.settings)
     _STATS.clear(); _STATS.update(s)
     zero = [k for k, v in s.items() if isinstance(v, int) and v == 0]
@@ -582,6 +618,10 @@ def remember_articles(generator):
     for i, article in enumerate(_ARTICLES):
         article.next_article = _ARTICLES[i - 1] if i > 0 else None
         article.prev_article = _ARTICLES[i + 1] if i + 1 < len(_ARTICLES) else None
+
+
+def remember_pages(generator):
+    _PAGES[:] = list(generator.pages) + list(generator.hidden_pages)
 
 
 def write_stub(out, rel, title, url):
@@ -707,9 +747,10 @@ def write_card_covers(pelican):
         return
     os.makedirs(out_dir, exist_ok=True)
     n = 0
+    kept_out = draft_only_files()   # a cover only a draft uses gets no card copy in production: the cover itself leaves too
     for name in sorted(os.listdir(src_dir)):
         src = os.path.join(src_dir, name)
-        if not os.path.isfile(src):
+        if not os.path.isfile(src) or f"images/covers/{name}" in kept_out:
             continue
         with Image.open(src) as im:
             im = im.convert("RGB")
@@ -982,6 +1023,38 @@ def write_og_cards(pelican):
             list(pool.map(_og_job, jobs, chunksize=8))
     print(f"share cards: {len(_OG_QUEUE)} ({len(jobs)} drawn)")
 
+
+def hide_drafts(pelican):
+    """In production nothing of a draft reaches the output. Its cards are never drawn (decorate, write_card_covers); its
+    image files are copied with the rest of content/images (STATIC_PATHS), so the ones only it uses are removed here.
+    Then the output is checked, last of all: a file of a draft, a small copy of one, or a share card named after a draft
+    stops the build, so a new kind of derived image cannot leak a draft without being noticed."""
+    drafts = list(filter(unpublished, _DRAFTS))
+    if not drafts:
+        return
+    out = pelican.output_path
+    only = draft_only_files()
+    for rel in sorted(only):
+        path = os.path.join(out, rel)
+        if os.path.isfile(path):
+            os.remove(path)
+        folder = os.path.dirname(path)
+        while folder != out and os.path.isdir(folder) and not os.listdir(folder):
+            os.rmdir(folder)   # the empty folder of a draft (images/posts/<slug>/) names the draft too
+            folder = os.path.dirname(folder)
+    stems = {os.path.splitext(rel)[0] for rel in only}   # images/covers/<name>: what a card copy of the file is named after
+    og = re.compile(r"^images/og/(?:%s)-[0-9a-f]{10}\.(?:jpg|png)$" % "|".join(re.escape(d.slug) for d in drafts))
+    leaks = []
+    for root, _, names in os.walk(os.path.join(out, "images")):
+        for name in names:
+            rel = os.path.relpath(os.path.join(root, name), out)
+            if rel in only or os.path.splitext(rel)[0].replace("/card/", "/") in stems or og.match(rel):
+                leaks.append(rel)
+    if leaks:
+        raise SystemExit("drafts: these files of a draft reached the output:\n  " + "\n  ".join(sorted(leaks)))
+    print(f"drafts kept out of the output: {len(drafts)} ({len(only)} files removed)")
+
+
 def page_modified(content):
     """A page with no date gets the date of the last commit that changed its source, for the sitemap's lastmod. The build
     needs the full history for this (fetch-depth: 0 in the deploy workflow); outside git, the page keeps no date."""
@@ -1000,8 +1073,10 @@ def register():
     signals.content_object_init.connect(page_modified)
     signals.content_object_init.connect(decorate)
     signals.article_generator_finalized.connect(remember_articles)
+    signals.page_generator_finalized.connect(remember_pages)
     signals.finalized.connect(write_stubs)
     signals.finalized.connect(style_feed)
     signals.finalized.connect(version_theme_urls)
     signals.finalized.connect(write_card_covers)
     signals.finalized.connect(write_og_cards)
+    signals.finalized.connect(hide_drafts)   # last: it checks what every handler above wrote

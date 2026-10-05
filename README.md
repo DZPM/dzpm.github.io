@@ -74,7 +74,7 @@ tools/                    the checks: the PII gate, the redirect stub check, the
 
 3. `make build search`, look at it with `make serve`, commit, push to `main`. The workflow builds and deploys.
 
-A post in progress carries `Status: draft` and a `Modified: YYYY-MM-DD` line records a later edit of a published one: a change to what it says, not to its style or markup. A draft builds locally at `/borradores/<slug>/` and is never published; the modified date reaches the sitemap, the share metadata and the feed.
+A post in progress carries `Status: draft` and a `Modified: YYYY-MM-DD` line records a later edit of a published one: a change to what it says, not to its style or markup. A draft builds locally at `/borradores/<slug>/` and is never published, nor are its cover, its images, or its cards (the production build removes them and fails if one is left); the modified date reaches the sitemap, the share metadata and the feed.
 
 In a post or a page, a bold number alone (`**100** ms`) renders as a figure, in the mono face and not bold; `**100 ms**` stays bold text. When the design of the share cards changes, raise `CARD_VERSION` in `pelicanconf.py`: platforms keep an image by its address, so a new address is the only way to make them fetch it again (docs/adr/0011).
 
