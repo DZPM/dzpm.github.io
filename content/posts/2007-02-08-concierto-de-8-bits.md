@@ -1,7 +1,7 @@
 Title: Concierto de 8 bits
 Date: 2007-02-08 23:21:44
 Slug: concierto-de-8-bits
-Tags: Barcelona, Videojuegos
+Tags: Barcelona, Música, Videojuegos
 Summary: Concierto de música de 8 bits de MicroBCN en el Auditori CaixaForum, al que me llevaron engañado; enlaces a las crónicas y fotos de jotape, Ricken y wzzx.
 Original_url: https://davidarcos.net/blog/2007/02/08/concierto-de-8-bits/
 

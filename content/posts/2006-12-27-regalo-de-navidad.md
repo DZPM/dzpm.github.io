@@ -2,6 +2,7 @@ Title: Regalo de Navidad
 Date: 2006-12-27 00:38:13
 Summary: Las tres secuelas de la Fundación de Asimov, tras la trilogía y Cuentos Completos I del año pasado; los ya leídos se prestan a cambio de un rehén.
 Slug: regalo-de-navidad
+Tags: Ciencia Ficción, Personal
 Original_url: https://davidarcos.net/blog/2006/12/27/regalo-de-navidad/
 
 Este ha sido mi regalo de navidad:
