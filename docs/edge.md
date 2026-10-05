@@ -1,6 +1,6 @@
 # The edge: what lives outside the repository
 
-Everything that serves the site and is not in this repository, written down so it can be checked and rebuilt. The zone is checked against this file with snapshots taken through the Cloudflare API with a scoped, short-lived token kept outside the repositories. Decisions behind it: docs/adr/0001 (GitHub Pages behind Cloudflare), docs/adr/0002 (redirects), docs/adr/0004 (no HTML rewriting at the edge). Kept current: a change here is a change to this file in the same commit as the reason.
+Everything that serves the site and is not in this repository, written down so it can be checked and rebuilt. The zone is checked against this file with snapshots taken through the Cloudflare API, with a scoped token that has a short TTL and is kept outside the repositories (the cutover token was deleted on 2026-10-05; a later check takes a new one, or the dashboard). Decisions behind it: docs/adr/0001 (GitHub Pages behind Cloudflare), docs/adr/0002 (redirects), docs/adr/0004 (no HTML rewriting at the edge). Kept current: a change here is a change to this file in the same commit as the reason.
 
 ## Registrar and nameservers
 
@@ -107,7 +107,7 @@ The rule is created in the dashboard: the scoped token has no Transform Rules pe
 
 ## Cutover, in order
 
-The cutover ran on 2026-09-26, from 00:20 to 00:40 (Barcelona): the domain now serves the static site, the old server is kept, powered off, as the way back (step 7).
+The cutover ran on 2026-09-26, from 00:20 to 00:40 (Barcelona): the domain now serves the static site. The old server was kept, powered off, as the way back (step 7), and destroyed on 2026-10-05.
 
 1. Push `main`; the workflow deploys to `https://dzpm.github.io/`. Test there: search (the Content-Security-Policy), fonts, a redirect stub, the feed, a tag page, a shared link preview.
 2. Add `content/extra/CNAME` (one line, `davidarcos.net`) and the domain in the Pages settings; add the TXT record GitHub asks for.
@@ -115,7 +115,7 @@ The cutover ran on 2026-09-26, from 00:20 to 00:40 (Barcelona): the domain now s
 4. Wait for Pages to show the certificate as active; turn on Enforce HTTPS.
 5. Proxy on (orange cloud) for the apex and `www`, TTL back to Auto; SSL mode to Full (strict); create the Feeds rule (the Status rule already exists); confirm the five settings above are off and the minimum TLS is 1.2.
 6. Purge Everything (Caching, Configuration) and Development Mode off. Checks: `https://davidarcos.net/.well-known/keybase.txt`, `.../.well-known/security.txt`, `/sitemap.xml`, `/blog/feed.xml` and `/blog/feed/` (301), a menéame link (`/blog/2007/11/09/free-krusher/`), `www.davidarcos.net` (301 to the apex), a search, a post with no `<script>` other than `theme/js/theme.js` and no `cdn-cgi` in its HTML, `make indexnow`, the sitemap in Search Console and Bing Webmaster Tools, the Keybase proof re-signed.
-7. The old server is kept for a month as the way back, powered off since 2026-09-26; then it is destroyed and its DNS zone at DigitalOcean with it. **The way back**, in this order: power the droplet on (a minute), then the apex A record back to the old server's address (kept with the migration notes, not in this repository), `www` CNAME to `davidarcos.net`, proxy on, **SSL mode to Flexible** (the droplet serves HTTPS with a self-signed certificate, so Full (strict) would answer 526), delete the Feeds rule, purge. Five minutes.
+7. The old server was kept as the way back, powered off from 2026-09-26, and destroyed on 2026-10-05 with its DNS zone at DigitalOcean. **There is no way back to WordPress any more**: the static site is the only one. While the server existed, the way back was: the apex A record back to the old server's address, `www` CNAME to `davidarcos.net`, proxy on, **SSL mode Flexible** (the old server served HTTPS with a self-signed certificate, so Full (strict) would answer 526), delete the Feeds rule, purge.
 8. Sixty days after step 4, check that GitHub renewed the certificate (`echo | openssl s_client -connect davidarcos.net:443 -servername davidarcos.net 2>/dev/null | openssl x509 -noout -dates` while the records are proxied shows Cloudflare's edge certificate; the origin's is checked in the Pages settings, which say "Certificate active" and its expiry). If Pages cannot renew behind the proxy, the fix is to set the records to grey for the renewal and back.
 
 ## Monitoring
