@@ -2,8 +2,9 @@
    Light and dark follow the reader's system, or the switch in the header (js/theme.js, the only script on a content page). */
 
 /* the fonts, served from the site (OFL, see fonts/): Inter for the text and the titles, Fira Code for the numbers and the code.
-   No italic face: the theme uses none, and an <em> in a text is a medium weight, so nothing is ever synthesised */
+   Inter has its italic face too, for <em>; the browser downloads it only for a page that has one, and nothing is ever synthesised */
 @font-face { font-family: "Inter"; font-style: normal; font-weight: 100 900; font-display: fallback; src: url("../fonts/inter-latin.woff2") format("woff2"); }
+@font-face { font-family: "Inter"; font-style: italic; font-weight: 100 900; font-display: fallback; src: url("../fonts/inter-latin-italic.woff2") format("woff2"); }
 @font-face { font-family: "Fira Code"; font-style: normal; font-weight: 300 700; font-display: fallback; src: url("../fonts/fira-code-latin.woff2") format("woff2"); }
 
 /* the ground. :root holds the light value of every token, and the dark values follow below it. Which set applies follows
@@ -102,8 +103,8 @@ body { background-color: var(--bg); background-image: radial-gradient(color-mix(
 body { margin: 0; display: flex; flex-direction: column; min-height: 100vh; min-height: 100dvh; }
 a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 0.15em; text-decoration-color: color-mix(in oklab, var(--accent) 45%, transparent); }   /* the underline lighter than the text: a paragraph with five links is not an alert */
 a:hover { text-decoration-thickness: 2px; text-decoration-color: var(--accent); }
-em, i, cite, blockquote { font-style: normal; }
-em, i { font-weight: 500; }   /* emphasis without an italic face: a half step up in weight */
+cite, blockquote { font-style: normal; }
+em, i { font-style: italic; }   /* emphasis in Inter's own italic face */
 .link-icon { width: 0.85em; height: 0.85em; fill: currentColor; vertical-align: -0.08em; }   /* the network's mark in front of a link to it, the colour of the link */
 .icon-pybcn { display: inline-block; background: currentColor; -webkit-mask: url("../img/pybcn.png") center / contain no-repeat; mask: url("../img/pybcn.png") center / contain no-repeat; }   /* Python Barcelona's logo as a mask, like the menéame one: the colour of the text, red on hover, monochrome like the rest */
 .icon-meneame { display: inline-block; background: currentColor; -webkit-mask: url("../img/meneame.png") center / contain no-repeat; mask: url("../img/meneame.png") center / contain no-repeat; }   /* menéame's logo as a mask, the same way */
