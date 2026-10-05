@@ -90,6 +90,27 @@
   </section>
   {% endif %}
 
+  {% if article.related %}
+  {# the related posts (plugins/hst.py, related): the small cards of /blog/, without the peek #}
+  <section class="related" aria-label="Entradas relacionadas" data-pagefind-ignore>
+    <h2 class="comments-title">Relacionadas</h2>
+    <ol class="year-cards">
+    {% for r in article.related %}
+      {% set r_img = r.cover_card_url or r.cover_url or r.first_image_card %}
+      <li class="card card-small">
+        <div class="card-cover{% if not r_img %} is-empty{% endif %}" aria-hidden="true">
+          {% if r_img %}<img src="{{ r_img }}"{% if r.peek_size[0] %} width="{{ r.peek_size[0] }}" height="{{ r.peek_size[1] }}"{% endif %} alt="" loading="lazy">{% endif %}
+        </div>
+        <article class="card-body">
+          <h3 class="card-title"><a href="{{ SITEURL }}/{{ r.url }}">{{ r.title }}</a></h3>
+          <p class="card-date">{% if r.kind %}<span class="card-kind"><span aria-hidden="true">{{ r.kind_emoji }}</span> {{ r.kind_label }}</span> <span class="card-del">del</span> {% endif %}<time datetime="{{ r.date.isoformat() }}">{{ r.date | fecha_es }}</time></p>
+        </article>
+      </li>
+    {% endfor %}
+    </ol>
+  </section>
+  {% endif %}
+
   <nav class="post-nav" aria-label="Entradas anterior y siguiente" data-pagefind-ignore>
     {% if article.prev_article %}<a class="post-nav-prev" href="{{ SITEURL }}/{{ article.prev_article.url }}" rel="prev"><span class="post-nav-arrow" aria-hidden="true">←</span><span><span class="post-nav-label">Anterior</span>{{ article.prev_article.title }}<time class="post-nav-date" datetime="{{ article.prev_article.date.isoformat() }}">{{ article.prev_article.date | fecha_es }}</time></span></a>{% else %}<span></span>{% endif %}
     {% if article.next_article %}<a class="post-nav-next" href="{{ SITEURL }}/{{ article.next_article.url }}" rel="next"><span><span class="post-nav-label">Siguiente</span>{{ article.next_article.title }}<time class="post-nav-date" datetime="{{ article.next_article.date.isoformat() }}">{{ article.next_article.date | fecha_es }}</time></span><span class="post-nav-arrow" aria-hidden="true">→</span></a>{% endif %}

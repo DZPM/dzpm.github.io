@@ -27,6 +27,7 @@ Three small things, kept together because they are all site specific:
 import hashlib
 import html
 import json
+import math
 import os
 import re
 import subprocess
@@ -473,6 +474,7 @@ def stub_paths(original_url):
 
 
 _ARTICLES = []
+RELATED_MIN = 1.0   # the lowest score for a related post: log(n / c) >= 1 means a tag on less than 1/e (about 37%) of the posts
 _DRAFTS = []           # the posts with Status: draft; in production nothing of them reaches the output (hide_drafts)
 _PAGES = []            # every page written, hidden ones too: a page may use a post's image, and then that image stays
 _PEEK_PHOTOS = set()   # the restored photos a list shows small: relative to images/posts/
@@ -618,6 +620,33 @@ def remember_articles(generator):
     for i, article in enumerate(_ARTICLES):
         article.next_article = _ARTICLES[i - 1] if i > 0 else None
         article.prev_article = _ARTICLES[i + 1] if i + 1 < len(_ARTICLES) else None
+    related(_ARTICLES)
+
+
+def related(articles):
+    """Up to three related posts for the end of each post: shared tags, each weighted by how rare it is (IDF), so
+    two posts on Wardley Maps are closer than two Erasmus diary entries. A tie goes to the nearer date. The post
+    itself and its previous and next posts (linked below it) are left out. A candidate must score at least
+    RELATED_MIN and at least half the best one, so a weak third place does not fill the row."""
+    n = len(articles)
+    df = {}
+    for a in articles:
+        for t in {t.name for t in getattr(a, "tags", [])}:
+            df[t] = df.get(t, 0) + 1
+    weight = {t: math.log(n / c) for t, c in df.items()}
+    for i, a in enumerate(articles):
+        tags = {t.name for t in getattr(a, "tags", [])}
+        skip = {i - 1, i, i + 1}
+        scored = []
+        for j, b in enumerate(articles):
+            if j in skip:
+                continue
+            score = sum(weight[t] for t in tags & {t.name for t in getattr(b, "tags", [])})
+            if score >= RELATED_MIN:
+                scored.append((-score, abs((a.date - b.date).days), j))
+        scored.sort()
+        best = -scored[0][0] if scored else 0
+        a.related = [articles[j] for s, _, j in scored[:3] if -s >= best / 2]
 
 
 def remember_pages(generator):

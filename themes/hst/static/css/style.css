@@ -502,6 +502,8 @@ a.mark:hover { color: var(--accent); border-color: var(--accent); }
 
 /* mentions: pingbacks and trackbacks, under the comments */
 .mentions { margin-top: 1.5rem; padding-top: 1rem; border-top: 2px solid var(--rule); }
+.related { margin-top: 1.5rem; padding-top: 1rem; border-top: 2px solid var(--rule); }
+.related .year-cards { gap: 0.75rem; margin-top: 0.75rem; }   /* the small cards of /blog/, one under the other */
 .mention-list { list-style: none; margin: 0; padding: 0; }
 .mention { padding: 0.5rem 0.75rem; border-top: 1px solid var(--rule); border-left: 3px solid var(--rule-strong); font-size: 0.95rem; }
 .mention-title { font-weight: 600; color: var(--fg); }
@@ -560,7 +562,7 @@ a.mark:hover { color: var(--accent); border-color: var(--accent); }
   .post-content a[href^="http"]::after, .comment-body a[href^="http"]::after { content: " (" attr(href) ")"; font-size: 8.5pt; color: #555; word-break: break-all; }
   .embed::after { content: attr(data-url); display: block; font-family: var(--mono); font-size: 9pt; color: #555; }   /* the frame is gone: its address stays */
   .banner, .archive-divider { background: none; border: 1px solid #999; border-left-width: 3px; color: #333; }
-  .comments, .mentions { border-top: 1px solid #000; }
+  .comments, .mentions, .related { border-top: 1px solid #000; }
   .comment { border-left-color: #999; break-inside: avoid; }
   .comment-avatar { width: 40px; height: 40px; }
   figure, img, blockquote, pre, table, .card, .year-item { break-inside: avoid; }
