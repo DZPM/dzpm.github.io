@@ -28,7 +28,8 @@ check:            ## PII gate over the tree and the built site, the redirect stu
 	$(PY) tools/check_csp.py output
 	$(PY) tools/check_meta.py output
 
-lint:             ## check the workflow files with actionlint and ShellCheck, if installed (CI runs them on every push)
+lint:             ## check the Python with ruff, and the workflow files with actionlint and ShellCheck, if installed (CI runs them on every push)
+	.venv/bin/ruff check
 	actionlint
 
 edge:             ## check that GitHub Pages and Cloudflare serve the pushed commit (no purge; docs/adr/0010)

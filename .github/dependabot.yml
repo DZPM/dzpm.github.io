@@ -14,6 +14,8 @@ updates:
     groups:
       python:
         patterns: ["*"]
+    ignore:
+      - dependency-name: ruff   # a lint tool with a release almost every week; pinned in pyproject.toml, updated by hand
   - package-ecosystem: github-actions
     directory: /
     schedule:

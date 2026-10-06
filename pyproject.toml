@@ -11,7 +11,19 @@ dependencies = [
     "pillow==12.3.0",
 ]
 
+[dependency-groups]
+dev = [
+    "ruff==0.16.10",   # make lint and CI; Dependabot leaves it alone (.github/dependabot.yml), update it by hand
+]
+
 [tool.uv]
 package = false
 required-version = ">=0.12"   # CI installs the newest uv that matches
 
+
+[tool.ruff]
+target-version = "py314"
+include = ["plugins/*.py", "tools/*.py", "pelicanconf.py", "publishconf.py"]
+
+[tool.ruff.lint]
+select = ["F", "B"]   # pyflakes and bugbear: likely bugs, not style

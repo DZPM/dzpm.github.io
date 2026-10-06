@@ -35,6 +35,7 @@ jobs:
           enable-cache: true           # keyed by uv.lock
           activate-environment: true   # .venv/bin on PATH for the steps that follow
       - run: uv sync --locked   # every package, direct or not, as uv.lock pins it, with the hash of its files; fails if the lock is stale
+      - run: ruff check   # likely bugs in the Python (pyflakes and bugbear rules, pyproject.toml)
       - run: pelican content -o output -s publishconf.py --fatal warnings
       - run: python -m pagefind --site output --quiet
       - id: posts   # did this push add, change, or rename a post (a new date renames its file)? Then the deploy tells IndexNow that the home page changed
