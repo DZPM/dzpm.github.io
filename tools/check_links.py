@@ -9,7 +9,6 @@ Usage:  python tools/check_links.py output
 
 import os
 import pathlib
-import re
 import sys
 from html.parser import HTMLParser
 

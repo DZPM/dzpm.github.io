@@ -18,7 +18,6 @@ import argparse
 import concurrent.futures
 import html
 import html.parser
-import os
 import pathlib
 import re
 import socket
@@ -102,7 +101,7 @@ def fetch(url, method):
         return None, f"network: {reason}"
     except (TimeoutError, socket.timeout):
         return None, "timeout"
-    except (ssl.SSLError, ssl.CertificateError) as e:
+    except (ssl.SSLError, ssl.CertificateError):
         return None, "TLS failure"
     except Exception as e:   # a bad URL or a protocol error: report it, do not stop the run
         return None, f"error: {type(e).__name__}"
@@ -143,7 +142,7 @@ def main():
             where.setdefault(link, set()).add(page)
     results = {}
     with concurrent.futures.ThreadPoolExecutor(WORKERS) as pool:
-        for link, verdict in zip(where, pool.map(check, where)):
+        for link, verdict in zip(where, pool.map(check, where), strict=True):
             results[link] = verdict
     dead = sorted((l, d) for l, (v, d) in results.items() if v == "dead")
     unknown = sorted((l, d) for l, (v, d) in results.items() if v == "unknown")

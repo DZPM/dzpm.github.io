@@ -67,7 +67,7 @@ def tracked_files(staged):
 
 
 def output_files(directory):
-    for base, dirs, files in os.walk(directory):
+    for base, _dirs, files in os.walk(directory):
         for f in files:
             yield os.path.join(base, f)
 
