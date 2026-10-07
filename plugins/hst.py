@@ -9,7 +9,8 @@ Three small things, kept together because they are all site specific:
 3. Redirect stubs: for every article with an `original_url`, two stub pages
    are written at the WordPress addresses (with and without `/blog/`) that
    send the reader to the article; `redirect_from` adds more. The old date
-   archives, the category, the pagination and the tag pages get stubs too.
+   archives, the category and the tag pages get stubs too, and so does the
+   pagination of the blog and of each of those lists, five posts per page.
    See docs/adr/0002.
 4. Comments: content/comments/<slug>.json, produced once by the migration,
    attached to the article as `comments` (flat, oldest first).
@@ -446,6 +447,9 @@ def decorate(content):
 
 # --- redirect stubs ----------------------------------------------------------
 
+# An instant meta refresh is read by Google as a permanent redirect, and the canonical link names the target.
+# No noindex: with it, Search Console filed every stub under "Excluded by noindex" and none under "Page with
+# redirect" (2026-10-07), and Google advises against noindex as a way to point at a canonical page.
 STUB = """<!doctype html>
 <html lang="es">
 <head>
@@ -453,7 +457,6 @@ STUB = """<!doctype html>
 <title>{title}</title>
 <link rel="canonical" href="{url}">
 <meta http-equiv="refresh" content="0; url={url}">
-<meta name="robots" content="noindex">
 </head>
 <body>
 <p>Esta página se ha movido a <a href="{url}">{url}</a>.</p>
@@ -663,12 +666,29 @@ def write_stub(out, rel, title, url):
         f.write(STUB.format(title=html.escape(title, quote=False), url=html.escape(url, quote=True)))   # a stub has no CSP: nothing in it goes out raw
 
 
+WP_PER_PAGE = 5   # WordPress listed five posts per page: every /page/N/ address Search Console reports fits that count, and none fits ten
+ORIGINAL_DATE = re.compile(r"^(?:blog/)?(\d{4})/(\d{2})/(\d{2})/")   # the date in an Original URL: the archive WordPress listed the post under
+
+
+def date_archives(year, month, day):
+    """The three WordPress date archives a post was listed in: its year, its month and its day."""
+    return {f"blog/{year}", f"blog/{year}/{month}", f"blog/{year}/{month}/{day}"}
+
+
+def paged(rel, count):
+    """The pagination addresses WordPress served under a list of count posts: rel/page/2 up to the last page."""
+    return [f"{rel}/page/{n}" for n in range(2, math.ceil(count / WP_PER_PAGE) + 1)]
+
+
 def stub_plan(articles, settings):
     """Every redirect stub as (address, title, target): the old post addresses with and without /blog/,
-    the WordPress date archives, the one category, the pagination, the old tag pages, and the settings' extras."""
+    the WordPress date archives, the one category, the old tag pages, the pagination of the blog and of every
+    one of those lists, and the settings' extras."""
     site = settings["SITEURL"]
-    plan, dates, tags = [], set(), {}
+    plan, dates, tags, counts = [], {}, {}, {}   # dates and counts: posts per date archive and per tag, for the pagination
     for article in articles:
+        d = article.date
+        archives = date_archives(f"{d:%Y}", f"{d:%m}", f"{d:%d}")
         original = getattr(article, "original_url", None)
         if original:
             target = f"{site}/{article.url}"
@@ -676,18 +696,29 @@ def stub_plan(articles, settings):
             extra = getattr(article, "redirect_from", "")
             rels += [r.strip().strip("/") for r in extra.split(",") if r.strip()]
             plan += [(rel, article.title, target) for rel in rels]
-        d = article.date
-        dates.update({f"blog/{d:%Y}", f"blog/{d:%Y/%m}", f"blog/{d:%Y/%m/%d}"})
+            m = ORIGINAL_DATE.match(rels[0])
+            if m:   # a post dated to its event after a late publication stays in the archive of the date it was published
+                archives |= date_archives(*m.groups())
+        for rel in archives:
+            dates[rel] = dates.get(rel, 0) + 1
         for tag in getattr(article, "tags", []) or []:
             tags[tag.slug] = tag
+            counts[tag.slug] = counts.get(tag.slug, 0) + 1
     blog = f"{site}/blog/"
     plan += [(rel, "Blog", blog) for rel in sorted(dates)]
+    plan += [(page, "Blog", blog) for rel in sorted(dates) for page in paged(rel, dates[rel])]
     plan.append(("blog/category/uncategorized", "Blog", blog))
-    plan += [(f"blog/page/{page}", "Blog", blog) for page in range(2, 20)]
+    plan += [(page, "Blog", blog) for page in paged("blog", len(articles))]
     plan += [(f"blog/tag/{slug}", tag.name, f"{site}/{tag.url}") for slug, tag in tags.items()]
+    plan += [(page, tag.name, f"{site}/{tag.url}") for slug, tag in tags.items() for page in paged(f"blog/tag/{slug}", counts[slug])]
     # old addresses that still get readers but whose post is not on the site: to the blog index
     plan += [(rel.strip("/"), "Blog", blog) for rel in settings.get("REDIRECTS_TO_BLOG", [])]
-    plan += [(rel.strip("/"), title, f"{site}/{target}") for rel, (title, target) in settings.get("REDIRECTS", {}).items()]
+    by_url = {tag.url: slug for slug, tag in tags.items()}
+    for rel, (title, target) in settings.get("REDIRECTS", {}).items():
+        rel = rel.strip("/")
+        plan.append((rel, title, f"{site}/{target}"))
+        if rel.startswith("blog/tag/") and target in by_url:   # a tag merged into a current one: its posts all carry the new tag, so the new count bounds the old pages
+            plan += [(page, title, f"{site}/{target}") for page in paged(rel, counts[by_url[target]])]
     return plan
 
 

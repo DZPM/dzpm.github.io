@@ -9,6 +9,7 @@ One kind of address cannot be served by a stub and is handled at Cloudflare, whi
 
 ## Consequences
 
-- A Redirect stub is a meta refresh with a canonical link, not an HTTP 301. Search engines treat it as a redirect; the few inbound links that matter, mostly menéame stories from 2006 and 2007, keep working.
+- A Redirect stub is a meta refresh with a canonical link, not an HTTP 301. Search engines treat it as a redirect; the few inbound links that matter, mostly menéame stories from 2006 and 2007, keep working. A stub carries no `noindex`: with it, Search Console filed every stub under "Excluded by noindex" and none under "Page with redirect" (2026-10-07).
+- The stubs cover every address WordPress served for a list, not only the Posts: the date archives (also the date a Post was first published under, when its date was later corrected to the event), the tag pages, the one category, and their pagination at five Posts per page.
 - A new Post must choose a Slug that no other Post has. The build fails on a collision, because Pelican refuses to write the same output file twice and the build runs with fatal errors.
 - Addresses with a query string, such as the `?p=NNN` shortlinks WordPress advertised, cannot be stubbed and land on `/blog/` silently. Accepted.
