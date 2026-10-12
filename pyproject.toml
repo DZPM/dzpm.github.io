@@ -13,7 +13,7 @@ dependencies = [
 
 [dependency-groups]
 dev = [
-    "ruff==0.16.10",   # make lint and CI; Dependabot leaves it alone (.github/dependabot.yml), update it by hand
+    "ruff==0.17.0",   # make lint and CI; Dependabot leaves it alone (.github/dependabot.yml), update it by hand
 ]
 
 [tool.uv]
