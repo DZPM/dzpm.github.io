@@ -2,12 +2,13 @@
 
 > Hic sunt trolls: el sitio personal de David Arcos. Un portfolio de charlas, vídeos y artículos desde 2012, y el archivo del blog personal que lo precedió, de 2006 a 2009. En español, estático, sin JavaScript salvo en el buscador, sin comentarios nuevos y sin analítica.
 
-Quien escribe es David Arcos: hace software en Barcelona desde hace dos décadas, sobre todo con Python (desde 2005), y ha pasado tanto tiempo escribiendo código como construyendo los equipos que lo escriben. A veces hace de organizador de Python Barcelona, de ponente, de profesor o de tech advisor. La trayectoria, un puesto por línea, está en la página de inicio; la versión al día, con la empresa actual, solo en LinkedIn. No hay contacto directo: los enlaces del pie de página son el contacto.
+Quien escribe es David Arcos: hace software en Barcelona desde hace dos décadas, sobre todo con Python (desde 2005), y ha pasado tanto tiempo escribiendo código como construyendo los equipos que lo escriben. A veces hace de organizador de Python Barcelona, de ponente, de profesor o de tech advisor. La trayectoria, un puesto por línea, está en el CV; la versión al día, con la empresa actual, solo en LinkedIn. No hay contacto directo: los enlaces del pie de página son el contacto.
 
 ## Páginas
 
 - [Inicio](https://davidarcos.net/): quién es David, en su voz, y las charlas y artículos desde 2012 en tarjetas, por año.
 - [Blog](https://davidarcos.net/blog/): las {{ stats.posts }} entradas desde {{ stats.first_year }}: las charlas y los artículos destacados arriba, y el archivo de 2006 a 2009 debajo, una línea por entrada, agrupado por año.
+- [CV](https://davidarcos.net/cv/): la trayectoria, un puesto por línea: trabajo, docencia y comunidad, y formación, con una presentación corta para quien busca un ponente.
 - [Sobre el blog](https://davidarcos.net/sobre-el-blog/): la cronología de 2006 a 2026, las cifras, cómo funciona ahora, y el mapa del sitio. La fuente para cualquier dato sobre el sitio.
 - [Etiquetas](https://davidarcos.net/blog/etiquetas/): las {{ stats.tags }} etiquetas; cada una lista sus entradas en /blog/etiquetas/<etiqueta>/.
 - [Buscar](https://davidarcos.net/blog/buscar/): búsqueda por texto o por etiqueta (?tag=Python), lo más nuevo primero. Necesita JavaScript; el resto del sitio se lee sin él.
@@ -34,6 +35,7 @@ Quien escribe es David Arcos: hace software en Barcelona desde hace dos décadas
 
 - [LinkedIn](https://www.linkedin.com/in/davidarcos): el perfil profesional, la fuente para el currículum.
 - [GitHub](https://github.com/DZPM): código, incluido este sitio.
+- [Python Barcelona](https://pybcn.org/people/david-arcos/): cada evento de PyBCN en el que ha participado, de 2013 a hoy: charlas, organización, y mentoría.
 - [Stack Overflow](https://stackoverflow.com/users/30300/david-arcos)
 - [X](https://x.com/DZPM)
 - [Instagram](https://www.instagram.com/dzpm/)

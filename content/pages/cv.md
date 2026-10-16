@@ -26,7 +26,7 @@ Versión actualizada y detalles en [LinkedIn](https://www.linkedin.com/in/davida
 <table class="cv">
 <tr><td class="cv-years"><time>2017</time> <span class="cv-dash">-</span> <time>2023</time></td><td><span class="cv-role">Associate Professor</span> <span class="cv-at">en</span> <span class="cv-org"><a href="/blog/security-for-data-scientists-pydatabcn-2017/">ESADE</a></span> <span class="cv-note">(Cloud Computing; >700 alumnos)</span></td></tr>
 <tr><td class="cv-years"><time>2019</time> <span class="cv-dash">-</span> <time>2019</time></td><td><span class="cv-role">Associate Professor</span> <span class="cv-at">en</span> <span class="cv-org">ICEMD</span> <span class="cv-note">(IA aplicada al Customer Journey, Madrid)</span></td></tr>
-<tr><td class="cv-years"><time>2013</time> <span class="cv-dash">-</span> hoy</td><td><span class="cv-role">Organizador</span> <span class="cv-at">en</span> <span class="cv-org"><a href="/blog/etiquetas/python-barcelona/">Python Barcelona</a></span> <span class="cv-note">(meetups, PyDay, PyData, DjangoGirls)</span></td></tr>
+<tr><td class="cv-years"><time>2013</time> <span class="cv-dash">-</span> hoy</td><td><span class="cv-role">Organizador</span> <span class="cv-at">en</span> <span class="cv-org"><a href="/blog/etiquetas/python-barcelona/">Python Barcelona</a></span> <span class="cv-note">(<a href="https://pybcn.org/people/david-arcos/">Organizer, Permanent Committee, Speaker, Mentor</a>)</span></td></tr>
 </table>
 <h2>Formación</h2>
 <table class="cv">
