@@ -2,7 +2,7 @@
 
 > Hic sunt trolls: el sitio personal de David Arcos. Un portfolio de charlas, vídeos y artículos desde 2012, y el archivo del blog personal que lo precedió, de 2006 a 2009. En español, estático, sin JavaScript salvo en el buscador, sin comentarios nuevos y sin analítica.
 
-Quien escribe es David Arcos: hace software en Barcelona desde hace dos décadas, sobre todo con Python (desde 2005), y ha pasado tanto tiempo escribiendo código como construyendo los equipos que lo escriben. A veces hace de organizador de Python Barcelona, de ponente, de profesor o de tech advisor. La trayectoria, un puesto por línea, está en el CV; la versión al día, con la empresa actual, solo en LinkedIn. No hay contacto directo: los enlaces del pie de página son el contacto.
+Quien escribe es David Arcos: hace software en Barcelona desde hace dos décadas, sobre todo con Python (desde 2005), y ha pasado tanto tiempo escribiendo código como construyendo los equipos que lo escriben. A veces hace de organizador de Python Barcelona, de ponente, de profesor o de tech advisor. La trayectoria, un puesto por línea, está en el CV. No hay contacto directo: los enlaces del pie de página son el contacto.
 
 ## Páginas
 

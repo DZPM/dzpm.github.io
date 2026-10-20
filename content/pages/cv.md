@@ -10,6 +10,7 @@ Versión actualizada y detalles en [LinkedIn](https://www.linkedin.com/in/davida
 <blockquote>David Arcos lleva veinte años haciendo software en Barcelona: diez escribiendo código y diez dirigiendo equipos de ingeniería. Organiza Python Barcelona desde 2013 y escribe en davidarcos.net desde 2006. Si buscas un ponente, un mentor o un tech advisor, hablemos.</blockquote>
 <h2>Trabajo</h2>
 <table class="cv">
+<tr><td class="cv-years"><time>2026</time> <span class="cv-dash">-</span> hoy</td><td><span class="cv-role">Director of IT and Platform</span> <span class="cv-at">en</span> <span class="cv-org">Kembara</span> <span class="cv-note">(European deep-tech fund)</span></td></tr>
 <tr><td class="cv-years"><time>2024</time> <span class="cv-dash">-</span> <time>2026</time></td><td><span class="cv-role">Director of Software</span> <span class="cv-at">en</span> <span class="cv-org"><a href="/blog/etiquetas/quantum-computing/">Qilimanjaro Quantum Tech</a></span> <span class="cv-note">(analog quantum computing)</span></td></tr>
 <tr><td class="cv-years"><time>2022</time> <span class="cv-dash">-</span> <time>2023</time></td><td><span class="cv-role">CTO</span> <span class="cv-at">en</span> <span class="cv-org">Rakuten TV</span> <span class="cv-note">(50 ingenieros, 7 equipos; video on demand en 43 países)</span></td></tr>
 <tr><td class="cv-years"><time>2021</time> <span class="cv-dash">-</span> <time>2022</time></td><td><span class="cv-role">Director of Engineering</span> <span class="cv-at">en</span> <span class="cv-org">Bling</span> <span class="cv-note">(fintech; 11→29 ingenieros; 600k→1,2M usuarios)</span></td></tr>
@@ -30,8 +31,8 @@ Versión actualizada y detalles en [LinkedIn](https://www.linkedin.com/in/davida
 </table>
 <h2>Formación</h2>
 <table class="cv">
-<tr><td class="cv-years"><time>2023</time> <span class="cv-dash">-</span> <time>2024</time></td><td><span class="cv-role">Complex Problem Solving</span> <span class="cv-at">en</span> <span class="cv-org">UNIR</span></td></tr>
+<tr><td class="cv-years"><time>2023</time> <span class="cv-dash">-</span> <time>2024</time></td><td><span class="cv-role"><a href="/blog/etiquetas/complex-problem-solving/">Complex Problem Solving</a></span> <span class="cv-at">en</span> <span class="cv-org">UNIR</span></td></tr>
 <tr><td class="cv-years"><time>2013</time> <span class="cv-dash">-</span> <time>2013</time></td><td><span class="cv-role">Executive Master in Innovation</span> <span class="cv-at">en</span> <span class="cv-org">EOI</span></td></tr>
-<tr><td class="cv-years"><time>2002</time> <span class="cv-dash">-</span> <time>2006</time></td><td><span class="cv-role">Ingeniería Informática</span> <span class="cv-at">en</span> <span class="cv-org">UPC</span> <span class="cv-note">(<a href="/blog/etiquetas/erasmus/">Erasmus en Bergen</a>, <span class="yr">2006</span>)</span></td></tr>
+<tr><td class="cv-years"><time>2002</time> <span class="cv-dash">-</span> <time>2006</time></td><td><span class="cv-role">Ingeniería Informática</span> <span class="cv-at">en</span> <span class="cv-org">UPC</span> <span class="cv-note">(<a href="/blog/etiquetas/erasmus/">Erasmus en Bergen</a>, <span class="yr">2006</span>; <a href="/blog/etiquetas/loasi/">Escritor/Editor en l'Oasi</a>)</span></td></tr>
 </table>
 </div>
